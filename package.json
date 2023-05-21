@@ -1,0 +1,23 @@
+{
+  "name": "FortuneTellingApp",
+  "version": "1.0.0",
+  "description": "This is the main repo for the Byte Brokers - Team 22 in CSE110 SP23 @ UCSD.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse110-sp23-group22/FortuneTellingApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse110-sp23-group22/FortuneTellingApp/issues"
+  },
+  "homepage": "https://github.com/cse110-sp23-group22/FortuneTellingApp#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}

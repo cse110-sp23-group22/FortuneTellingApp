@@ -2,6 +2,7 @@ const exitButton = document.getElementById("exitButton");
 const nameInput = document.getElementById("fname");
 const birthdayInput = document.getElementById("birthday");
 //Import DOMSanitize
+import { parseNumbers } from "./parseNum";
 
 
 let userName = "";
@@ -19,17 +20,9 @@ nameInput.addEventListener("change", (event)=>{
   userName = name;
 });
 
-// function onlyLetters(str) {
-// 	return /^[A-Za-z]*$/.test(str);
-// }
-
 birthdayInput.addEventListener("change",(event)=>{
   birthday = event.target.value;
 })
-
-function parseNumbers(string){
-  return string.replace(new RegExp("[0-9]", "g"), "");    ///\D/g
-}
 
 /**
  * This Exit button. This function checks:
