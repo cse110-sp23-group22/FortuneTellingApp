@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "month": "January",
+      "sign": "Capricorn",
+      "horoscope": "It's a new year and you're feeling ambitious! You're ready to take on new challenges and reach your goals. This is a time to focus on your career and make strides towards success. However, don't forget to take time for yourself and nurture your personal life."
+    },
+    {
+      "month": "February",
+      "sign": "Aquarius",
+      "horoscope": "You're feeling a sense of independence and individuality this month. You may feel inspired to express yourself creatively or connect with like-minded individuals. This is a good time to pursue your passions and let your unique personality shine."
+    },
+    {
+      "month": "March",
+      "sign": "Pisces",
+      "horoscope": "You're in touch with your emotions this month. You may find yourself feeling more intuitive and spiritual. This is a good time to reflect on your innermost thoughts and feelings, and to explore your creative side."
+    },
+    {
+      "month": "April",
+      "sign": "Aries",
+      "horoscope": "You're feeling energized and ready to take on the world! This is a time to embrace your passions and take risks. However, make sure to pace yourself and practice self-care, as burnout is a risk."
+    },
+    {
+      "month": "May",
+      "sign": "Taurus",
+      "horoscope": "You're focused on financial stability and security this month. Make a budget and stick to it, and consider investing in your future. This is also a good time to prioritize self-care and relaxation."
+    },
+    {
+      "month": "June",
+      "sign": "Gemini",
+      "horoscope": "Communication is key this month. You may find yourself connecting with new people and having meaningful conversations. This is a good time to express yourself and pursue your interests."
+    },
+    {
+      "month": "July",
+      "sign": "Cancer",
+      "horoscope": "You're feeling more emotional and connected to your home and family this month. Take time to nurture your relationships and create a peaceful and nurturing environment for yourself."
+    },
+    {
+      "month": "August",
+      "sign": "Leo",
+      "horoscope": "You're feeling confident and creative this month! Embrace your passions and let your unique personality shine. This is a good time to connect with like-minded individuals who share your interests."
+    },
+    {
+      "month": "September",
+      "sign": "Virgo",
+      "horoscope": "You're focused on organization and productivity this month. Make a to-do list and prioritize your tasks. This is also a good time to focus on self-care and health."
+    },
+    {
+      "month": "October",
+      "sign": "Libra",
+      "horoscope": "You're focused on relationships this month. Spend time with loved ones and communicate openly and honestly. This is also a good time to find balance in your life and prioritize self-care."
+    },
+    {
+      "month": "November",
+      "sign": "Scorpio",
+      "horoscope": "You're feeling a sense of transformation and personal growth this month. Take time to reflect on your goals and values, and don't be afraid to let go of things that no longer serve you. This is a good time to embrace your passions and take risks."
+    },
+    {
+      "month": "December",
+      "sign": "Sagittarius",
+      "horoscope": "You're feeling adventurous and explorative this month. This is a good time to pursue your passions and try new things. However, make sure to balance your sense of adventure with practicality and responsibility."
+    }
+  ]
+}

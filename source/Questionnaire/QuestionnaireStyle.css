@@ -1,0 +1,82 @@
+.header {
+  background-color: black;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 1.5rem;
+}
+
+#book {
+  background-image: url("../HoroscopeDisplay/images/Book.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width:100vw;
+  height: 40vw;
+  
+  align-self: center;
+  background-clip: unset;
+  top: 20dvh;
+  position: absolute;
+  padding: 5px;
+}
+
+
+input{
+  max-width: 30%;
+  background-color: transparent;
+}
+#questionnaire{
+  font-family: 'Kalam', cursive;
+  position: relative;
+  text-align: center;
+  font-size: 1.5vw;
+  max-width: 23%;
+  width: 50vw;
+  color: black;
+  align-content: center;
+  align-self:flex-start;
+  top: 15%;
+  left: 7.5%;
+}
+fieldset{
+  border: none;
+}
+
+#fname {
+  font-family: 'Kalam', cursive;
+  background-image: url("images/Button.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#birthday {
+  font-family: 'Kalam', cursive;
+  background-image: url("images/Button.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#exitButton {
+  margin-right: 0px;
+  position: relative;
+  top: 40%;
+  width: 5vw;
+  height: 2vw;
+  font-size: .75vw;
+  text-align: center;
+  font-family: 'Kalam', cursive;
+  align-self: flex-start;
+  background-image: url("../HoroscopeDisplay/images/Button.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+
+}
