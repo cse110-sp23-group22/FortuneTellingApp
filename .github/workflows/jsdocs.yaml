@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - prod
+permissions: write-all
 jobs:
   publish:
     runs-on: ubuntu-latest
