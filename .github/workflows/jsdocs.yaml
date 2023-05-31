@@ -12,9 +12,9 @@ jobs:
     - name: Build DOCS
       uses: andstor/jsdoc-action@v1
       with:
-        source_dir: ../../source
+        source_dir: ./source
         recurse: true
-        output_dir: ../../docs
+        output_dir: ./docs
         front_page: README.md
         template: clean-jsdoc-theme
     - name: Commit JSDOCS
