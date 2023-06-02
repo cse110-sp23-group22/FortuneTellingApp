@@ -125,4 +125,7 @@ window.onbeforeunload = function() {
     //Store data into local storage
     localStorage.setItem("UserName", userName);
     localStorage.setItem("Birthday", birthday);
+HoroscopeForm_Add-to-me
 }
+
+
