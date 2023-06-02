@@ -127,5 +127,5 @@ window.onbeforeunload = function() {
     localStorage.setItem("Birthday", birthday);
 HoroscopeForm_Add-to-me
 }
-}
+
 
