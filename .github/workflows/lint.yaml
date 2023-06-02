@@ -30,10 +30,10 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           npm install eslint
-      #   npm install prettier
+          npm install prettier 
           npm ci -1 verbose
 
       - name: Run linters
         run: |
           npm run lint
-      #   npm run prettier --check
+          npm run prettier --check
