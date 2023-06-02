@@ -7,6 +7,22 @@
   font-size: 1.5rem;
 }
 
+body {
+  overflow: hidden;
+}
+
+#gradient{
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at right top, #f69c3c56, transparent);
+  opacity: 0.8;
+  z-index: 9998; 
+}
+
 #book {
   background-image: url("../HoroscopeDisplay/images/Book.png");
   background-size:cover;
@@ -23,16 +39,33 @@
   
   align-self: center;
   background-clip: unset;
-  top: 20dvh;
-  position: absolute;
+  top: 10dvh;
+  position: relative;
   padding: 5px;
 }
 
+.overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  z-index: 9999; 
+  transition: opacity 1s;
+}
+
+.shown {
+  opacity: 1;
+}
 
 input{
-  max-width: 30%;
+  max-width: 50%;
   background-color: transparent;
 }
+
 #questionnaire{
   font-family: 'Kalam', cursive;
   position: relative;
@@ -46,6 +79,52 @@ input{
   top: 15%;
   left: 7.5%;
 }
+
+.shakeElement{
+  animation:shake 1s infinite;
+  --shakeAmount : 10px;
+  --shakeRotate: 2deg;
+}
+
+/*TODO: Make this shake function actually shake correctly
+Currently it shaks half the degrees and returns to starting position and repeats
+*/
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+  }
+  20% {
+    transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
+  }
+  30% {
+    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+  }
+  40% {
+    transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
+  }
+  50% {
+    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+  }
+  60% {
+    transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
+  }
+  70% {
+    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+  }
+  80% {
+    transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
+  }
+  90% {
+    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+  }
+  100% {
+    transform: translateX(0) rotateZ(0);
+  }
+}
+
 fieldset{
   border: none;
 }

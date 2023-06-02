@@ -23,9 +23,10 @@ async function init(){
         homeButton = document.getElementById("homeButton");
         homeButton.addEventListener('click', goHome);
 
+        //Run Timer
+        timer();
         //output the horoscope based on the birthday of the user
         outputHoroscope();
-
         //exit code
         return 1;
     }
@@ -37,6 +38,71 @@ async function init(){
     }
 }
 
+/**
+ * Timer Event -> ! This function Triggers ALL TIME BASED EVENTS
+ */
+async function timer(){
+    //TODO: Start the ticking event (SOUND)
+    concentricGradient();
+    //After 10 seconds start blood red screen
+    await new Promise((resolve) => setTimeout(resolve,10000));
+    pulseRedOverlay(1000);
+    //Start shaking after 10 seconds
+    await new Promise((resolve) => setTimeout(resolve,10000));
+    shake(1,1);
+}
+
+/**
+ * Shake Element shakes the body by translating X and rotating
+ * @param {integer} shakeXAmount
+ * @param {integer} RotateAmount
+ * Both of these parameters determine the resulting shake look
+ */
+function shake(shakeXAmount, RotateAmount){
+    let body = document.getElementsByClassName("page-group")[0];    
+    body.classList.toggle("shakeElement");
+    let shakeEle = document.getElementsByClassName("shakeElement")[0];
+    let shakeAmount = shakeXAmount;
+    let shakeRotate = RotateAmount;
+    let shakeInterval = setInterval(()=> {
+        shakeEle.style.setProperty('--shakeAmount', `${shakeAmount}px`);
+        shakeEle.style.setProperty('--shakeRotate', `${shakeRotate}deg`);
+        shakeAmount++;
+        shakeRotate++;
+    },1000)
+}
+
+/**
+ * Slowly fades in closer and closer
+ */
+function concentricGradient(){
+    let gradient = document.getElementById("gradient");
+    let size = 2000;
+    let floor = 500;
+    let gradientInterval = setInterval(()=> {
+        gradient.style.background =  `radial-gradient(${size}px,transparent, #000000)`;
+        size -= 10;
+        if (size < floor) size = floor;
+    },100)
+}
+
+/**
+ * Pulses the overlay div. This is supposed to be a blood screen
+ * @param {integer} transitionTime 
+ * How long does the transition take. Also determines time between each pulse
+ */
+function pulseRedOverlay(transitionTime){
+    let overlay = document.getElementsByClassName("overlay")[0];
+    let delay = transitionTime;
+    let redColor = 255; //255 is the greatest saturation of red
+    let interval = setInterval(()=> {
+        overlay.style.transition = `opacity ${delay/1000}`; //Changes transition delay (From ms -> s)
+        overlay.style.background = `rgb(${redColor},0,0)`;
+        redColor -= 50; //* Change this to make it less or more darker each delay
+        //delay *= 0.9; //Added delay in case you want to pulse faster
+        overlay.classList.toggle("shown");
+    },delay * 2)
+}
 /*
  *expamle test function that returns the input
  */

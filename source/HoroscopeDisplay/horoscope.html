@@ -7,31 +7,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+    <div class="overlay"></div>
+    <div id="gradient"></div>
     <div class="header">
         <h1>Daily Horoscope</h1>
     </div>
+    <div id="pageWrapper">
+        <div class="page-group">
+            <section id="answer" class="page" style="overflow: hidden;">
+                <h1 class="subtitle">Answer:</h1>
+                <div id="horoscopeOutput" style="border-radius: 0; margin: 0;">something random for now</div>  
+            </section>
 
-    <div class="page-group">
-        <section id="answer" class="page">
-            <h1 class="subtitle">Answer:</h1>
-            <div id="horoscopeOutput" style="border-radius: 0; margin: 0;">something random for now</div>  
-        </section>
-
-        <section id="questionnaire" class="page">
-            <h1 class="subtitle">Your Information</h1>
-            <!-- We probably don't want to use html due to it looking kinda ugly -->
-            <section id="horoscopeForm">
-                <p id="fname" style="border-radius: 0; margin: 0;">
-                    First Name
-                </p>
-                <p id="birthday" style="border-radius: 0; margin: 0;">
-                    User Birthday
-                </p>
-                <p id="zodiacSign" style="border-radius: 0; margin: 0; color: black;">
-                    User Zodiac Sign
-                </p>
-            </section> 
-        </section>
+            <section id="questionnaire" class="page" style="overflow: hidden;">
+                <h1 class="subtitle">Your Information</h1>
+                <!-- We probably don't want to use html due to it looking kinda ugly -->
+                <section id="horoscopeForm">
+                    <p id="fname" style="border-radius: 0; margin: 0;">
+                        First Name
+                    </p>
+                    <p id="birthday" style="border-radius: 0; margin: 0;">
+                        User Birthday
+                    </p>
+                    <p id="zodiacSign" style="border-radius: 0; margin: 0; color: black;">
+                        User Zodiac Sign
+                    </p>
+                </section> 
+            </section>
+        </div>
     </div> 
 
     <button id="homeButton" class="back">Home</button>

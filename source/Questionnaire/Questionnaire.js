@@ -1,6 +1,7 @@
 const exitButton = document.getElementById("exitButton");
 //Import DOMSanitize
-import { parseNumbers } from "./parseNum";
+// Why is this import here?
+// import { parseNumbers } from "./parseNum";
 
 
 let userName = "";
@@ -56,7 +57,7 @@ function initNameBirth()
    * The following event listeners looks for change within the input to 
    * then store the information to the userAnswer
    */
-  nameInput.addEventListener("change", (event)=>{ 
+  nameInput.addEventListener("input", (event)=>{ 
     let name = parseNumbers(event.target.value);
     //Feature: Reject input not replace?
     nameInput.value = name;
@@ -74,7 +75,7 @@ function initNameBirth()
  * - Creates UI to prompt the user to confirm their selection
  * - Moves to the next page after all checks
  */
-exitButton.addEventListener("click", ()=>{
+exitButton.addEventListener("click", async ()=>{
   //Check user has inputted all required information
   if (userName == "" || birthday == "")
   {
@@ -86,6 +87,17 @@ exitButton.addEventListener("click", ()=>{
   //Checks templateNum to see how far the user is to the end
   if (templateNum < totalNumQuestions)
   {
+    //TODO: Add cutscene
+    //console.log(noise.perlin3(time*0.05,0,0));
+    let book = document.getElementById("book");
+    book.classList.toggle("shakeElement");
+    let overlay = document.getElementsByClassName("overlay")[0];
+    overlay.style.transition = "opacity 0.1s";
+    overlay.classList.toggle("shown");
+    await new Promise((resolve) => {setTimeout(resolve,1000)});
+    overlay.style.transition = "opacity 1s";
+    overlay.classList.toggle("shown");
+    book.classList.toggle("shakeElement");
     //? Currently not planning on users being able to go back.
     templateNum++;
     document.getElementById("question").remove();
