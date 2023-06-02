@@ -43,11 +43,10 @@ async function init(){
 function exampleTest(num){
     return num;
 }
-
-
-/*
- * Based on the input name and birthday, a horoscope reading
- * will be outputted to the user 
+/**
+ * Based on the input name and birthday, a horoscope reading will be outputted to the user
+ * @tutorial horoscope-tutorial
+ * @class Horoscope
  */
 function outputHoroscope() {
 
@@ -78,8 +77,10 @@ function outputHoroscope() {
     nameOutput.innerHTML = customerName;
     birthdayOutput.innerHTML = customerBirthday;
     zodiacOutput.innerHTML = horoscopeArray[birthdayMonth]['sign'];
-    horoscopeOutput.innerHTML=`${horoscopeArray[hashValue]['horoscope']}`;  
-} 
+    console.log(horoscopeArray[hashValue]['horoscope']);
+    console.log(horoscopeArray[birthdayMonth]['sign']);
+    horoscopeOutput.innerHTML=`${horoscopeArray[hashValue]['horoscope']}`;    
+}
 
 /*
  * changes the location fo the window to the home page
