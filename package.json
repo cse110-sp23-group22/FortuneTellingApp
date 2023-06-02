@@ -16,6 +16,11 @@
     "eslint-config-prettier": "^8.8.0",
     "prettier": "2.8.8"
   },
+   "babel": {
+      "presets": [
+          "@babel/preset-env"
+        ]
+  },
   "jest":{
     "testEnvironment": "jsdom"
   }
