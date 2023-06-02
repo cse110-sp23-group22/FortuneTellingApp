@@ -17,49 +17,47 @@ main {
 
 h1{
   margin-top: 0.1vh;
+  
 }
+
 .BookFlexbox {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
+  align-content: center;
   background-image: url("../HoroscopeDisplay/images/Book.png");
   background-size:cover;
   background-repeat: no-repeat;
   background-size:contain;
   background-position: center;
-  height: 75vh;
+  height: 60vw;
   width: 95vw;
   color: black;
+  
 }
 
 form {
   display: flex;
   flex-direction: column;
-  margin-right: 10vw;
-  margin-left: 10vw;
+  width:25%;
+  max-width: 18vw;
   align-content: center;
-}
-#form1{
   position: relative;
   align-self: flex-start;
-  left: -3%;
-  top: 30%;
-  width: 25vw;
-  max-width: 20%;
+  font-size: 2vw;
+  top: 15%;
+  padding: 3vw;
+
 }
-#form2{
-  position: relative;
-  align-self: flex-start;
-  top: 30%;
-  left: 3%;
-  width: 25vw;
-  max-width: 20%;
-}
+
+
 
 input{
   margin-bottom: 10px;
   padding: 8px;
   background-color: transparent;
+  max-width: 30%;
 }
 
 button {
