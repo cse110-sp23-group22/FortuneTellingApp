@@ -13,7 +13,7 @@ on:
       - 'main'
 permissions: write-all
 jobs:
-  run-linters:
+  run-linter:
     name: Run linters
     runs-on: ubuntu-latest
 
@@ -30,10 +30,32 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           npm install eslint
-      #   npm install prettier
           npm ci -1 verbose
 
-      - name: Run linters
+      - name: Run linter
         run: |
-          npm run lint
-      #   npm run prettier --check
+          npx eslint ./source
+
+  run-prettier:
+    name: Run Prettier
+    runs-on: ubuntu-latest
+
+    steps: 
+    - name: Check out Git repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    # ESLint and Prettier must be in `package.json`
+    - name: Install Node.js dependencies
+      run: |
+        npm install prettier 
+        npm ci -1 verbose
+
+    - name: Run Prettier
+      run: |
+        npx prettier --check ./
+        
