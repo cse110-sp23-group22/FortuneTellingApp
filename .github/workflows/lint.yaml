@@ -35,5 +35,6 @@ jobs:
 
       - name: Run linters
         run: |
-          npx eslint .\**
-          npx prettier --check
+          npx eslint ./source
+          npx prettier --check ./
+          
