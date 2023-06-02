@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - prod
+      - HoroscopeForm_Add-to-me
     
   pull_request:
-    branches: [prod]
+    branches: 
+      - prod
 
 jobs:
   Jest:
