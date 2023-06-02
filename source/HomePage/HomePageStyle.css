@@ -18,7 +18,7 @@
 }
 
 /* Center the container div */
-.main {
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
