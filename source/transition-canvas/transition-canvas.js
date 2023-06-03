@@ -7,7 +7,8 @@ class TransitionCanvas extends HTMLCanvasElement {
     this.style.position = "fixed";
     this.style.left = 0;
     this.style.top = 0;
-    // some arbitrarily high index. However, it shouldn't have
+    this.style.pointerEvents = "none";
+    // some arbitrarily high index. If we need to we can place objects over the canvas.
     this.style.zIndex = "100";
   }
 
@@ -42,7 +43,6 @@ class TransitionCanvas extends HTMLCanvasElement {
       if (previousTimestamp != timestamp) {
         // ANIMATE!
         const opacity = 1 - elapsed / duration;
-        console.log("opactiy: " + opacity);
         let pen = canvas.getContext("2d");
         pen.clearRect(0, 0, width, height);
         pen.fillStyle = `rgba(0, 0, 0, ${opacity})`;
