@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Kalam:wght@300&family=Rubik+Wet+Paint&family=Satisfy&display=swap');
 body {
   background-color: black;
+  background-image: url("./assets/home-table.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   color: white;
   padding: 0px;
   margin: 0px

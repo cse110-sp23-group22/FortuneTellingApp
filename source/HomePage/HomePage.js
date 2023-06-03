@@ -20,6 +20,5 @@ document.addEventListener("click", function (event) {
 
 window.addEventListener("load", function () {
   let transCanv = document.querySelector(`canvas[is="transition-canvas"]`);
-  console.log(transCanv);
   transCanv.transitionIn();
 });

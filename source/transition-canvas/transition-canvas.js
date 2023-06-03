@@ -40,7 +40,7 @@ class TransitionCanvas extends HTMLCanvasElement {
     this.duration = this.hasAttribute("duration")
       ? this.getAttribute("duration")
       : 500;
-    this.fadeIntoViewAnim(true);
+    this.fadeIntoViewAnim(this.hasAttribute("manualtrig"));
   }
 
   /**
