@@ -5,14 +5,16 @@ var homeButton; //button used to go back to the home page
 //init function on load of the page
 window.addEventListener("load", init);
 
-/*
- *init function used to fetch horoscope.json file and set up the home page
- *event listener behavior. Exit code 1 if successful, 0 if not.
+/**
+ * @description init function used to fetch horoscope.json file and set up the home page
+ * event listener behavior. Exit code 1 if successful, 0 if not.
+ * @tutorial horoscope-tutorial
+ * @class Horoscope
+ * @author Nikan, Bill, Jennifer
+ * @throws Fetch API failure errors
  */
 async function init(){
-
     try{
-
         //fetch the horoscope json file and convert to an array
         //containing the responses
         horoscopeArray = await fetch('./horoscope.JSON');
@@ -30,26 +32,20 @@ async function init(){
         return 1;
     }
 
-    //catch errors  with exit code 0
+    //catch errors with exit code 0
     catch(error){
         console.error(error);
         return 0;
     }
 }
 
-/*
- *expamle test function that returns the input
- */
-function exampleTest(num){
-    return num;
-}
 /**
- * Based on the input name and birthday, a horoscope reading will be outputted to the user
+ * @description Based on the input name and birthday, a horoscope reading will be outputted to the user
  * @tutorial horoscope-tutorial
  * @class Horoscope
+ * @author Nikan, Bill, Jennifer
  */
 function outputHoroscope() {
-
     //get birthday and name from local storage
     let customerBirthday = localStorage.getItem('Birthday');
     let customerName = localStorage.getItem('UserName');
@@ -82,12 +78,12 @@ function outputHoroscope() {
     horoscopeOutput.innerHTML=`${horoscopeArray[hashValue]['horoscope']}`;    
 }
 
-/*
- * changes the location fo the window to the home page
+/**
+ * @description changes the location of the window to the home page
+ * @tutorial horoscope-tutorial
+ * @class Horoscope
+ * @author Nikan, Bill, Jennifer
  */
 function goHome() {
     window.location.href = "../../index.html"; 
 }
-
-//module export statement used for JEST testing
-module.exports = exampleTest;

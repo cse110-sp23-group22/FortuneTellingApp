@@ -51,6 +51,41 @@ describe('My Puppeteer tests', () => {
     let newUrl = page.url();
     expect(newUrl).toBe("https://cse110-sp23-group22.github.io/FortuneTellingApp/index.html");
   });
+
+  // test('Tests if output content is stored in localStorage', async () => {
+    
+  //   await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/Questionnaire/Questionnaire.html');
+
+  //   await page.evaluate(() => {
+  //     document.getElementById('fname').value = 'Alex';
+  //   });
+  //   await page.evaluate(() => {
+  //     document.getElementById('birthday').value = '01/03/2000';
+  //   });
+    
+  //   console.log('before');
+  //   //let button = await page.$('#exitButton');
+  //   //await button.click();
+
+  //   //await page.reload();
+  //   await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html');
+
+  //   console.log('after pressing button');
+
+  //   //await button.click();
+  //   //await page.waitForNavigation();
+
+  //   let birthday = await page.evaluate(() => {
+  //     return localStorage.getItem('Birthday');
+  //   });
+
+  //   let username = await page.evaluate(() => {
+  //     return localStorage.getItem('Username');
+  //   });
+
+  //   expect(username).toBe('Alex');
+  //   expect(birthday).toBe('01/03/2000');
+  // });
 });
 
 
