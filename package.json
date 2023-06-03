@@ -32,6 +32,7 @@
         "verbose": true
     },
     "dependencies": {
+        "node": "^20.2.0",
         "text-encoding": "^0.7.0"
     }
 }

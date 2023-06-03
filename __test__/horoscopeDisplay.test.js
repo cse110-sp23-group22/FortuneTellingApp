@@ -21,7 +21,10 @@ describe('My Puppeteer tests', () => {
       localStorage.setItem('UserName', 'Nikan');
       console.log(localStorage.getItem('UserName'));
     });
+    //idk for some reason it doesnt recognize that localstorage was set so u have to reload the page a few times. 
     await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html');
+    await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html');
+    //await page.waitForNavigation();
 
     console.log('checking output tags');
     
