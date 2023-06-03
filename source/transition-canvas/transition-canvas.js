@@ -17,11 +17,12 @@ class TransitionCanvas extends HTMLCanvasElement {
     this.style.left = 0;
     this.style.top = 0;
     this.style.pointerEvents = "none";
-    // some arbitrarily high index. If we need to we can place objects over the canvas.
-    this.style.zIndex = "100";
 
     // audio
     this.inSfx = new Audio();
+
+    // custom transition
+    this.transitionAnim = this.fadeIn;
   }
 
   /**
@@ -30,6 +31,8 @@ class TransitionCanvas extends HTMLCanvasElement {
    * @date 6/3/2023 - 12:06:00 PM
    */
   connectedCallback() {
+    this.width = this.clientWidth;
+    this.height = this.clientHeight;
     this.after(this.inSfx);
     // sound effect
     if (this.hasAttribute("sfx")) {
@@ -40,7 +43,17 @@ class TransitionCanvas extends HTMLCanvasElement {
     this.duration = this.hasAttribute("duration")
       ? this.getAttribute("duration")
       : 500;
-    this.fadeIntoViewAnim(this.hasAttribute("manualtrig"));
+
+    if (this.hasAttribute("anim")) {
+      const chosenAnim = this.getAttribute("anim");
+      switch (chosenAnim) {
+        case "fadein":
+          this.transitionAnim = this.fadeIn;
+        default:
+          this.transitionAnim = this.fadeIn;
+      }
+    }
+    this.playAnim(this.hasAttribute("manualtrig"));
   }
 
   /**
@@ -65,24 +78,16 @@ class TransitionCanvas extends HTMLCanvasElement {
    * @date 6/3/2023 - 12:07:54 PM
    */
   transitionIn() {
-    // TODO
-    const pen = this.getContext("2d");
-    pen.clearRect(0, 0, this.width, this.height);
-    pen.fillStyle = "black";
-    pen.fillRect(0, 0, 100, 100);
-    this.fadeIntoViewAnim(false);
+    this.playAnim(false);
   }
 
   /**
-   * Definition for the animation of starting from a black screen and slowly lightening up to reveal the rest of the scene.
+   * generic animation player.
    * @date 6/3/2023 - 12:08:56 PM
    */
-  fadeIntoViewAnim(firstFrameOnly) {
+  playAnim(firstFrameOnly) {
     let start, previousTimestamp;
-    let duration = this.duration;
     let canvas = this;
-    let width = this.width;
-    let height = this.height;
     function step(timestamp) {
       if (start === undefined) {
         start = timestamp;
@@ -91,22 +96,33 @@ class TransitionCanvas extends HTMLCanvasElement {
       const elapsed = timestamp - start;
       if (previousTimestamp != timestamp) {
         // ANIMATE!
-        const opacity = 1 - elapsed / duration;
-        let pen = canvas.getContext("2d");
-        pen.clearRect(0, 0, width, height);
-        pen.fillStyle = `rgba(0, 0, 0, ${opacity})`;
-        pen.fillRect(0, 0, width, height);
+        const framedata = {
+          canvas: canvas,
+          elapsed: elapsed,
+        };
+        canvas.transitionAnim(framedata);
       }
 
-      if (!firstFrameOnly && elapsed < duration) {
+      if (!firstFrameOnly && elapsed < canvas.duration) {
         window.requestAnimationFrame(step);
       }
     }
     window.requestAnimationFrame(step);
   }
 
-  transitionOut() {
-    // TODO
+  /**
+   * Animation for fading from black to the full scene
+   * @date 6/3/2023 - 2:43:31 PM
+   *
+   * @param {*} fd frame data contains time elapsed from animation start and gives access to the canvas
+   */
+  fadeIn(fd) {
+    let pen = fd.canvas.getContext("2d");
+    pen.clearRect(0, 0, fd.canvas.width, fd.canvas.height);
+
+    const opacity = 1 - fd.elapsed / fd.canvas.duration;
+    pen.fillStyle = `rgba(0 0 0 / ${opacity})`;
+    pen.fillRect(0, 0, fd.canvas.width, fd.canvas.height);
   }
 }
 
