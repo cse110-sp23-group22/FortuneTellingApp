@@ -72,6 +72,10 @@ class TransitionCanvas extends HTMLCanvasElement {
     }
   }
 
+  playSfx() {
+    this.inSfx.play();
+  }
+
   /**
    * Initiates the transition in animation. This plays immediately upon the canvas being connected
    * to the DOM.

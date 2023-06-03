@@ -4,6 +4,7 @@ window.addEventListener("load", function () {
   titlecard.addEventListener("click", function (event) {
     transCanv.transitionIn();
     titlecard.style.display = "none";
+    transCanv.playSfx();
   });
 
   // PREVENTS NORMAL LINK BEHAVIOR
