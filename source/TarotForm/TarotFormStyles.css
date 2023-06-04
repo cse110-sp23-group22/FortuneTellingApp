@@ -56,6 +56,7 @@ p {
   align-items: flex-end;
   right: 8vmin;
 }
+
 #form2 {
   align-items: flex-start;
   left: 7.5vmin;
@@ -109,7 +110,7 @@ button {
   background-image: url("../HoroscopeDisplay/images/Button.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
 }
 
 button:hover {
