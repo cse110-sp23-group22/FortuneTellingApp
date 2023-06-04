@@ -1,5 +1,5 @@
-function simpleTest(num){
-    return num;
+function simpleTest(num) {
+  return num;
 }
 
 module.exports = simpleTest;

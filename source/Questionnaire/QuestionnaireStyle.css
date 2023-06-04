@@ -3,7 +3,7 @@
   color: white;
   padding: 10px 0;
   text-align: center;
-  font-family: 'Rubik Wet Paint', cursive;
+  font-family: "Rubik Wet Paint", cursive;
   font-size: 1.5rem;
 }
 
@@ -11,7 +11,7 @@ body {
   overflow: hidden;
 }
 
-#gradient{
+#gradient {
   pointer-events: none;
   position: fixed;
   top: 0;
@@ -20,23 +20,23 @@ body {
   height: 100%;
   background: radial-gradient(circle at right top, #f69c3c56, transparent);
   opacity: 0.8;
-  z-index: 9998; 
+  z-index: 9998;
 }
 
 #book {
   background-image: url("../HoroscopeDisplay/images/Book.png");
-  background-size:cover;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size:contain;
+  background-size: contain;
   background-position: center;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width:100vw;
+  width: 100vw;
   height: 40vw;
-  
+
   align-self: center;
   background-clip: unset;
   top: 10dvh;
@@ -53,7 +53,7 @@ body {
   height: 100%;
   background-color: black;
   opacity: 0;
-  z-index: 9999; 
+  z-index: 9999;
   transition: opacity 1s;
 }
 
@@ -61,13 +61,13 @@ body {
   opacity: 1;
 }
 
-input{
+input {
   max-width: 50%;
   background-color: transparent;
 }
 
-#questionnaire{
-  font-family: 'Kalam', cursive;
+#questionnaire {
+  font-family: "Kalam", cursive;
   position: relative;
   text-align: center;
   font-size: 1.5vw;
@@ -75,14 +75,14 @@ input{
   width: 50vw;
   color: black;
   align-content: center;
-  align-self:flex-start;
+  align-self: flex-start;
   top: 15%;
   left: 7.5%;
 }
 
-.shakeElement{
-  animation:shake 1s infinite;
-  --shakeAmount : 10px;
+.shakeElement {
+  animation: shake 1s infinite;
+  --shakeAmount: 10px;
   --shakeRotate: 2deg;
 }
 
@@ -94,50 +94,55 @@ Currently it shaks half the degrees and returns to starting position and repeats
     transform: translateX(0);
   }
   10% {
-    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
   }
   20% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
   30% {
-    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
   }
   40% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
   50% {
-    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
   }
   60% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
   70% {
-    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
   }
   80% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
   90% {
-    transform: translateX(var(--shakeAmount)*-1) rotateZ(var(--shakeRotate)*-1);
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
   }
   100% {
     transform: translateX(0) rotateZ(0);
   }
 }
 
-fieldset{
+fieldset {
   border: none;
 }
 
 #fname {
-  font-family: 'Kalam', cursive;
+  font-family: "Kalam", cursive;
   background-image: url("images/Button.png");
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #birthday {
-  font-family: 'Kalam', cursive;
+  font-family: "Kalam", cursive;
   background-image: url("images/Button.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -149,13 +154,12 @@ fieldset{
   top: 40%;
   width: 5vw;
   height: 2vw;
-  font-size: .75vw;
+  font-size: 0.75vw;
   text-align: center;
-  font-family: 'Kalam', cursive;
+  font-family: "Kalam", cursive;
   align-self: flex-start;
   background-image: url("../HoroscopeDisplay/images/Button.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size:cover;
-
+  background-size: cover;
 }

@@ -17,7 +17,6 @@ main {
 
 h1 {
   margin-top: 0.1vh;
-
 }
 
 .BookFlexbox {
@@ -34,7 +33,6 @@ h1 {
   height: 60vw;
   width: 95vw;
   color: black;
-
 }
 
 form {
@@ -44,12 +42,12 @@ form {
   max-width: 43vmax;
   position: relative;
   font-size: 1.15vw;
-  font-family: 'Kalam', cursive;
+  font-family: "Kalam", cursive;
   top: 13%;
 }
 
 p {
-  margin: .5vmin;
+  margin: 0.5vmin;
 }
 
 #form1 {
@@ -60,9 +58,7 @@ p {
 #form2 {
   align-items: flex-start;
   left: 7.5vmin;
-
 }
-
 
 fieldset {
   border: none;
@@ -71,7 +67,7 @@ fieldset {
 }
 
 input[type="text"] {
-  font-family: 'Kalam', cursive;
+  font-family: "Kalam", cursive;
   margin-bottom: 1vmin;
   padding: 1vmin;
   background-color: transparent;
@@ -79,7 +75,7 @@ input[type="text"] {
   height: 1vh;
   box-sizing: border-box;
   border: none;
-  border-bottom: .2vw solid black;
+  border-bottom: 0.2vw solid black;
 }
 
 /* Media query for smaller screens */
@@ -97,7 +93,6 @@ input[type="text"] {
     padding: 1vmin;
     /* Adjust the scale factor as needed */
   }
-
 }
 
 button {
@@ -106,7 +101,7 @@ button {
   height: 2.5vw;
   font-size: 1vw;
   text-align: center;
-  font-family: 'Kalam', cursive;
+  font-family: "Kalam", cursive;
   background-image: url("../HoroscopeDisplay/images/Button.png");
   background-position: center;
   background-repeat: no-repeat;

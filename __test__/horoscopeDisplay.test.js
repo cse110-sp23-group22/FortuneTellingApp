@@ -1,6 +1,6 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require("puppeteer");
 
-describe('My Puppeteer tests', () => {
+describe("My Puppeteer tests", () => {
   let browser;
   let page;
 
@@ -13,47 +13,61 @@ describe('My Puppeteer tests', () => {
     await browser.close();
   });
 
-  test('Tests if the contents of the local storage get displayed in the correcd tag', async () => {
-    
-    await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html');
+  test("Tests if the contents of the local storage get displayed in the correcd tag", async () => {
+    await page.goto(
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+    );
     await page.evaluate(() => {
-      localStorage.setItem('Birthday', '02/02/2001');
-      localStorage.setItem('UserName', 'Nikan');
-      console.log(localStorage.getItem('UserName'));
+      localStorage.setItem("Birthday", "02/02/2001");
+      localStorage.setItem("UserName", "Nikan");
+      console.log(localStorage.getItem("UserName"));
     });
-    //idk for some reason it doesnt recognize that localstorage was set so u have to reload the page a few times. 
-    await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html');
-    await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html');
+    //idk for some reason it doesnt recognize that localstorage was set so u have to reload the page a few times.
+    await page.goto(
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+    );
+    await page.goto(
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+    );
     //await page.waitForNavigation();
 
-    console.log('checking output tags');
-    
-    let nameElement = await page.$('#fname');
-    let nameText = await (await nameElement.getProperty('innerText')).jsonValue();
+    console.log("checking output tags");
+
+    let nameElement = await page.$("#fname");
+    let nameText = await (
+      await nameElement.getProperty("innerText")
+    ).jsonValue();
     expect(nameText).toBe("Nikan");
 
-    let birthdayElement = await page.$('#birthday');
-    let birthdayText = await (await birthdayElement.getProperty('innerText')).jsonValue();
+    let birthdayElement = await page.$("#birthday");
+    let birthdayText = await (
+      await birthdayElement.getProperty("innerText")
+    ).jsonValue();
     expect(birthdayText).toBe("02/02/2001");
   });
 
-  test('Tests if the page will move on to the home page if the home button in horoscope is pushed', async () => {
-    
-    await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html');
+  test("Tests if the page will move on to the home page if the home button in horoscope is pushed", async () => {
+    await page.goto(
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+    );
 
     let oldUrl = page.url();
-    expect(oldUrl).toBe("https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html");
+    expect(oldUrl).toBe(
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+    );
 
-    let homeButton = await page.$('#homeButton');
+    let homeButton = await page.$("#homeButton");
     await homeButton.click();
     await page.waitForNavigation();
 
     let newUrl = page.url();
-    expect(newUrl).toBe("https://cse110-sp23-group22.github.io/FortuneTellingApp/index.html");
+    expect(newUrl).toBe(
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/index.html"
+    );
   });
 
   // test('Tests if output content is stored in localStorage', async () => {
-    
+
   //   await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/Questionnaire/Questionnaire.html');
 
   //   await page.evaluate(() => {
@@ -62,7 +76,7 @@ describe('My Puppeteer tests', () => {
   //   await page.evaluate(() => {
   //     document.getElementById('birthday').value = '01/03/2000';
   //   });
-    
+
   //   console.log('before');
   //   //let button = await page.$('#exitButton');
   //   //await button.click();
@@ -87,7 +101,6 @@ describe('My Puppeteer tests', () => {
   //   expect(birthday).toBe('01/03/2000');
   // });
 });
-
 
 /*
 describe('Puppeteer Example', () => {
@@ -116,8 +129,3 @@ describe('Puppeteer Example', () => {
   });
 });
 */
-
-
-
-
-

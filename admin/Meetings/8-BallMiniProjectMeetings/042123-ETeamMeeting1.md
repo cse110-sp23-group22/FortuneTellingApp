@@ -1,10 +1,15 @@
 # Experimental Team Meeting 1 Notes
+
 ### Time
+
 > 4/20 4-5pm PST, Remote (Zoom)
+
 #### Attendees
+
 Chris, Eric, Jessica, Ryan (note taker)
 
 ## Notes
+
 - Goal of team should be to generate AI code and test new tools
 - Considered Netlify, but Github Pages is probably enough
 - Code for 8-ball was generated, and it works

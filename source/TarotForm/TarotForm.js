@@ -1,10 +1,9 @@
-
 let userName = "";
 let creepyQuestion1 = "";
 let creepyQuestion2 = "";
 let readingType = "";
 
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   initQuesetions();
@@ -34,37 +33,38 @@ function initQuesetions() {
   questionRight.addEventListener("change", () => {
     creepyQuestion2 = questionRight.value;
   });
-
 }
 
 /**
- * @description First check if all fields have been filled out, then save info 
+ * @description First check if all fields have been filled out, then save info
  * to local storage when continue button for Tarot Card Info Page is clicked
  * @class Tarot Card Questionnaire
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
  */
-document.getElementById("exitButton").addEventListener("click", function (event) {
-  event.preventDefault();
-  let name = document.getElementById("form1").elements[0].value;
-  let readingTypes = document.getElementsByName('TarotCatagory');
-  for (i = 0; i < readingTypes.length; i++) {
-    if (readingTypes[i].checked) {
-      readingType = readingTypes[i].value;
+document
+  .getElementById("exitButton")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    let name = document.getElementById("form1").elements[0].value;
+    let readingTypes = document.getElementsByName("TarotCatagory");
+    for (i = 0; i < readingTypes.length; i++) {
+      if (readingTypes[i].checked) {
+        readingType = readingTypes[i].value;
+      }
     }
-  }
 
-  if (readingTypes == "" || userName == "" || creepyQuestion1 == "") {
-    alert("Please fill out all fields!");
-    return;
-  }
+    if (readingTypes == "" || userName == "" || creepyQuestion1 == "") {
+      alert("Please fill out all fields!");
+      return;
+    }
 
-  window.location.href = "../../index.html";
-  //alert("Form 1 submitted!\nName: " + name);
-});
+    window.location.href = "../../index.html";
+    //alert("Form 1 submitted!\nName: " + name);
+  });
 
 window.onbeforeunload = function () {
   localStorage.clear();
 
   localStorage.setItem("userName", userName);
   localStorage.setItem("readingType", readingType);
-}
+};
