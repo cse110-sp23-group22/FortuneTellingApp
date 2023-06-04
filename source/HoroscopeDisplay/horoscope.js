@@ -68,7 +68,7 @@ function shake(shakeXAmount, RotateAmount){
         shakeEle.style.setProperty('--shakeAmount', `${shakeAmount}px`);
         shakeEle.style.setProperty('--shakeRotate', `${shakeRotate}deg`);
         shakeAmount++;
-        shakeRotate++;
+        //shakeRotate++;
     },1000)
 }
 
