@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tarot Card Chooser</title>
+    <link rel="stylesheet" type="text/css" href="TarotDisplayStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- <h1>Tarot Card Chooser</h1> -->
+    <br><br><br>
+    <p>Venture forth and click a card, but brace yourself for the foreboding truth it holds.<br> They echo the whispers of the crypt:</p>
+    <br>
+    <div id="cardContainer">
+        <div class="card" onclick="revealCard(0)">
+            <div class="cardInner">
+                <div class="cardFront">
+                    <img src="./TarotCardGraphics/CardBack.png" alt="Card 0 Front">
+                </div>
+                <div class="cardBack">
+                    <img src="./TarotCardGraphics/Justice.png" alt="Card 0 Back">
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="revealCard(1)">
+            <div class="cardInner">
+                <div class="cardFront">
+                    <img src="./TarotCardGraphics/CardBack.png" alt="Card 1 Front">
+                </div>
+                <div class="cardBack">
+                    <img src="./TarotCardGraphics/Devil.png" alt="Card 1 Back">
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="revealCard(2)">
+            <div class="cardInner">
+                <div class="cardFront">
+                    <img src="./TarotCardGraphics/CardBack.png" alt="Card 2 Front">
+                </div>
+                <div class="cardBack">
+                    <img src="./TarotCardGraphics/The Emperor.png" alt="Card 2 Back">
+                </div>
+            </div>
+        </div>
+        <!-- Add more cards here -->
+    </div>
+
+    <div id="cardMeaning">
+        <h2>Card Meaning</h2>
+        <p id="meaningText"></p>
+    </div>
+
+    <script src="TarotDisplay.js"></script>
+</body>
+
+</html>

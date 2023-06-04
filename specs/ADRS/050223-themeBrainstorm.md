@@ -1,7 +1,7 @@
 Team 22 ADR 2023-5-2
 parent: Decisions
 nav_order: 100
-title: ADR Template
+title: Theme For Next Application
 
 ## status: accepted
 ## date: 2023-5-2
