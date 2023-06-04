@@ -1,14 +1,16 @@
 name: jsdoc
-on: [push]
+on: 
+  push:
+    branches:
+    - prod
+permissions: write-all
 jobs:
   publish:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
-
-    - name: Build
+      uses: actions/checkout@v3
+    - name: Build DOCS
       uses: andstor/jsdoc-action@v1
       with:
         source_dir: ./source
@@ -16,14 +18,49 @@ jobs:
         output_dir: ./docs
         front_page: README.md
         template: clean-jsdoc-theme
-    
-    - name: Commit Docs
+        config_file: ./docs/conf.json
+    - name: Commit JSDOCS
       uses: EndBug/add-and-commit@v9
       with:
-        auhor_name: Github Actions
+        author_name: GitHub Actions
         author_email: noreply@github.com
-        message: 'CI: Automated JSDocs build push'
+        message: 'Generated JSDocs'
         add: 'docs/*'
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #  runs-on: ubuntu-latest
+
+  #  steps:
+  #   - name: Checkout
+  #    uses: actions/checkout@v1
+
+  #  - name: Build Docs
+  #    uses: andstor/jsdoc-action@v1
+  #    with:
+  #      source_dir: ./source
+  #      recurse: true
+  #      output_dir: ./docs
+  #      front_page: README.md
+  #      template: clean-jsdoc-theme
+    
+  #  - name: Commit Docs
+  #    uses: EndBug/add-and-commit@v9
+  #    with:
+  #      auhor_name: Github Actions
+  #      author_email: noreply@github.com
+  #      message: 'CI: Automated JSDocs build push'
+  #      add: 'docs/*'
 
     #   run: |
     #     echo ${{ github.ref }}
