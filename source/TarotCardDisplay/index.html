@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tarot Card Chooser</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <!-- <h1>Tarot Card Chooser</h1> -->
+  <p>Select a card to reveal its meaning:</p>
+  
+  <div id="cardContainer">
+    <div class="card" onclick="revealCard(0)">
+      <div class="cardInner">
+        <div class="cardFront">
+          <img src="card-front.png" alt="Card 0 Front">
+        </div>
+        <div class="cardBack">
+          <img src="card-back.png" alt="Card 0 Back">
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="revealCard(1)">
+      <div class="cardInner">
+        <div class="cardFront">
+          <img src="card-front.png" alt="Card 1 Front">
+        </div>
+        <div class="cardBack">
+          <img src="card-back.png" alt="Card 1 Back">
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="revealCard(2)">
+      <div class="cardInner">
+        <div class="cardFront">
+          <img src="card-front.png" alt="Card 2 Front">
+        </div>
+        <div class="cardBack">
+          <img src="card-back.png" alt="Card 2 Back">
+        </div>
+      </div>
+    </div>
+    <!-- Add more cards here -->
+  </div>
+
+  <div id="cardMeaning">
+    <h2>Card Meaning</h2>
+    <p id="meaningText"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
