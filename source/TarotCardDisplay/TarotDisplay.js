@@ -29,7 +29,6 @@ async function init() {
     }
 }
 
-//TODO: A bug resulting in if we unflip a card the other 2 doesn't get shown
 // Intended behavior or no?!
 function revealCard(cardIndex) {
     const card = cardElements[cardIndex];
