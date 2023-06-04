@@ -1,4 +1,5 @@
 const cardElements = document.querySelectorAll('.card');
+const cardImages = document.getElementsByTagName('img');
 
 window.addEventListener("load", init);
 
@@ -15,7 +16,10 @@ async function init() {
         jobData = tarotData['job'][Math.floor(Math.random() * tarotData['job'].length)];
         PersonalData = tarotData['PersonalLife'][Math.floor(Math.random() * tarotData['PersonalLife'].length)];
         loveData = tarotData['love'][Math.floor(Math.random() * tarotData['love'].length)];
-
+        //Set Card Images (Target: 1,3,5)
+        cardImages[1].src = `./TarotCardGraphics/${jobData['TarotCard']}.png`;
+        cardImages[3].src = `./TarotCardGraphics/${PersonalData['TarotCard']}.png`;
+        cardImages[5].src = `./TarotCardGraphics/${loveData['TarotCard']}.png`;
         //exit code
         return 1;
     } catch (error) {
