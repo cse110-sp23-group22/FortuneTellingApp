@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
 body {
     font-family: 'Nosifer', cursive;
     text-align: center;
     background-color: black;
-    color:darkred;
+    color: rgb(177, 76, 3);
 }
 
 h1 {
