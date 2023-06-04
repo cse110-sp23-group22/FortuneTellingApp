@@ -11,6 +11,7 @@ async function init() {
 
         //fetch the horoscope json file and convert to an array
         //containing the responses
+        //TODO: Fix this with local storage
         let tarotData = await fetch('./TarotCardAnswer.JSON');
         tarotData = await tarotData.json();
         jobData = tarotData['job'][Math.floor(Math.random() * tarotData['job'].length)];
