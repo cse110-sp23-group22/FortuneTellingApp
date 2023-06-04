@@ -100,6 +100,8 @@ function goHome() {
  *                  date values.
  * @tutorial horoscope-tutorial
  * @class Horoscope
+ * @param {int} day day of the user birthday
+ * @param {int} month month of the user birthday
  * @returns index of the zodiac sign
  * @author Nikan
  */
