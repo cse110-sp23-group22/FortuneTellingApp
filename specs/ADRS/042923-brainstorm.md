@@ -1,7 +1,7 @@
 Team 22 ADR 2023-4-29
 parent: Decisions
 nav_order: 100
-title: ADR Template
+title: Features to Add
 
 # Status: accepted
 # date: 2023-4-29
