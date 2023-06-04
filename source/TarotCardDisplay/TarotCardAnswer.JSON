@@ -1,0 +1,68 @@
+{
+  "job": [
+    {
+      "TarotCard": "Strength",
+      "Explanation": "This card represents perseverance, courage, and inner strength. In your career, the Strength card encourages you to maintain patience, self-confidence, and persistence to overcome challenges and achieve success."
+    },
+    {
+      "TarotCard": "The Chariot",
+      "Explanation": "The Chariot symbolizes goals, willpower, and drive. It represents striving and giving your all in your career, putting forth determination and motivation to attain victory. It advises you to stay focused on your objectives, maintain a strong work ethic, and overcome challenges with a driven and ambitious mindset."
+    },
+    {
+      "TarotCard": "King of Pentacles",
+      "Explanation": "The King of Pentacles represents financial stability, practicality, and a business-oriented mindset. It symbolizes success, financial independence, and professional authority in your career. It advises you to take a strategic and grounded approach, make wise financial decisions, and leverage your expertise to achieve long-term success."
+    },
+    {
+      "TarotCard": "Justice",
+      "Explanation": "The Justice card represents fairness, balance, and decisiveness. In your career, it reminds you to handle matters in a moral and fair manner, striving for just and equitable outcomes."
+    },
+    {
+      "TarotCard": "The Devil",
+      "Explanation": "The Devil card symbolizes desires, bondage, and the pursuit of power in the professional realm. It warns you to be cautious of temptations and traps in your career, maintaining a clear understanding of freedom and your goals."
+    }
+  ],
+  "PersonalLife": [
+    {
+      "TarotCard": "The Angel",
+      "Explanation": "This card represents balance, harmony, and inner tranquility. It reminds you to seek balance in life and bring together various aspects to create a harmonious existence."
+    },
+    {
+      "TarotCard": "The Hermit",
+      "Explanation": "The Hermit card symbolizes the search for inner truth and wisdom. It encourages you to seek solitude and reflection in life to gain insight and inner guidance."
+    },
+    {
+      "TarotCard": "The Tower",
+      "Explanation": "The Tower card represents sudden change and upheaval. It reminds you that life may bring unexpected upheavals, but it also presents an opportunity to clear away old structures and beliefs, paving the way for new developments."
+    },
+    {
+      "TarotCard": "The World",
+      "Explanation": "The World card represents accomplishment, completion, and wholeness. It symbolizes fulfillment and success in life, reminding you to embrace the fullness of life and the interconnectedness of the universe."
+    },
+    {
+      "TarotCard": "Page",
+      "Explanation": "As a member of the court cards, the Page represents new beginnings, curiosity, and learning. It encourages you to maintain an open mindset, seeking new experiences and knowledge, bringing new possibilities to life."
+    }
+  ],
+  "love": [
+    {
+      "TarotCard": "The Lovers",
+      "Explanation": "This card represents love, attraction, relationships, and choices, suggesting embracing love and exploring deep connections with others. It advises making choices from the heart and finding balance between emotions and logic."
+    },
+    {
+      "TarotCard": "The Hanged Man",
+      "Explanation": "Although the name of this card may be confusing, in tarot, it represents devotion and selflessness in love. This card suggests surrendering to the flow of love and letting go of control. It advises practicing patience and selflessness to cultivate a stronger bond in relationships."
+    },
+    {
+      "TarotCard": "The Emperor",
+      "Explanation": "This card represents stability, strength, and protection. This card suggests establishing a sense of stability and structure in love. It advises taking on a leadership role and providing support and protection to your partner."
+    },
+    {
+      "TarotCard": "The Empress",
+      "Explanation": "As a symbol of feminine energy, the Empress card represents motherhood, nurturing, and abundance. In love, it signifies care, nourishment, and creativity. This card suggests nurturing and embracing the nurturing qualities within yourself and your relationship. It advises finding joy in the simple pleasures of love and expressing your affection openly."
+    },
+    {
+      "TarotCard": "Two of Cups",
+      "Explanation": "This card symbolizes harmony, interaction, and cooperation in a romantic relationship. This card suggests fostering open communication and mutual understanding in relationships. It advises actively working together as a team and celebrating the shared emotional connection."
+    }
+  ]
+}
