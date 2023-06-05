@@ -1,7 +1,5 @@
 const exitButton = document.getElementById("exitButton");
 //Import DOMSanitize
-// Why is this import here?
-// import { parseNumbers } from "./parseNum";
 
 let userName = "";
 let birthday = "";
@@ -20,15 +18,18 @@ export function init() {
   showContent(templateNum);
 }
 
-//Parses input of all numbers
+/**
+ * Parses input of all numbers
+ * @returns string with only valid letters
+ */
 export function parseNumbers(string) {
   return string.replace(/\d/g, "");
 }
 
 /**
- * @function
  * Goes through all the questions in the questionnaire, displaying the questions one after another
  * based on when the user clicks the continue button.
+ * @param templateNum question set number
  */
 export function showContent(templateNum) {
   //Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
@@ -48,7 +49,7 @@ export function showContent(templateNum) {
 }
 
 /**
- * @function Initalize the name and birthday Question
+ * Initalize the name and birthday Question
  */
 export function initNameBirth() {
   const nameInput = document.getElementById("fname");
@@ -70,46 +71,51 @@ export function initNameBirth() {
   });
 }
 /**
- * @function
  * This Exit button. This function checks:
  * - If the user has inputted all required information
  * - Creates UI to prompt the user to confirm their selection
  * - Moves to the next page after all checks
  */
-exitButton.addEventListener("click", async () => {
-  //Check user has inputted all required information
-  if (userName == "" || birthday == "") {
-    //Theorectically we have custom dialogs or something else that pops up to show that user hasn't inputted
-    alert("Please fill out required fields!");
-    //Idk play some spooky sound
-    return;
-  }
-  //Checks templateNum to see how far the user is to the end
-  if (templateNum < totalNumQuestions) {
-    //TODO: Add cutscene
-    //console.log(noise.perlin3(time*0.05,0,0));
-    let book = document.getElementById("book");
-    book.classList.toggle("shakeElement");
-    let overlay = document.getElementsByClassName("overlay")[0];
-    overlay.style.transition = "opacity 0.1s";
-    overlay.classList.toggle("shown");
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
+window.addEventListener('DOMContentLoaded', (event) => {
+  const exitButton = document.getElementById('exitButton');
+  if (exitButton) {
+    exitButton.addEventListener("click", async () => {
+      //Check user has inputted all required information
+      if (userName == "" || birthday == "") {
+        //Theorectically we have custom dialogs or something else that pops up to show that user hasn't inputted
+        alert("Please fill out required fields!");
+        //Idk play some spooky sound
+        return;
+      }
+      //Checks templateNum to see how far the user is to the end
+      if (templateNum < totalNumQuestions) {
+        //TODO: Add cutscene
+        //console.log(noise.perlin3(time*0.05,0,0));
+        let book = document.getElementById("book");
+        book.classList.toggle("shakeElement");
+        let overlay = document.getElementsByClassName("overlay")[0];
+        overlay.style.transition = "opacity 0.1s";
+        overlay.classList.toggle("shown");
+        await new Promise((resolve) => {
+          setTimeout(resolve, 1000);
+        });
+        overlay.style.transition = "opacity 1s";
+        overlay.classList.toggle("shown");
+        book.classList.toggle("shakeElement");
+        //? Currently not planning on users being able to go back.
+        templateNum++;
+        document.getElementById("question").remove();
+        showContent(templateNum);
+      } else {
+        //Moves to next page (Currently submit is used to call window.onbeforeunload)
+        window.location.href = "../HoroscopeDisplay/horoscope.html";
+        console.log("Exiting page");
+      }
     });
-    overlay.style.transition = "opacity 1s";
-    overlay.classList.toggle("shown");
-    book.classList.toggle("shakeElement");
-    //? Currently not planning on users being able to go back.
-    templateNum++;
-    document.getElementById("question").remove();
-    showContent(templateNum);
   } else {
-    //Moves to next page (Currently submit is used to call window.onbeforeunload)
-    window.location.href = "../HoroscopeDisplay/horoscope.html";
-    console.log("Exiting page");
+    console.log('exitButton is not found in the DOM');
   }
 });
-
 /**
  * On Exit Function -> Stores user data into local storage for further use
  */

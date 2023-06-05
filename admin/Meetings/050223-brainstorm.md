@@ -1,12 +1,16 @@
 # Fortune Telling Brainstorm Meeting 3
+
 ## Setting:
+
 > 5/02/2023 3:30pm, Slack huddle
 
 ### Type:
+
 Program Feature Discussion and Brainstorming
 
 ## Attendance:
-- Arjun 
+
+- Arjun
 - Ryan
 - Jennifer
 - Xin
@@ -15,43 +19,46 @@ Program Feature Discussion and Brainstorming
 - Chris
 - Jinshi
 - Jiapei
+
 ## Team Progress:
+
 - Chose app theme via voting process
 - Reviewed delegated responsibilities and properly kicked off pitch
 
 ## Agenda:
+
 - App theme
 - Check up on everyone’s status on their part of pitch
 
 ## Discussion Notes:
+
 Things we need to prepare for during brainstorming:
-- Project Pitch - we will produce a project pitch that will be presented to your team mentor for sign-off.  We will use the ideas from Shape Up to guide this process.  Teams looking to get ahead are advised to read this book now.
-  
-- Overarching Decisions - we will eventually capture these as an ADR in markdown 
-(/specs/adrs will contain an individual document per major decision.  There will be some initial ones that have to do with general project plan and approach, but more may be added as the project goes on.  The main point of this capture is to explain why choices are made.  As brainstorming may have your team settle on choices quickly capturing them in a document may be better than just mental consensus)
+
+- Project Pitch - we will produce a project pitch that will be presented to your team mentor for sign-off. We will use the ideas from Shape Up to guide this process. Teams looking to get ahead are advised to read this book now.
+- Overarching Decisions - we will eventually capture these as an ADR in markdown
+  (/specs/adrs will contain an individual document per major decision. There will be some initial ones that have to do with general project plan and approach, but more may be added as the project goes on. The main point of this capture is to explain why choices are made. As brainstorming may have your team settle on choices quickly capturing them in a document may be better than just mental consensus)
 
 - User Centered Thinking Documents - we will produce personas and potentially use cases. (/specs/users will contain this but user stories chosen will also be represented as issues to work on)
-  
 - System Diagrams - we will eventually capture how your app will be decomposed in C4 diagram, event modeling diagram, or UML form
 
-- Interface Design Documents - we will initially capture "fat marker design" later extended with wireframes and high fidelity prototypes (/specs/interface/rough, /specs/interface/wireframes, /specs/interface/highfidelity  These directories may contain single or multitude of documents)
-  
-- Project Roadmap - we will capture a roadmap of how the product will evolve both here in the quarter as well as ideas of how it might grow beyond the time we have with  (/specs/roadmap.md)
+- Interface Design Documents - we will initially capture "fat marker design" later extended with wireframes and high fidelity prototypes (/specs/interface/rough, /specs/interface/wireframes, /specs/interface/highfidelity These directories may contain single or multitude of documents)
+- Project Roadmap - we will capture a roadmap of how the product will evolve both here in the quarter as well as ideas of how it might grow beyond the time we have with (/specs/roadmap.md)
 
 **App theme brainstorm**
 Keyword: fortune telling, byte broker
 
-Vaguely related words: 
+Vaguely related words:
+
 - Mystery III
 - Cosmos IIII
-- Zodiac 
+- Zodiac
 - Hacker
 - Fate
 - JOJO I
 - Time
 - Business I
-    - Businessman
-    - Suits
+  - Businessman
+  - Suits
 - UCSD colleges
 - Horror I
 - Fantasy III
@@ -65,6 +72,7 @@ Vaguely related words:
 - Cthulean/Lovecraftian/Cosmic Horror I
 
 Compound Themes
+
 - Space wizards
   - Arjun
 - Cosmic Horror - This is our theme!!
@@ -88,11 +96,9 @@ Compound Themes
 - Fantasy
   - Arjun
 
-
 **TASK LIST**: [Github project - task list](https://github.com/orgs/cse110-sp23-group22/projects/1/views/1)
 
-Things we need for the pitch: topics of risks and rabbit holes as well as a visual representation of what you are doing in the form of system diagrams and wireframes.  However, our pitch should also have a statement of purpose as well as a section on user personas.
-
+Things we need for the pitch: topics of risks and rabbit holes as well as a visual representation of what you are doing in the form of system diagrams and wireframes. However, our pitch should also have a statement of purpose as well as a section on user personas.
 
 Checkup on individual teams:
 System diagram team: selected format for the system diagram docs, waiting on interface doc to get their ideas written down and a way they see the app working - meeting tomorrow to properly start the design
@@ -103,16 +109,14 @@ ADR team: get started on initial adr doc based on the brainstorm. Must have a ro
 
 Pitch team: start on rabbit holes and risks tonight, finish compiling rough draft of pitch friday, sat+sun on final pitch
 
-
-
 ## Action Items:
+
 Everyone read part 1 of [shapeUp](https://basecamp.com/shapeup) - ESPECIALLY CH. 4-6!
 
 ## Next Meeting Time:
+
 N/A
 
-### End Time: 
+### End Time:
+
 4:15 pm
-
-
-

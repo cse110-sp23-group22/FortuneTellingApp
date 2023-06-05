@@ -1,96 +1,116 @@
-@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
+
 body {
-    font-family: 'Nosifer', cursive;
-    text-align: center;
-    background-color: black;
-    color:darkred;
+  font-family: "Nosifer", cursive;
+  text-align: center;
+  background-color: black;
+  color: darkred;
+  align-items: center;
 }
 
 h1 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 p {
-    margin: 10px 0;
-    font-family: 'Nosifer', cursive;
+  margin: 10px 0;
+  font-family: "Nosifer", cursive;
 }
 
 #cardContainer {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .card {
-    width: 150px;
-    height: 250px;
-    perspective: 600px;
-    margin: 0 10px;
-    position: relative;
+  width: 150px;
+  height: 250px;
+  perspective: 600px;
+  margin: 0 10px;
+  position: relative;
 }
 
 .cardInner {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
 
 .card.flipped .cardInner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .cardFront,
 .cardBack {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
 }
 
 .cardFront::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s ease;
+  content: "Click to Reveal";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
 }
 
 .cardFront.revealed::before {
-    opacity: 0;
+  opacity: 0;
 }
 
 .cardFront {
-    transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
 .cardBack {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #cardMeaning {
-    display: none;
-    margin-top: 30px;
+  display: none;
+  margin-top: 30px;
 }
 
 #cardMeaning h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #meaningText {
-    font-style: italic;
+  font-style: italic;
+}
+
+.back {
+  position: fixed;
+  top: 95%;
+  left: 90%;
+
+  font-family: "Kalam", cursive;
+
+  width: 6vw;
+  height: 3vw;
+
+  background-image: url("../HoroscopeDisplay/images/Button.png");
+  background-size: 6vw 3vw;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-size: 1.5vw;
 }
