@@ -76,8 +76,8 @@ export function initNameBirth() {
  * - Creates UI to prompt the user to confirm their selection
  * - Moves to the next page after all checks
  */
-window.addEventListener("DOMContentLoaded", (event) => {
-  const exitButton = document.getElementById("exitButton");
+window.addEventListener('DOMContentLoaded', (event) => {
+  const exitButton = document.getElementById('exitButton');
   if (exitButton) {
     exitButton.addEventListener("click", async () => {
       //Check user has inputted all required information
@@ -113,7 +113,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
     });
   } else {
-    console.log("exitButton is not found in the DOM");
+    console.log('exitButton is not found in the DOM');
   }
 });
 /**

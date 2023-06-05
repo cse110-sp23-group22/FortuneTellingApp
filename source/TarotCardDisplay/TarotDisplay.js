@@ -1,7 +1,7 @@
 const cardElements = document.querySelectorAll(".card");
 const cardImages = document.getElementsByTagName("img");
 
-window.addEventListener("load", init);
+window.addEventListener("DOMContentLoaded", init);
 
 let jobData, PersonalData, loveData;
 
@@ -17,7 +17,7 @@ async function init() {
       tarotData["job"][Math.floor(Math.random() * tarotData["job"].length)];
     PersonalData =
       tarotData["PersonalLife"][
-        Math.floor(Math.random() * tarotData["PersonalLife"].length)
+      Math.floor(Math.random() * tarotData["PersonalLife"].length)
       ];
     loveData =
       tarotData["love"][Math.floor(Math.random() * tarotData["love"].length)];
@@ -31,6 +31,19 @@ async function init() {
     console.error(error);
     return 0;
   }
+}
+
+homeButton = document.getElementById("homeButton");
+homeButton.addEventListener("click", goHome);
+
+/**
+ * @description changes the location of the window to the home page
+ * @tutorial Tarot-tutorial
+ * @class Horoscope
+ * @author Nikan, Bill, Jennifer
+ */
+function goHome() {
+  window.location.href = "../../index.html";
 }
 
 // Intended behavior or no?!

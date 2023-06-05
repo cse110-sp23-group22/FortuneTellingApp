@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
+
 body {
   font-family: "Nosifer", cursive;
   text-align: center;
   background-color: black;
   color: darkred;
+  align-items: center;
 }
 
 h1 {
@@ -50,7 +52,7 @@ p {
 }
 
 .cardFront::before {
-  content: "";
+  content: "Click to Reveal";
   position: absolute;
   top: 0;
   left: 0;
@@ -93,4 +95,22 @@ p {
 
 #meaningText {
   font-style: italic;
+}
+
+.back {
+  position: fixed;
+  top: 95%;
+  left: 90%;
+
+  font-family: "Kalam", cursive;
+
+  width: 6vw;
+  height: 3vw;
+
+  background-image: url("../HoroscopeDisplay/images/Button.png");
+  background-size: 6vw 3vw;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-size: 1.5vw;
 }
