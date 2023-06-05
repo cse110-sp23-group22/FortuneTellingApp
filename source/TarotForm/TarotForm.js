@@ -58,7 +58,7 @@ document
       return;
     }
 
-    window.location.href = "../../index.html";
+    window.location.href = "../TarotCardDisplay/TarotDisplay.html";
     //alert("Form 1 submitted!\nName: " + name);
   });
 
