@@ -112,7 +112,6 @@ function exampleTest(num) {
 /**
  * @description Based on the input name and birthday, a horoscope reading will be outputted to the user
  * @tutorial horoscope-tutorial
- * @class Horoscope
  * @author Nikan, Bill, Jennifer
  */
 function outputHoroscope() {
@@ -155,7 +154,6 @@ function outputHoroscope() {
 /**
  * @description changes the location of the window to the home page
  * @tutorial horoscope-tutorial
- * @class Horoscope
  * @author Nikan, Bill, Jennifer
  */
 function goHome() {
@@ -167,7 +165,6 @@ function goHome() {
  *                  file based on the input user birthday, using the hardcoded
  *                  date values.
  * @tutorial horoscope-tutorial
- * @class Horoscope
  * @param {int} day day of the user birthday
  * @param {int} month month of the user birthday
  * @returns index of the zodiac sign
