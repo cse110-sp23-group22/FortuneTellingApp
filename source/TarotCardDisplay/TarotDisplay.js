@@ -5,6 +5,12 @@ window.addEventListener("DOMContentLoaded", init);
 
 let jobData, PersonalData, loveData;
 
+/**
+ * @description Fetches the Tarot Card Answer 
+ * @tutorial Tarot-tutorial
+ * @class Tarot Card
+ * @author Chris, Eric, Jessica
+ */
 async function init() {
   //Eric Here: This is scuffed but necessary
   try {
@@ -37,16 +43,21 @@ homeButton = document.getElementById("homeButton");
 homeButton.addEventListener("click", goHome);
 
 /**
- * @description changes the location of the window to the home page
+ * @description Brings back to the main screen
  * @tutorial Tarot-tutorial
- * @class Horoscope
- * @author Nikan, Bill, Jennifer
+ * @class Tarot Card
+ * @author Chris, Eric, Jessica
  */
 function goHome() {
   window.location.href = "../../index.html";
 }
 
-// Intended behavior or no?!
+/**
+ * @description Reveals the card
+ * @tutorial Tarot-tutorial
+ * @class Tarot Card
+ * @author Chris, Eric, Jessica
+ */
 function revealCard(cardIndex) {
   const card = cardElements[cardIndex];
   //Unflipping the rest (COMMENT OUT IF THIS ISN'T INTENDED) but I find current behavior odd
