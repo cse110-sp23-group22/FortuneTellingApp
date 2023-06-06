@@ -34,7 +34,7 @@
 
   font-family: "Kalam", cursive;
 
-  background-image: url("images/Book.png");
+  background-image: url("../Assets/Book.png");
   background-size: 110vmin 75vmin;
   background-position: center;
   background-repeat: no-repeat;
@@ -51,7 +51,7 @@
   font-family: "Kalam", cursive;
   margin-top: 50px;
 
-  background-image: url("images/Button.png");
+  background-image: url("../Assets/Button.png");
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -91,7 +91,7 @@
   width: 6vw;
   height: 3vw;
 
-  background-image: url("images/Button.png");
+  background-image: url("../Assets/Button.png");
   background-size: 6vw 3vw;
   background-position: center;
   background-repeat: no-repeat;

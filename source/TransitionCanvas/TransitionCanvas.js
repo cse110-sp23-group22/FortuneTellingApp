@@ -49,6 +49,7 @@ class TransitionCanvas extends HTMLCanvasElement {
       switch (chosenAnim) {
         case "fadein":
           this.transitionAnim = this.fadeIn;
+          break;
         default:
           this.transitionAnim = this.fadeIn;
       }
@@ -67,7 +68,7 @@ class TransitionCanvas extends HTMLCanvasElement {
    * @param {*} currentValue
    */
   attributeChangedCallback(attribute, previousValue, currentValue) {
-    if ((attribute = "sfx")) {
+    if (attribute == "sfx") {
       this.inSfx.src = currentValue;
     }
   }

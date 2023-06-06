@@ -1,26 +1,25 @@
-name: Run Jest Test
-
+name: Run Jest Tests
 on:
   push:
     branches:
-      - prod
+      - HoroscopeDisplay-Add-to-me
       - HoroscopeForm_Add-to-me
-    
-  pull_request:
-    branches: 
       - prod
 
+  pull_request:
+    branches: 
+    - prod
 jobs:
   Jest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 20
 
       - name: Install dependencies
         run: npm install

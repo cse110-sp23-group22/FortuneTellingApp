@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Horoscope Questionaire</title>
     <meta charset="UTF-8" />
-    <title>Questionaire</title>
+    <meta name="description" content="Horoscope Questionnaire" />
+    <meta name="keywords" content="Horoscope" />
+    <meta name="author" content="Byte Brokers - Team 22, CSE110 SP23, UCSD" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" type="text/css" href="../styles.css" />
-    <link rel="stylesheet" type="text/css" href="QuestionnaireStyle.css" />
-    <script type="module" src="Questionnaire.js"></script>
-    <script src="../transition-canvas/transition-canvas.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="HoroscopeQuestionnaireStyle.css"
+    />
+    <script type="module" src="HoroscopeQuestionnaire.js"></script>
+    <script src="../TransitionCanvas/TransitionCanvas.js"></script>
   </head>
   <body>
     <canvas is="transition-canvas" duration="1000"></canvas>
@@ -18,7 +27,7 @@
         <div id="questionnaire" class="left-page">
           <template>
             <section id="question">
-              <form action="./Questionnaire.html">
+              <form action="./HoroscopeQuestionnaire.html">
                 <fieldset>
                   <!-- Add effects that text appear itself -->
                   <label for="fname"
@@ -50,7 +59,7 @@
         <div class="right-page">
           <template>
             <section id="question">
-              <form action="./Questionnaire.html">
+              <form action="./HoroscopeQuestionnaire.html">
                 <fieldset>
                   <label for="Memes1">"What do you wish to know?": </label>
                   <input
