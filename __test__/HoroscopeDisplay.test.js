@@ -15,7 +15,7 @@ describe("My Puppeteer tests", () => {
 
   test("Tests if the contents of the local storage get displayed in the correcd tag", async () => {
     await page.goto(
-      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/Horoscope.html"
     );
     await page.evaluate(() => {
       localStorage.setItem("Birthday", "02/02/2001");
@@ -24,10 +24,10 @@ describe("My Puppeteer tests", () => {
     });
     //idk for some reason it doesnt recognize that localstorage was set so u have to reload the page a few times.
     await page.goto(
-      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/Horoscope.html"
     );
     await page.goto(
-      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/Horoscope.html"
     );
     //await page.waitForNavigation();
 
@@ -48,12 +48,12 @@ describe("My Puppeteer tests", () => {
 
   test("Tests if the page will move on to the home page if the home button in horoscope is pushed", async () => {
     await page.goto(
-      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/Horoscope.html"
     );
 
     let oldUrl = page.url();
     expect(oldUrl).toBe(
-      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/horoscope.html"
+      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/Horoscope.html"
     );
 
     let homeButton = await page.$("#homeButton");
