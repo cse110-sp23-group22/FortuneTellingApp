@@ -29,7 +29,14 @@
     },
     "jest": {
         "preset": "jest-puppeteer",
-        "verbose": true
+        "verbose": true,
+        "collectCoverage": true,
+        "collectCoverageFrom": ["./source/**"],
+        "coverageThreshold": {
+            "global": {
+                "lines": 90
+            }
+        }
     },
     "dependencies": {
         "node": "^20.2.0",
