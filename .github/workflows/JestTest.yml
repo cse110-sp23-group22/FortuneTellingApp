@@ -25,8 +25,9 @@ jobs:
         run: npm install
 
       - name: Run Tests
-        run: npm test
+        run: npm test -- --coverage
   coverage:
+    if: ${{ always() }}
     needs: [test]
     name: Publish Code Coverage
     runs-on: ubuntu-latest
@@ -42,6 +43,3 @@ jobs:
         uses: paambaati/codeclimate-action@v4.0.0
         env:
           CC_TEST_REPORTER_ID: $ {{ secrets.CC_REPORTER_ID }}
-        with:
-          coverageCommand: npm run coverage
-          debug: true
