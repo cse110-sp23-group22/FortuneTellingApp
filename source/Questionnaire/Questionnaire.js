@@ -1,32 +1,34 @@
-const exitButton = document.getElementById("exitButton");
-//Import DOMSanitize
+const exitButton = document.getElementById("exitButton"); // Import DOMSanitize
 
 let userName = "";
 let birthday = "";
 let templateNum = 0;
 let currentQuestion;
-let totalNumQuestions = 1; //Counting starting from 0
+let totalNumQuestions = 1; // Counting starting from 0
 
 window.addEventListener("DOMContentLoaded", init);
 
 /**
- * Init function. Currently only starts up templates
- * @class Questionaire
- * @author Eric Chen, Jessica He, Chris Kim, Byte Brokers
+ * Initilizer to show the template
+ * @module Questionaire
+ * @author Jessica He
  */
 export function init() {
   showContent(templateNum);
 }
 
-//Parses input of all numbers
+/**
+ * Parses input of all numbers
+ * @function parseNumbers
+ */
 export function parseNumbers(string) {
   return string.replace(/\d/g, "");
 }
 
 /**
- * @function
  * Goes through all the questions in the questionnaire, displaying the questions one after another
  * based on when the user clicks the continue button.
+ * @function showContent
  */
 export function showContent(templateNum) {
   //Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
@@ -46,7 +48,8 @@ export function showContent(templateNum) {
 }
 
 /**
- * @function Initalize the name and birthday Question
+ * Initalizes the name and birthday Question
+ * @function initNameBirth
  */
 export function initNameBirth() {
   const nameInput = document.getElementById("fname");
@@ -62,17 +65,17 @@ export function initNameBirth() {
     userName = name;
   });
 
-  //Sets birthday value based on input
+  /**
+   * Sets birthday value based on input
+   */
   birthdayInput.addEventListener("change", (event) => {
     birthday = event.target.value;
   });
 }
 /**
- * @function
- * This Exit button. This function checks:
- * - If the user has inputted all required information
- * - Creates UI to prompt the user to confirm their selection
- * - Moves to the next page after all checks
+ * This function checks if the user has inputted all required information creates UI
+ * to prompt the user to confirm their selection and moves to the next page after all checks
+ * @function window.addEventListener
  */
 window.addEventListener("DOMContentLoaded", (event) => {
   const exitButton = document.getElementById("exitButton");

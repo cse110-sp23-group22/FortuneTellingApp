@@ -1,18 +1,18 @@
 {
-  "JSDocs": {
-    "title": "Starting with JSDocs"
-  },
   "Classes": {
     "children": {
       "Horoscope": {
-        "title": "Horoscope Class"
+        "title": "Horoscope"
       },
       "Questionaire": {
-        "title": "Questionaire Class"
+        "title": "Questionaire"
       },
       "Tarot": {
-        "title": "TarotDisplay Class"
+        "title": "TarotDisplay"
       }
     }
+  },
+  "JSDocs": {
+    "title": "Starting with JSDocs"
   }
 }

@@ -6,17 +6,18 @@ window.addEventListener("DOMContentLoaded", init);
 let jobData, PersonalData, loveData;
 
 /**
- * @description Fetches the Tarot Card Answer
- * @tutorial TarotDisplay
- * @class Tarot Card
+ * @module TarotDisplay
+ * @description Fetches the Tarot Card Answer.
+ * Returns 0 if error, 1 if successfully load tarot card descriptions.
+ * Appends image corresponding to the selected tarot card.
+ * @returns int
+ * @throws Fetch API failure errors
+ * @tutorial Tarot
  * @author Chris, Eric, Jessica
  */
 async function init() {
-  //Eric Here: This is scuffed but necessary
   try {
-    //fetch the horoscope json file and convert to an array
-    //containing the responses
-    //TODO: Fix this with local storage
+    // Fetch the horoscope json file and convert to an array containing the responses
     let tarotData = await fetch("./TarotCardAnswer.JSON");
     tarotData = await tarotData.json();
     jobData =
@@ -27,11 +28,11 @@ async function init() {
       ];
     loveData =
       tarotData["love"][Math.floor(Math.random() * tarotData["love"].length)];
-    //Set Card Images (Target: 1,3,5)
+    // Set Card Images (Target: 1,3,5)
     cardImages[1].src = `./TarotCardGraphics/${jobData["TarotCard"]}.png`;
     cardImages[3].src = `./TarotCardGraphics/${PersonalData["TarotCard"]}.png`;
     cardImages[5].src = `./TarotCardGraphics/${loveData["TarotCard"]}.png`;
-    //exit code
+    // Exit code
     return 1;
   } catch (error) {
     console.error(error);
@@ -42,20 +43,23 @@ async function init() {
 homeButton = document.getElementById("homeButton");
 homeButton.addEventListener("click", goHome);
 
-/**
- * @description changes the location of the window to the home page
- * @tutorial Tarot-tutorial
- * @class Horoscope
- * @author Nikan, Bill, Jennifer
+/** 
+ * @function
+ * @description Exits back to main
+ * @author Chris, Eric, Jessica
  */
 function goHome() {
   window.location.href = "../../index.html";
 }
 
-// Intended behavior or no?!
+/** 
+ * @function
+ * @description Reveals Card by flipping the tarot card image and displaying meaning on the bottom row.
+ * @author Chris, Eric, Jessica
+ */
 function revealCard(cardIndex) {
   const card = cardElements[cardIndex];
-  //Unflipping the rest (COMMENT OUT IF THIS ISN'T INTENDED) but I find current behavior odd
+  // Unflipping the rest (COMMENT OUT IF THIS ISN'T INTENDED) but I find current behavior odd
   cardElements.forEach((prevCard) => {
     if (prevCard.classList.contains("flipped")) {
       prevCard.classList.toggle("flipped");
@@ -63,7 +67,7 @@ function revealCard(cardIndex) {
   });
   card.classList.toggle("flipped");
 
-  //Setting data
+  // Setting data
   const cardTitle = document.getElementsByTagName("h2")[0];
   let data;
   switch (cardIndex) {
