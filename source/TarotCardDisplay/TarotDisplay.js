@@ -5,6 +5,12 @@ window.addEventListener("DOMContentLoaded", init);
 
 let jobData, PersonalData, loveData;
 
+/**
+ * @description Fetches the Tarot Card Answer
+ * @tutorial TarotDisplay
+ * @class Tarot Card
+ * @author Chris, Eric, Jessica
+ */
 async function init() {
   //Eric Here: This is scuffed but necessary
   try {
@@ -88,18 +94,3 @@ function revealCard(cardIndex) {
     meaningText.innerText = "";
   }
 }
-
-//Eric Here: So apparently we get this from localStorage or atleast they want me to so imma comment this out
-//Local storage is dumb currently I am ripping off horoscope display and taking it from the JSON we have
-/*
-function getCardMeaning(cardIndex) {
-  // Add your own logic to retrieve the meaning based on the card index
-  // For demonstration purposes, a dummy meaning is returned here
-  const meanings = [
-    'Card 0 Meaning',
-    'Card 1 Meaning',
-    'Card 2 Meaning'
-  ];
-
-  return meanings[cardIndex];
-}*/
