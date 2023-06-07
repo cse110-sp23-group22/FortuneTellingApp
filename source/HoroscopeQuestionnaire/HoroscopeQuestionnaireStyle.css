@@ -13,6 +13,22 @@ body {
   width: 100vw;
 }
 
+#logo {
+  filter: invert(100);
+  width: 10vw;
+  height: 10vh;
+  max-width: 110px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  height: 89vh;
+  background-color: transparent;
+  flex-direction: column;
+  margin-bottom: none;
+}
+
 #gradient {
   pointer-events: none;
   position: fixed;
@@ -37,11 +53,11 @@ body {
   align-items: center;
   justify-content: space-around;
   width: 100vw;
-  height: 40vw;
+  height: 50vw;
 
   align-self: center;
   background-clip: unset;
-  top: 15dvh;
+
   position: relative;
   padding: 5px;
 }
@@ -64,7 +80,7 @@ body {
 }
 
 input {
-  max-width: 30%;
+  max-width: 35%;
   background-color: transparent;
   height: 2.25vmin;
   font-size: 1.5vmin;
@@ -75,13 +91,20 @@ input {
   position: relative;
   text-align: center;
   font-size: 1.5vw;
-  max-width: 23%;
-  width: 50vw;
+  max-width: 25%;
+
   color: black;
   align-content: center;
   align-self: flex-start;
   top: 15%;
-  left: 7.5%;
+  right: 5%;
+}
+
+@media (min-width: 1350px) {
+  #questionnaire {
+    right: 0%;
+    max-width: 23%;
+  }
 }
 
 .shakeElement {
@@ -97,38 +120,48 @@ Currently it shaks half the degrees and returns to starting position and repeats
   0% {
     transform: translateX(0);
   }
+
   10% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   20% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
+
   30% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   40% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
+
   50% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   60% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
+
   70% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   80% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
+
   90% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   100% {
     transform: translateX(0) rotateZ(0);
   }
@@ -136,7 +169,6 @@ Currently it shaks half the degrees and returns to starting position and repeats
 
 fieldset {
   border: none;
-  
 }
 
 #fname,
@@ -145,15 +177,15 @@ fieldset {
 }
 
 #exitButton {
-  margin-right: 0px;
   position: relative;
-  top: 40%;
-  width: 5vw;
-  height: 2vw;
-  font-size: 0.75vw;
+
+  margin-top: 1vh;
+  width: 7vw;
+  height: 2.5vw;
+  font-size: 1vw;
   text-align: center;
   font-family: "Kalam", cursive;
-  align-self: flex-start;
+  align-self: center;
   background-image: url("../Assets/Button.png");
   background-position: center;
   background-repeat: no-repeat;
