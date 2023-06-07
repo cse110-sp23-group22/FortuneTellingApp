@@ -9,6 +9,8 @@
 
 body {
   overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 #gradient {
@@ -39,7 +41,7 @@ body {
 
   align-self: center;
   background-clip: unset;
-  top: 10dvh;
+  top: 15dvh;
   position: relative;
   padding: 5px;
 }
@@ -62,8 +64,10 @@ body {
 }
 
 input {
-  max-width: 50%;
+  max-width: 30%;
   background-color: transparent;
+  height: 2.25vmin;
+  font-size: 1.5vmin;
 }
 
 #questionnaire {
@@ -132,6 +136,7 @@ Currently it shaks half the degrees and returns to starting position and repeats
 
 fieldset {
   border: none;
+  
 }
 
 #fname,
