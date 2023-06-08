@@ -24,7 +24,6 @@ body {
 }
 
 #book {
-  background-image: url("../Assets/Book.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-size: contain;
@@ -42,6 +41,12 @@ body {
   top: 10dvh;
   position: relative;
   padding: 5px;
+}
+
+#bookImg{
+  color: black;
+  position: absolute;
+  object-fit: cover;
 }
 
 .overlay {
