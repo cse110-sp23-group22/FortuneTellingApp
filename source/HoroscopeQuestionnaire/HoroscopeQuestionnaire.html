@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Horoscope Questionaire</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Horoscope Questionnaire" />
+    <meta name="keywords" content="Horoscope" />
+    <meta name="author" content="Byte Brokers - Team 22, CSE110 SP23, UCSD" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../Styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="HoroscopeQuestionnaireStyle.css"
+    />
+    <script type="module" src="HoroscopeQuestionnaire.js"></script>
+    <script src="../TransitionCanvas/TransitionCanvas.js"></script>
+  </head>
+  <body>
+    <canvas is="transition-canvas" duration="1000"></canvas>
+    <div class="overlay"></div>
+    <div id="gradient"></div>
+    <main>
+      <h1 class="header">Questionnaire Page</h1>
+      <div id="pageWrapper">
+        <div id="book" class="">
+        <div id="questionnaire" class="left-page">
+          <template>
+            <section id="question">
+              <form action="./HoroscopeQuestionnaire.html">
+                <fieldset>
+                  <!-- Add effects that text appear itself -->
+                  <label for="fname"
+                    >"Speak thy name and unleash the horrors that lie within":
+                  </label>
+                  <input
+                    type="text"
+                    id="fname"
+                    name="fname"
+                    style="
+                      border: none;
+                      outline: none;
+                      border-bottom: 2px solid #000000;
+                    "
+                  /><br /><br />
+                  <output></output>
+                  <!-- We may want to check for name inputs (Only alaphabets and such) -->
+                  <label for="birthday">
+                    "Summon forth the cursed knowledge of thy birth
+                    date":</label
+                  >
+                  <input type="date" id="birthday" name="birthday" />
+                </fieldset>
+              </form>
+              <br />
+            </section>
+          </template>
+        </div>
+      </div>
+        <div class="right-page">
+          <template>
+            <section id="question">
+              <form action="./HoroscopeQuestionnaire.html">
+                <fieldset>
+                  <label for="Memes1">"What do you wish to know?": </label>
+                  <input
+                    type="text"
+                    id="Memes1"
+                    name="Memes1"
+                    style="border-radius: 0; margin: 0"
+                  /><br /><br />
+                  <!-- We may want to check for name inputs (Only alaphabets and such) -->
+                  <label for="Memes2"> "They sleep above":</label>
+                  <input
+                    type="text"
+                    id="Memes2"
+                    name="Memes2"
+                    style="border-radius: 0; margin: 0"
+                  /><br /><br />
+                </fieldset>
+              </form>
+              <br />
+            </section>
+          </template>
+        </div>
+        <button id="exitButton">Continue</button>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
