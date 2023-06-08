@@ -21,9 +21,18 @@
     <canvas is="transition-canvas" duration="1000"></canvas>
     <div class="overlay"></div>
     <div id="gradient"></div>
+    <header>
+      <img
+        id="logo"
+        src="../../admin/Branding/ByteBrokersLogoInitials.svg"
+        alt="ByteBrokersLogo"
+        width="125"
+        height="100"
+      />
+    </header>
     <main>
       <h1>Questionnaire Page</h1>
-      <div id="book" class="">
+      <div id="book">
         <div id="questionnaire" class="left-page">
           <template>
             <section id="question">
@@ -37,13 +46,9 @@
                     type="text"
                     id="fname"
                     name="fname"
-                    style="
-                      border: none;
-                      outline: none;
-                      border-bottom: 2px solid #000000;
-                    "
+                    style="border-radius: 0; margin: 0"
+                    placeholder="Name"
                   /><br /><br />
-                  <output></output>
                   <!-- We may want to check for name inputs (Only alaphabets and such) -->
                   <label for="birthday">
                     "Summon forth the cursed knowledge of thy birth
@@ -82,8 +87,8 @@
             </section>
           </template>
         </div>
-        <button id="exitButton">Continue</button>
       </div>
+      <button id="exitButton">Continue</button>
     </main>
     <footer></footer>
   </body>

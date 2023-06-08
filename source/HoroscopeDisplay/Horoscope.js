@@ -8,8 +8,8 @@ window.addEventListener("load", init);
 /**
  * @description init function used to fetch horoscope.json file and set up the home page
  * event listener behavior. Exit code 1 if successful, 0 if not.
- * @tutorial horoscope-tutorial
- * @class Horoscope
+ * @tutorial Horoscope
+ * @module Horoscope
  * @author Nikan, Bill, Jennifer
  * @throws Fetch API failure errors
  */
@@ -111,7 +111,7 @@ function exampleTest(num) {
 }
 /**
  * @description Based on the input name and birthday, a horoscope reading will be outputted to the user
- * @tutorial horoscope-tutorial
+ * @tutorial Horoscope
  * @author Nikan, Bill, Jennifer
  */
 function outputHoroscope() {
@@ -153,7 +153,7 @@ function outputHoroscope() {
 
 /**
  * @description changes the location of the window to the home page
- * @tutorial horoscope-tutorial
+ * @tutorial Horoscope
  * @author Nikan, Bill, Jennifer
  */
 function goHome() {
@@ -164,7 +164,7 @@ function goHome() {
  * @description returns the index corresponding to the sign in the horoscope.JSON
  *                  file based on the input user birthday, using the hardcoded
  *                  date values.
- * @tutorial horoscope-tutorial
+ * @tutorial Horoscope
  * @param {int} day day of the user birthday
  * @param {int} month month of the user birthday
  * @returns index of the zodiac sign
