@@ -24,15 +24,15 @@ async function init() {
       tarotData["job"][Math.floor(Math.random() * tarotData["job"].length)];
     PersonalData =
       tarotData["PersonalLife"][
-      Math.floor(Math.random() * tarotData["PersonalLife"].length)
+        Math.floor(Math.random() * tarotData["PersonalLife"].length)
       ];
     loveData =
       tarotData["love"][Math.floor(Math.random() * tarotData["love"].length)];
-    // Set Card Images (Target: 1,3,5)
-    cardImages[1].src = `./TarotCardGraphics/${jobData["TarotCard"]}.png`;
-    cardImages[3].src = `./TarotCardGraphics/${PersonalData["TarotCard"]}.png`;
-    cardImages[5].src = `./TarotCardGraphics/${loveData["TarotCard"]}.png`;
-    // Exit code
+    //Set Card Images (Target: 1,3,5)
+    cardImages[1].src = `../Assets/TarotCardGraphics/${jobData["TarotCard"]}.png`;
+    cardImages[3].src = `../Assets/TarotCardGraphics/${PersonalData["TarotCard"]}.png`;
+    cardImages[5].src = `../Assets/TarotCardGraphics/${loveData["TarotCard"]}.png`;
+    //exit code
     return 1;
   } catch (error) {
     console.error(error);
@@ -40,7 +40,7 @@ async function init() {
   }
 }
 
-homeButton = document.getElementById("homeButton");
+let homeButton = document.getElementById("homeButton");
 homeButton.addEventListener("click", goHome);
 
 /** 

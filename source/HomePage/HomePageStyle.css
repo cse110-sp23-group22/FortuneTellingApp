@@ -73,7 +73,7 @@ main {
 }
 
 #horoscope-button {
-  background-image: url("./HoroscopeModuleThumbnail.jpg");
+  background-image: url("../Assets/HoroscopeModuleThumbnail.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -81,7 +81,7 @@ main {
 }
 
 #tarot-button {
-  background-image: url("./CosmicTarotCardModuleThumbnail.jpg");
+  background-image: url("../Assets/CosmicTarotCardModuleThumbnail.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
