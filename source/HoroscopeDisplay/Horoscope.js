@@ -3,9 +3,9 @@
  * @namespace Horoscope
  */
 
-var birthday; // birthday input, got from local storage
-var horoscopeArray; // array including the horoscope responses
-var homeButton; // button used to go back to the home page
+let birthday; // birthday input, got from local storage
+let horoscopeArray; // array including the horoscope responses
+let homeButton; // button used to go back to the home page
 
 // init function on load of the page
 window.addEventListener("load", init);
