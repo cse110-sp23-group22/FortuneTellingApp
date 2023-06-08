@@ -49,7 +49,7 @@ async function init() {
  * @async
  * @function timer
  * @description A timer event that triggers all time based events
- * @author Nikan
+ * @author Eric, Ryan
  */
 async function timer() {
   // TODO: Start the ticking event (SOUND)
@@ -68,7 +68,7 @@ async function timer() {
  * @description Shakes the body by translating X and rotating
  * @param {integer} shakeXAmount - The amount of times the shaking motion should occur
  * @param {integer} RotateAmount - The amount the shake should rotate
- * @author Nikan
+ * @author Eric, Ryan
  */
 function shake(shakeXAmount, RotateAmount) {
   let body = document.getElementsByClassName("page-group")[0];
@@ -196,7 +196,6 @@ function goHome() {
  * @author Nikan
  */
 function adjustIndexForHorroscope(day, month) {
-
   let newIndex; // the index corresponding to the sign in the horoscope.JSON file
 
   // switch statement with the hardcoded values of the days.
@@ -339,3 +338,8 @@ function adjustIndexForHorroscope(day, month) {
   }
   return newIndex;
 }
+
+module.exports = {
+  adjustIndexForHorroscope,
+  init,
+};
