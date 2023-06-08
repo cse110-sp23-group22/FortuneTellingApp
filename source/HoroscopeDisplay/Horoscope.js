@@ -76,7 +76,8 @@ function shake(shakeXAmount, RotateAmount) {
   let shakeEle = document.getElementsByClassName("shakeElement")[0];
   let shakeAmount = shakeXAmount;
   let shakeRotate = RotateAmount;
-  let shakeInterval = setInterval(() => {
+  //let shakeInterval = 
+  setInterval(() => {
     shakeEle.style.setProperty("--shakeAmount", `${shakeAmount}px`);
     shakeEle.style.setProperty("--shakeRotate", `${shakeRotate}deg`);
     shakeAmount++;
@@ -88,12 +89,14 @@ function shake(shakeXAmount, RotateAmount) {
  * @memberOf Horoscope
  * @function concentricGradient
  * @description Slowly fades in closer and closer
+ * @author
  */
 function concentricGradient() {
   let gradient = document.getElementById("gradient");
   let size = 2000;
   let floor = 500;
-  let gradientInterval = setInterval(() => {
+  //let gradientInterval = 
+  setInterval(() => {
     gradient.style.background = `radial-gradient(${size}px,transparent, #000000)`;
     size -= 10;
     if (size < floor) size = floor;
@@ -110,7 +113,8 @@ function pulseRedOverlay(transitionTime) {
   let overlay = document.getElementsByClassName("overlay")[0];
   let delay = transitionTime;
   let redColor = 255; // 255 is the greatest saturation of red
-  let interval = setInterval(() => {
+  //let interval = 
+  setInterval(() => {
     overlay.style.transition = `opacity ${delay / 1000}`; // Changes transition delay (From ms -> s)
     overlay.style.background = `rgb(${redColor},0,0)`;
     redColor -= 50; //* Change this to make it less or more darker each delay
