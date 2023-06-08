@@ -1,6 +1,12 @@
 .header {
   font-family: "Rubik Wet Paint", cursive;
   font-size: 2.5rem;
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: white;
 }
 
 body {
@@ -27,32 +33,14 @@ body {
 }
 
 #book {
-  /* background-image: url("../Assets/Book.png");
-  background-size: 110vmin 75vmin;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 110vmin;
-  height: 75vmin;
-
-  align-self: center;
-  background-clip: unset;
-  top: 10dvh;
-  position: relative;
-  padding: 5px; */
-
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: start;
   gap: 23.6vmin;
   position: relative;
 
-  padding: 5vw;
+  padding-left: 8vw;
   flex-basis: 30%;
   text-align: center;
 
@@ -86,7 +74,7 @@ body {
 
 input {
   max-width: 50%;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 #questionnaire {
@@ -94,13 +82,13 @@ input {
   position: relative;
   text-align: center;
   font-size: 1.5vw;
-  max-width: 23%;
+  max-width: 40%;
   width: 50vw;
   color: black;
   align-content: center;
   align-self: flex-start;
-  top: 15%;
-  left: 7.5%;
+  top: 22%;
+  left: 2%;
 }
 
 .shakeElement {
@@ -164,11 +152,12 @@ fieldset {
 
 #exitButton {
   margin-right: 0px;
-  position: relative;
-  top: 40%;
-  width: 5vw;
-  height: 2vw;
-  font-size: 0.75vw;
+  position: fixed;
+  top: 45%;
+  left: 90%;
+  width: 6vw;
+  height: 3vw;
+  font-size: 1.25vw;
   text-align: center;
   font-family: "Kalam", cursive;
   align-self: flex-start;
