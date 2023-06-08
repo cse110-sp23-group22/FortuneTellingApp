@@ -139,6 +139,7 @@ function outputHoroscope() {
 
   // the correct index corresponding to the horscope sign of the birthday
   let horoscopeSignIndex = adjustIndexForHorroscope(birthdayDay, birthdayMonth);
+  //adjustIndexForHorroscope2(birthdayDay, birthdayMonth);
   console.log(horoscopeSignIndex);
 
   // get the current numereical day of the month for today
@@ -195,147 +196,22 @@ function goHome() {
  * @returns index of the zodiac sign
  * @author Nikan
  */
+
 function adjustIndexForHorroscope(day, month) {
-  let newIndex; // the index corresponding to the sign in the horoscope.JSON file
-
-  // switch statement with the hardcoded values of the days.
-  switch (month) {
-    case 0: // January
-      switch (true) {
-        case day >= 1 && day <= 19:
-          newIndex = 0;
-          break;
-        case day >= 20 && day <= 31:
-          newIndex = 1;
-          break;
-      }
-      break;
-
-    case 1: // February
-      switch (true) {
-        case day >= 1 && day <= 18:
-          newIndex = 1;
-          break;
-        case day >= 19 && day <= 28:
-          newIndex = 2;
-          break;
-      }
-      break;
-
-    case 2: // March
-      switch (true) {
-        case day >= 1 && day <= 20:
-          newIndex = 2;
-          break;
-        case day >= 21 && day <= 31:
-          newIndex = 3;
-          break;
-      }
-      break;
-
-    case 3: // April
-      switch (true) {
-        case day >= 1 && day <= 19:
-          newIndex = 3;
-          break;
-        case day >= 20 && day <= 30:
-          newIndex = 4;
-          break;
-      }
-      break;
-
-    case 4: // May
-      switch (true) {
-        case day >= 1 && day <= 20:
-          newIndex = 4;
-          break;
-        case day >= 21 && day <= 31:
-          newIndex = 5;
-          break;
-      }
-      break;
-
-    case 5: // June
-      switch (true) {
-        case day >= 1 && day <= 20:
-          newIndex = 5;
-          break;
-        case day >= 21 && day <= 30:
-          newIndex = 6;
-          break;
-      }
-      break;
-
-    case 6: // July
-      switch (true) {
-        case day >= 1 && day <= 22:
-          newIndex = 6;
-          break;
-        case day >= 23 && day <= 31:
-          newIndex = 7;
-          break;
-      }
-      break;
-
-    case 7: // August
-      switch (true) {
-        case day >= 1 && day <= 22:
-          newIndex = 7;
-          break;
-        case day >= 23 && day <= 31:
-          newIndex = 8;
-          break;
-      }
-      break;
-
-    case 8: // September
-      switch (true) {
-        case day >= 1 && day <= 22:
-          newIndex = 8;
-          break;
-        case day >= 23 && day <= 30:
-          newIndex = 9;
-          break;
-      }
-      break;
-
-    case 9: // October
-      switch (true) {
-        case day >= 1 && day <= 22:
-          newIndex = 9;
-          break;
-        case day >= 23 && day <= 31:
-          newIndex = 10;
-          break;
-      }
-      break;
-
-    case 10: // November
-      switch (true) {
-        case day >= 1 && day <= 21:
-          newIndex = 10;
-          break;
-        case day >= 22 && day <= 30:
-          newIndex = 11;
-          break;
-      }
-      break;
-
-    case 11: // December
-      switch (true) {
-        case day >= 1 && day <= 21:
-          newIndex = 11;
-          break;
-        case day >= 22 && day <= 31:
-          newIndex = 0;
-          break;
-      }
-      break;
-
-    default:
-      newIndex = null;
-      break;
+  let endDate = horoscopeArray[month]["endDate"];
+  let newIndex = 0;
+  endDate = parseInt(endDate);
+  if (day <= endDate) {
+    newIndex = month;
+  } else {
+    newIndex = month + 1;
   }
+
+  if (newIndex == 12) {
+    newIndex = 0;
+  }
+  console.log(endDate);
+  console.log(newIndex);
   return newIndex;
 }
 
