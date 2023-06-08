@@ -2,17 +2,17 @@
   "Classes": {
     "children": {
       "Horoscope": {
-        "title": "Horoscope"
+        "title": "Horoscope Module"
       },
       "Questionaire": {
-        "title": "Questionaire"
+        "title": "Questionaire Module"
       },
       "Tarot": {
-        "title": "TarotDisplay"
+        "title": "TarotDisplay Module"
       }
     }
   },
   "JSDocs": {
-    "title": "Starting with JSDocs"
+    "title": "Starting JSDocs"
   }
 }
