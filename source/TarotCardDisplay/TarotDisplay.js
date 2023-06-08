@@ -65,11 +65,12 @@ function goHome() {
 function revealCard(cardIndex) {
   const card = cardElements[cardIndex];
   // Unflipping the rest (COMMENT OUT IF THIS ISN'T INTENDED) but I find current behavior odd
-  cardElements.forEach((prevCard) => {
-    if (prevCard.classList.contains("flipped")) {
-      prevCard.classList.toggle("flipped");
-    }
-  });
+  // cardElements.forEach((prevCard) => {
+  //   if (prevCard.classList.contains("flipped")) {
+  //     prevCard.classList.toggle("flipped");
+  //   }
+  // });
+  if (card.classList.contains("flipped")) return;
   card.classList.toggle("flipped");
 
   // Setting data
@@ -98,8 +99,8 @@ function revealCard(cardIndex) {
   if (card.classList.contains("flipped")) {
     cardMeaning.style.display = "block";
     meaningText.innerText = data;
-  } else {
-    cardMeaning.style.display = "none";
-    meaningText.innerText = "";
-  }
+  }// else {
+  //   cardMeaning.style.display = "none";
+  //   meaningText.innerText = "";
+  // }
 }
