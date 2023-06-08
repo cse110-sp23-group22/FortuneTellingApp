@@ -9,29 +9,6 @@ on:
       - 'main'
 permissions: write-all
 jobs:
-  run-linter:
-    name: Run linters
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      # ESLint and Prettier must be in `package.json`
-      - name: Install Node.js dependencies
-        run: |
-          npm install eslint
-          npm ci -1 verbose
-
-      - name: Run linter
-        run: |
-          npx eslint ./source
-
   run-prettier:
     name: Run Prettier
     runs-on: ubuntu-latest
@@ -45,7 +22,7 @@ jobs:
       with:
         node-version: 18
 
-    # ESLint and Prettier must be in `package.json`
+    # Prettier must be in `package.json`
     - name: Install Node.js dependencies
       run: |
         npm install prettier 
@@ -54,4 +31,12 @@ jobs:
     - name: Run Prettier
       run: |
         npx prettier --write ./source 
+
+    - name: Commit Reformated Code
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: GitHub Actions
+        author_email: noreply@github.com
+        message: 'Generated formated code'
+        add: 'source/**'
         
