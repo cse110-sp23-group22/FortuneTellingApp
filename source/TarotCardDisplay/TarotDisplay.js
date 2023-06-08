@@ -3,7 +3,7 @@ const cardImages = document.getElementsByTagName("img");
 
 window.addEventListener("DOMContentLoaded", init);
 
-let jobData, PersonalData, loveData;
+let dataOne, dataTwo,dataThree;
 
 /**
  * @module TarotDisplay
@@ -17,21 +17,26 @@ let jobData, PersonalData, loveData;
  */
 async function init() {
   try {
-    // Fetch the horoscope json file and convert to an array containing the responses
+    //fetch the horoscope json file and convert to an array
+    //containing the responses
+    //TODO: Fix this with local storage
+    let type = localStorage.getItem("readingType");
     let tarotData = await fetch("./TarotCardAnswer.JSON");
     tarotData = await tarotData.json();
-    jobData =
-      tarotData["job"][Math.floor(Math.random() * tarotData["job"].length)];
-    PersonalData =
-      tarotData["PersonalLife"][
-        Math.floor(Math.random() * tarotData["PersonalLife"].length)
-      ];
-    loveData =
-      tarotData["love"][Math.floor(Math.random() * tarotData["love"].length)];
+    let tempNum = Math.floor(Math.random() * tarotData[type].length);
+    dataOne = tarotData[type][tempNum];
+    let secondNum = Math.floor(Math.random() * tarotData[type].length);
+    while (secondNum == tempNum) secondNum = Math.floor(Math.random() * tarotData[type].length);
+    dataTwo = tarotData[type][secondNum];
+    let thirdNum = Math.floor(Math.random() * tarotData[type].length);
+    while (thirdNum == tempNum | thirdNum == secondNum) thirdNum = Math.floor(Math.random() * tarotData[type].length);
+    dataThree = tarotData[type][thirdNum];
+
+    
     //Set Card Images (Target: 1,3,5)
-    cardImages[1].src = `../Assets/TarotCardGraphics/${jobData["TarotCard"]}.png`;
-    cardImages[3].src = `../Assets/TarotCardGraphics/${PersonalData["TarotCard"]}.png`;
-    cardImages[5].src = `../Assets/TarotCardGraphics/${loveData["TarotCard"]}.png`;
+    cardImages[1].src = `../Assets/TarotCardGraphics/${dataOne["TarotCard"]}.png`;
+    cardImages[3].src = `../Assets/TarotCardGraphics/${dataTwo["TarotCard"]}.png`;
+    cardImages[5].src = `../Assets/TarotCardGraphics/${dataThree["TarotCard"]}.png`;
     //exit code
     return 1;
   } catch (error) {
@@ -72,16 +77,16 @@ function revealCard(cardIndex) {
   let data;
   switch (cardIndex) {
     case 0:
-      data = jobData["Explanation"];
-      cardTitle.textContent = jobData["TarotCard"];
+      data = dataOne["Explanation"];
+      cardTitle.textContent = dataOne["TarotCard"];
       break;
     case 1:
-      data = PersonalData["Explanation"];
-      cardTitle.textContent = PersonalData["TarotCard"];
+      data = dataTwo["Explanation"];
+      cardTitle.textContent = dataTwo["TarotCard"];
       break;
     case 2:
-      data = loveData["Explanation"];
-      cardTitle.textContent = loveData["TarotCard"];
+      data = dataThree["Explanation"];
+      cardTitle.textContent = dataThree["TarotCard"];
       break;
     default:
       console.error("This card Index does not currently exist yet!");
