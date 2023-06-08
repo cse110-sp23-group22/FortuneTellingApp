@@ -1,0 +1,34 @@
+name: Run Jest Tests
+on:
+  push:
+    branches:
+      - HoroscopeDisplay-Add-to-me
+      - HoroscopeForm_Add-to-me
+      - prod
+
+  pull_request:
+    branches: 
+    - prod
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Tests
+        continue-on-error: true
+        run: npm test -- --coverage
+
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v4.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_REPORTER_ID }}

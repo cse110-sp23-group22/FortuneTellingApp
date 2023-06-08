@@ -1,98 +1,179 @@
 .header {
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-family: 'Rubik Wet Paint', cursive;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: "Rubik Wet Paint", cursive;
 
-    position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, 0);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#pageWrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .page-group {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 23.6vmin;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 23.6vmin;
+  position: relative;
 
-    position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  padding: 5vw;
+  flex-basis: 30%;
+  text-align: center;
 
-    padding: 5vw;
-    flex-basis: 30%;
-    text-align: center;
+  height: 75vmin;
+  width: 110vmin;
 
-    height: 75vmin;
-    width: 110vmin;
+  font-family: "Kalam", cursive;
 
-    font-family: 'Kalam', cursive;
-
-    background-image: url("images/Book.png");
-    background-size: 110vmin 75vmin;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url("../Assets/Book.png");
+  background-size: 110vmin 75vmin;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .subtitle {
-    font-family: 'Satisfy', cursive;
-    color: black;
+  font-family: "Satisfy", cursive;
+  color: black;
 
-    margin-bottom: 6vmin;
+  margin-bottom: 6vmin;
 }
 
 #submitButton {
-    font-family: 'Kalam', cursive;
-    margin-top: 50px;
+  font-family: "Kalam", cursive;
+  margin-top: 50px;
 
-    background-image: url("images/Button.png");
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url("../Assets/Button.png");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .page {
-    width: 30vmin;
-    height: 46vmin;
+  width: 30vmin;
+  height: 46vmin;
 
-    margin-top: 6.2vmin;
+  margin-top: 6.2vmin;
 
-    overflow: scroll;
-    overflow-wrap: break-word;
-    text-overflow: ellipsis;
+  overflow: scroll;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
 }
 
 #horoscopeOutput {
-    color: black;
-    
+  color: black;
 }
 
 #fname {
-    font-family: 'Kalam', cursive;
-    color: black;
+  font-family: "Kalam", cursive;
+  color: black;
 }
 
 #birthday {
-    font-family: 'Kalam', cursive;
-    color: black;
+  font-family: "Kalam", cursive;
+  color: black;
 }
 
 .back {
-    position: fixed;
-    top: 95%;
-    left: 90%;
+  position: fixed;
+  top: 95%;
+  left: 90%;
 
-    font-family: 'Kalam', cursive;
+  font-family: "Kalam", cursive;
 
-    width: 6vw;
-    height: 3vw;
+  width: 6vw;
+  height: 3vw;
 
-    background-image: url("images/Button.png");
-    background-size: 6vw 3vw;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url("../Assets/Button.png");
+  background-size: 6vw 3vw;
+  background-position: center;
+  background-repeat: no-repeat;
 
-    font-size:1.5vw;
+  font-size: 1.5vw;
+}
+
+#gradient {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(2000px, #00000042, #000000);
+  opacity: 0.8;
+  z-index: 9998;
+}
+
+.overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 0, 0);
+  opacity: 0;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+.shown {
+  opacity: 0.5;
+}
+
+.shakeElement {
+  animation: shake 1s infinite;
+  --shakeAmount: 10px;
+  --shakeRotate: 2deg;
+}
+
+/*TODO: Make this shake function actually shake correctly
+Currently it shaks half the degrees and returns to starting position and repeats
+*/
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
+  }
+  20% {
+    transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
+  }
+  30% {
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
+  }
+  40% {
+    transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
+  }
+  50% {
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
+  }
+  60% {
+    transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
+  }
+  70% {
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
+  }
+  80% {
+    transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
+  }
+  90% {
+    transform: translateX(var(--shakeAmount) * -1)
+      rotateZ(var(--shakeRotate) * -1);
+  }
+  100% {
+    transform: translateX(0) rotateZ(0);
+  }
 }
