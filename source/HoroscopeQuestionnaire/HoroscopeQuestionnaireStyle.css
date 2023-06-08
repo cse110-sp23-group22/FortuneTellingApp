@@ -11,6 +11,24 @@
 
 body {
   overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#logo {
+  filter: invert(100);
+  width: 10vw;
+  height: 10vh;
+  max-width: 110px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  height: 89vh;
+  background-color: transparent;
+  flex-direction: column;
+  margin-bottom: none;
 }
 
 #gradient {
@@ -35,9 +53,14 @@ body {
 #book {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: start;
-  gap: 23.6vmin;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  height: 50vw;
+
+  align-self: center;
+  background-clip: unset;
+
   position: relative;
 
   padding-left: 8vw;
@@ -73,8 +96,10 @@ body {
 }
 
 input {
-  max-width: 50%;
-  background-color: rgba(0, 0, 0, 0.2) !important;
+  max-width: 35%;
+  background-color: transparent;
+  height: 2.25vmin;
+  font-size: 1.5vmin;
 }
 
 #questionnaire {
@@ -82,13 +107,20 @@ input {
   position: relative;
   text-align: center;
   font-size: 1.5vw;
-  max-width: 40%;
-  width: 50vw;
+  max-width: 25%;
+
   color: black;
   align-content: center;
   align-self: flex-start;
-  top: 22%;
-  left: 2%;
+  top: 15%;
+  right: 5%;
+}
+
+@media (min-width: 1350px) {
+  #questionnaire {
+    right: 0%;
+    max-width: 23%;
+  }
 }
 
 .shakeElement {
@@ -104,38 +136,48 @@ Currently it shaks half the degrees and returns to starting position and repeats
   0% {
     transform: translateX(0);
   }
+
   10% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   20% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
+
   30% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   40% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
+
   50% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   60% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
+
   70% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   80% {
     transform: translateX(var(--shakeAmount)) rotateZ(var(--shakeRotate));
   }
+
   90% {
     transform: translateX(var(--shakeAmount) * -1)
       rotateZ(var(--shakeRotate) * -1);
   }
+
   100% {
     transform: translateX(0) rotateZ(0);
   }
@@ -151,16 +193,15 @@ fieldset {
 }
 
 #exitButton {
-  margin-right: 0px;
-  position: fixed;
-  top: 45%;
-  left: 90%;
-  width: 6vw;
-  height: 3vw;
-  font-size: 1.25vw;
+  position: relative;
+
+  margin-top: 1vh;
+  width: 7vw;
+  height: 2.5vw;
+  font-size: 1vw;
   text-align: center;
   font-family: "Kalam", cursive;
-  align-self: flex-start;
+  align-self: center;
   background-image: url("../Assets/Button.png");
   background-position: center;
   background-repeat: no-repeat;
