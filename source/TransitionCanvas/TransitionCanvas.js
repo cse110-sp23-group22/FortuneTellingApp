@@ -1,4 +1,8 @@
 /**
+ * @module TransitionCanvas
+ */
+
+/**
  * An extension of the canvas with extra functionality for playing animations.
  * The canvas covers the entire block it is contained in; it is intended to play
  * between transitions of "states" for that block element in the DOM.
@@ -83,9 +87,9 @@ export class TransitionCanvas extends HTMLCanvasElement {
    * will change the sfx of the audio element linked to this transition-canvas.
    * Convenient for development using this canvas.
    * @date 6/3/2023 - 1:23:09 PM
-   * @param {*} attribute
-   * @param {*} previousValue
-   * @param {*} currentValue
+   * @param {String} attribute the attribute modified
+   * @param {String} previousValue the value of the attribute before modification
+   * @param {String} currentValue the value that the attribute was just set to
    */
   attributeChangedCallback(attribute, previousValue, currentValue) {
     if (attribute == "sfx") {
