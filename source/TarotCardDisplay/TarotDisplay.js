@@ -76,8 +76,10 @@ function revealCard(cardIndex) {
   // Setting data
   const cardTitle = document.getElementsByTagName("h2")[0];
   let data;
+  var audio = new Audio("/source/Assets/woosh.mp3");
   switch (cardIndex) {
     case 0:
+      audio.play();
       data = dataOne["Explanation"];
       cardTitle.textContent = dataOne["TarotCard"];
       cardElements[0].addEventListener('mouseover', () => {
@@ -87,6 +89,7 @@ function revealCard(cardIndex) {
       });
       break;
     case 1:
+      audio.play();
       data = dataTwo["Explanation"];
       cardTitle.textContent = dataTwo["TarotCard"];
       cardElements[1].addEventListener('mouseover', () => {
@@ -96,6 +99,7 @@ function revealCard(cardIndex) {
       });
       break;
     case 2:
+      audio.play();
       data = dataThree["Explanation"];
       cardTitle.textContent = dataThree["TarotCard"];
       cardElements[2].addEventListener('mouseover', () => {
@@ -115,6 +119,7 @@ function revealCard(cardIndex) {
     cardMeaning.style.display = "block";
     meaningText.innerText = data;
   }
+
   // else {
   //   cardMeaning.style.display = "none";
   //   meaningText.innerText = "";
@@ -123,5 +128,4 @@ function revealCard(cardIndex) {
   // cardElements[0].addEventListener('mouseout', () => {
   //   cardMeaning.style.display = 'none';
   // });
-
 }

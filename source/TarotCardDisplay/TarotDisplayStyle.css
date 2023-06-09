@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
 
-body {
+body,html {
   font-family: "Nosifer", cursive;
   text-align: center;
   background-color: black;
   color: darkred;
   align-items: center;
+  /* // */
+  position: fixed;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
 }
 
 h1 {
@@ -14,7 +20,7 @@ h1 {
   text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
              1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
   font-family: "Nosifer" !important;
-  font-size: default !important;
+  /* font-size: default !important; */
 }
 
 h2{

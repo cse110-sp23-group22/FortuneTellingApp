@@ -15,8 +15,12 @@ body {
 
 h1 {
   text-align: center;
-  font-family: "Rubik Wet Paint", cursive;
+  /* font-family: "Rubik Wet Paint", cursive; */
   font-size: 1.5rem;
+  color: chocolate;
+  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+  font-family: "Nosifer"
 }
 
 form {
