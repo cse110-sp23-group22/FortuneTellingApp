@@ -76,7 +76,7 @@ function shake(shakeXAmount, RotateAmount) {
   let shakeEle = document.getElementsByClassName("shakeElement")[0];
   let shakeAmount = shakeXAmount;
   let shakeRotate = RotateAmount;
-  //let shakeInterval = 
+  //let shakeInterval =
   setInterval(() => {
     shakeEle.style.setProperty("--shakeAmount", `${shakeAmount}px`);
     shakeEle.style.setProperty("--shakeRotate", `${shakeRotate}deg`);
@@ -95,7 +95,7 @@ function concentricGradient() {
   let gradient = document.getElementById("gradient");
   let size = 2000;
   let floor = 500;
-  //let gradientInterval = 
+  //let gradientInterval =
   setInterval(() => {
     gradient.style.background = `radial-gradient(${size}px,transparent, #000000)`;
     size -= 10;
@@ -113,7 +113,7 @@ function pulseRedOverlay(transitionTime) {
   let overlay = document.getElementsByClassName("overlay")[0];
   let delay = transitionTime;
   let redColor = 255; // 255 is the greatest saturation of red
-  //let interval = 
+  //let interval =
   setInterval(() => {
     overlay.style.transition = `opacity ${delay / 1000}`; // Changes transition delay (From ms -> s)
     overlay.style.background = `rgb(${redColor},0,0)`;
@@ -142,7 +142,11 @@ function outputHoroscope() {
   let birthdayDay = birthday.getDate();
 
   // the correct index corresponding to the horscope sign of the birthday
-  let horoscopeSignIndex = adjustIndexForHorroscope(birthdayDay, birthdayMonth);
+  let horoscopeSignIndex = adjustIndexForHorroscope(
+    birthdayDay,
+    birthdayMonth,
+    horoscopeArray
+  );
   //adjustIndexForHorroscope2(birthdayDay, birthdayMonth);
   console.log(horoscopeSignIndex);
 
@@ -201,7 +205,7 @@ function goHome() {
  * @author Nikan
  */
 
-function adjustIndexForHorroscope(day, month) {
+function adjustIndexForHorroscope(day, month, horoscopeArray) {
   let endDate = horoscopeArray[month]["endDate"];
   let newIndex = 0;
   endDate = parseInt(endDate);
