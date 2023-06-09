@@ -1,19 +1,19 @@
 /* Reset default margins and paddings */
-body{
-    height: 100vh;
-    align-items: center;
+body {
+  height: 100vh;
+  align-items: center;
 }
 
 /* add styling for header containing text*/
 header {
-    background-color: transparent;
-    padding: 2vh;
-    color: #fff;
-    text-align: center;
+  background-color: transparent;
+  padding: 2vh;
+  color: #fff;
+  text-align: center;
 }
 
 /*section of the page contianing names of developers/team members*/
-main{
+main {
   height: 80vh;
   width: 100vw;
   display: flex;
@@ -24,21 +24,21 @@ main{
 
 /*Headers used in main*/
 h2 {
-    margin-bottom: 10px;
-    font-family: "kalam", cursive;
+  margin-bottom: 10px;
+  font-family: "kalam", cursive;
 }
 
 /*List elements*/
 ul {
-    list-style-type:circle;
-    margin-left: 20px;
-    color: aliceblue;
-    margin-bottom: 5px;
-    font-size: 3vmin;
+  list-style-type: circle;
+  margin-left: 20px;
+  color: aliceblue;
+  margin-bottom: 5px;
+  font-size: 3vmin;
 }
 
 /*Home button*/
-button{
+button {
   margin: 0.5vh;
   width: 7vw;
   height: 2.5vw;
@@ -50,13 +50,12 @@ button{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
 
 /* Style the footer */
 footer {
-    background-color: transparent;
-    color: #fff;
-    text-align: center;
-    padding: 0;
+  background-color: transparent;
+  color: #fff;
+  text-align: center;
+  padding: 0;
 }
