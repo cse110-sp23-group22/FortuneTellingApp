@@ -23,4 +23,8 @@ window.addEventListener("load", function () {
       }
     }
   });
+
+  transCanv.addEventListener("animationEnded", () => {
+    console.log("animation ended.");
+  });
 });

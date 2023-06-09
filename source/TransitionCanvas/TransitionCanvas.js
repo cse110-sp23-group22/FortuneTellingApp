@@ -6,8 +6,11 @@
  * @typedef {TransitionCanvas}
  * @extends {HTMLCanvasElement}
  */
-class TransitionCanvas extends HTMLCanvasElement {
-  static observedattributes = ["sfx"];
+export class TransitionCanvas extends HTMLCanvasElement {
+  static get observedAttributes() {
+    return ["sfx"];
+  }
+
   constructor() {
     super();
 
@@ -23,7 +26,17 @@ class TransitionCanvas extends HTMLCanvasElement {
 
     // custom transition
     this.transitionAnim = this.fadeIn;
+
+    // status
+    this.status = this.STATUS.START;
   }
+
+  STATUS = {
+    START: 1,
+    PLAYING: 2,
+    PAUSED: 3,
+    END: 4,
+  };
 
   /**
    * Upon connection, check the duration of the transition, an important parameter for the animations.
@@ -51,6 +64,7 @@ class TransitionCanvas extends HTMLCanvasElement {
           this.transitionAnim = this.fadeIn;
           break;
         default:
+          console.error("This animation doesn't exist, defaulting to fadeIn");
           this.transitionAnim = this.fadeIn;
       }
     }
@@ -83,6 +97,7 @@ class TransitionCanvas extends HTMLCanvasElement {
    * @date 6/3/2023 - 12:07:54 PM
    */
   transitionIn() {
+    this.status = this.STATUS.PLAYING;
     this.playAnim(false);
   }
 
@@ -110,6 +125,18 @@ class TransitionCanvas extends HTMLCanvasElement {
 
       if (!firstFrameOnly && elapsed < canvas.duration) {
         window.requestAnimationFrame(step);
+      } else if (canvas.status != canvas.STATUS.END) {
+        // Without this, canvas.duration is undefined when creating the custom event.
+        const animEndEvent = new CustomEvent("animationEnded", {
+          bubbles: true,
+          detail: {
+            firstFrame: firstFrameOnly,
+            elapsed: elapsed,
+            duration: canvas.duration,
+          },
+        });
+        canvas.status = canvas.STATUS.END;
+        canvas.dispatchEvent(animEndEvent);
       }
     }
     window.requestAnimationFrame(step);
