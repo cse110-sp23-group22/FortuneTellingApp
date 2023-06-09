@@ -74,6 +74,12 @@ main {
   background-repeat: no-repeat;
 }
 
+#bookImg {
+  color: black;
+  position: absolute;
+  object-fit: cover;
+}
+
 .overlay {
   pointer-events: none;
   position: fixed;

@@ -1,0 +1,18 @@
+{
+  "Classes": {
+    "children": {
+      "Horoscope": {
+        "title": "Horoscope Module"
+      },
+      "Questionaire": {
+        "title": "Questionaire Module"
+      },
+      "Tarot": {
+        "title": "TarotDisplay Module"
+      }
+    }
+  },
+  "JSDocs": {
+    "title": "Starting JSDocs"
+  }
+}

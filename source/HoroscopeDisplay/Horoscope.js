@@ -16,6 +16,8 @@ window.addEventListener("load", init);
  * @function init
  * @description An init function used to fetch horoscope.json file and set up the home page
  * event listener behavior. Exit code 1 if successful, 0 if not.
+ * @tutorial Horoscope
+ * @module Horoscope
  * @author Nikan, Bill, Jennifer
  * @throws Fetch API failure errors
  */
