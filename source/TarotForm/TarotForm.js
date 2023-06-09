@@ -4,35 +4,40 @@ let creepyQuestion2 = "";
 let readingType = "";
 
 window.addEventListener("DOMContentLoaded", init);
+document.getElementById("myInput").addEventListener("keydown", function() {
+    typingAudio.pause();
+    typingAudio.currentTime = 0;
+    typingAudio.play();
+});
 
 function init() {
-  initQuesetions();
+    initQuesetions();
 }
 //Parses input of all numbers
 function parseNumbers(string) {
-  return string.replace(/\d/g, "");
+    return string.replace(/\d/g, "");
 }
 
 function initQuesetions() {
-  const nameInput = document.getElementById("fname");
-  const questionLeft = document.getElementById("creepyQuestion1");
-  const questionRight = document.getElementById("creepyQuestion2");
+    const nameInput = document.getElementById("fname");
+    const questionLeft = document.getElementById("creepyQuestion1");
+    const questionRight = document.getElementById("creepyQuestion2");
 
-  nameInput.addEventListener("change", (event) => {
-    let name = parseNumbers(event.target.value);
-    //Feature: Reject input not replace?
-    nameInput.value = name;
-    userName = nameInput.value;
-    console.log("hello");
-  });
+    nameInput.addEventListener("change", (event) => {
+        let name = parseNumbers(event.target.value);
+        //Feature: Reject input not replace?
+        nameInput.value = name;
+        userName = nameInput.value;
+        console.log("hello");
+    });
 
-  questionLeft.addEventListener("change", () => {
-    creepyQuestion1 = questionLeft.value;
-  });
+    questionLeft.addEventListener("change", () => {
+        creepyQuestion1 = questionLeft.value;
+    });
 
-  questionRight.addEventListener("change", () => {
-    creepyQuestion2 = questionRight.value;
-  });
+    questionRight.addEventListener("change", () => {
+        creepyQuestion2 = questionRight.value;
+    });
 }
 
 /**
@@ -42,29 +47,30 @@ function initQuesetions() {
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
  */
 document
-  .getElementById("exitButton")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    let name = document.getElementById("form1").elements[0].value;
-    let readingTypes = document.getElementsByName("TarotCatagory");
-    for (i = 0; i < readingTypes.length; i++) {
-      if (readingTypes[i].checked) {
-        readingType = readingTypes[i].value;
-      }
-    }
+    .getElementById("exitButton")
+    .addEventListener("click", function(event) {
+        event.preventDefault();
+        let name = document.getElementById("form1").elements[0].value;
+        let readingTypes = document.getElementsByName("TarotCatagory");
+        for (i = 0; i < readingTypes.length; i++) {
+            if (readingTypes[i].checked) {
+                readingType = readingTypes[i].value;
+            }
+        }
 
-    if (readingTypes == "" || userName == "" || creepyQuestion1 == "") {
-      alert("Please fill out all fields!");
-      return;
-    }
+        if (readingTypes == "" || userName == "" || creepyQuestion1 == "") {
+            alert("Please fill out all fields!");
+            return;
+        }
 
-    window.location.href = "../TarotCardDisplay/TarotDisplay.html";
-    //alert("Form 1 submitted!\nName: " + name);
-  });
+        window.location.href = "../TarotCardDisplay/TarotDisplay.html";
+        //alert("Form 1 submitted!\nName: " + name);
+    });
 
-window.onbeforeunload = function () {
-  localStorage.clear();
 
-  localStorage.setItem("userName", userName);
-  localStorage.setItem("readingType", readingType);
+window.onbeforeunload = function() {
+    localStorage.clear();
+
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("readingType", readingType);
 };
