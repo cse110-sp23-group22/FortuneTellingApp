@@ -67,7 +67,6 @@ main {
   font-family: "Kalam", cursive;
 
   background-image: url("../Assets/Book.png");
-  background-size: 110vmin 75vmin;
   background-size: contain;
   
   background-position: center;
