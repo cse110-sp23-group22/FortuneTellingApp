@@ -2,11 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
 
 body {
-  background-color: black;
   background-image: url("./Assets/home-table.png");
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
+  background-position: center center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  min-height: 100vh;
   color: white;
   padding: 0px;
   margin: 0px;
