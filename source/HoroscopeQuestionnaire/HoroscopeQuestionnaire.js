@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", init);
 
 /**
  * @memberOf Questionnaire
- * @function init 
+ * @function init
  * @description An init function that starts up templates
  * @author Eric Chen, Jessica He, Chris Kim
  */
@@ -23,7 +23,7 @@ export function init() {
 
 /**
  * @memberOf Questionnaire
- * @function parseNumbers 
+ * @function parseNumbers
  * @description A function that parses the input of all numbers
  * @param {string} string - The string of numbers to be parsed
  * @returns string with only valid letters
@@ -39,7 +39,7 @@ export function parseNumbers(string) {
  * @description Goes through all the questions in the questionnaire, displaying the questions one after another
  *                  based on when the user clicks the continue button.
  * @param templateNum - question set number
- * @author 
+ * @author
  */
 export function showContent(templateNum) {
   // Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
@@ -62,7 +62,7 @@ export function showContent(templateNum) {
  * @memberOf Questionnaire
  * @function initNameBirth
  * @description Initalizes the name and birthday Question
- * @author 
+ * @author
  */
 export function initNameBirth() {
   const nameInput = document.getElementById("fname");
@@ -99,6 +99,12 @@ window.addEventListener("DOMContentLoaded", () => {
         alert("Please fill out required fields!");
         // Idk play some spooky sound
         return;
+      } else {
+        //? Clear Local storage???
+        localStorage.clear();
+        //Store data into local storage
+        localStorage.setItem("UserName", userName);
+        localStorage.setItem("Birthday", birthday);
       }
       // Checks templateNum to see how far the user is to the end
       if (templateNum < totalNumQuestions) {
@@ -121,6 +127,7 @@ window.addEventListener("DOMContentLoaded", () => {
         showContent(templateNum);
       } else {
         // Moves to next page (Currently submit is used to call window.onbeforeunload)
+
         window.location.href = "../HoroscopeDisplay/Horoscope.html";
         console.log("Exiting page");
       }
@@ -133,6 +140,7 @@ window.addEventListener("DOMContentLoaded", () => {
 /**
  * On Exit Function -> Stores user data into local storage for further use
  */
+/*
 window.onbeforeunload = function () {
   //? Clear Local storage???
   localStorage.clear();
@@ -140,3 +148,4 @@ window.onbeforeunload = function () {
   localStorage.setItem("UserName", userName);
   localStorage.setItem("Birthday", birthday);
 };
+*/
