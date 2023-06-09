@@ -18,7 +18,10 @@
       type="image/x-icon"
       href="./admin/Branding/ByteBrokersLogoInitials.svg"
     />
-    <script src="source/TransitionCanvas/TransitionCanvas.js"></script>
+    <script
+      type="module"
+      src="source/TransitionCanvas/TransitionCanvas.js"
+    ></script>
     <script src="./source/HomePage/HomePage.js"></script>
   </head>
 
@@ -43,16 +46,13 @@
       />
     </header>
     <main>
-      <div id="banner">
-        <h1>Horrorscope</h1>
-      </div>
+      <h1>Horrorscope</h1>
       <div class="button-group">
         <a
           id="horoscope-button"
           class="button"
           href="./source/HoroscopeQuestionnaire/HoroscopeQuestionnaire.html"
         >
-          <!-- <img src="HoroscopeModuleThumbnail.jpg" alt="Button 1"> -->
           View Your Horrorscope!
         </a>
         <a
@@ -60,7 +60,6 @@
           class="button"
           href="./source/TarotForm/TarotForm.html"
         >
-          <!-- <img src="button2.png" alt="Button 2"> -->
           Cosmic Tarot Card Reading!
         </a>
       </div>
@@ -76,6 +75,11 @@
             id="footerEl"
             href="https://cse110-sp23-group22.github.io/cse110-sp23-group22/"
             >Landing Page</a
+          >
+          <a
+            id="footerEl"
+            href="./source/HomePage/CreditsPage.html"
+            >Credits</a
           >
         </nav>
       </footer>

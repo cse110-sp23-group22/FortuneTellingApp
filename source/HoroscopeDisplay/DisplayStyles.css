@@ -1,5 +1,4 @@
 .header {
-  background-color: black;
   color: white;
   text-align: center;
   font-family: "Rubik Wet Paint", cursive;
@@ -22,7 +21,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  gap: 23.6vmin;
+  gap: 20vmin;
   position: relative;
 
   padding: 5vw;
@@ -69,6 +68,7 @@
 
 #horoscopeOutput {
   color: black;
+  font-size: 1.2vw;
 }
 
 #fname {
