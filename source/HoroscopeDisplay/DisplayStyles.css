@@ -9,6 +9,11 @@
   transform: translate(-50%, 0);
 }
 
+h1 {
+  /* overwrite the shaodw from Styles.css */
+  text-shadow: none;
+}
+
 #pageWrapper {
   position: fixed;
   top: 50%;
