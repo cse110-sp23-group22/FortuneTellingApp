@@ -62,7 +62,8 @@ main {
   text-decoration: none;
   text-align: center;
   text-overflow: visible;
-  font-size: 180%;
+  font-family: "kalam", cursive;
+  font-size: 3.5vw;
   font-weight: bold;
   cursor: pointer;
   width: 40vmin;
@@ -83,7 +84,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 80%;
+  opacity: 90%;
 }
 
 #tarot-button {
@@ -91,7 +92,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 80%;
+  opacity: 95%;
 }
 
 /* Style the button images */
