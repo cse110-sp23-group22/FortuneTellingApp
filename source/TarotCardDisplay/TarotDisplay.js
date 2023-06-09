@@ -3,7 +3,7 @@ const cardImages = document.getElementsByTagName("img");
 
 window.addEventListener("DOMContentLoaded", init);
 
-let dataOne, dataTwo,dataThree;
+let dataOne, dataTwo, dataThree;
 
 /**
  * @module TarotDisplay
@@ -26,13 +26,14 @@ async function init() {
     let tempNum = Math.floor(Math.random() * tarotData[type].length);
     dataOne = tarotData[type][tempNum];
     let secondNum = Math.floor(Math.random() * tarotData[type].length);
-    while (secondNum == tempNum) secondNum = Math.floor(Math.random() * tarotData[type].length);
+    while (secondNum == tempNum)
+      secondNum = Math.floor(Math.random() * tarotData[type].length);
     dataTwo = tarotData[type][secondNum];
     let thirdNum = Math.floor(Math.random() * tarotData[type].length);
-    while (thirdNum == tempNum | thirdNum == secondNum) thirdNum = Math.floor(Math.random() * tarotData[type].length);
+    while ((thirdNum == tempNum) | (thirdNum == secondNum))
+      thirdNum = Math.floor(Math.random() * tarotData[type].length);
     dataThree = tarotData[type][thirdNum];
 
-    
     //Set Card Images (Target: 1,3,5)
     cardImages[1].src = `../Assets/TarotCardGraphics/${dataOne["TarotCard"]}.png`;
     cardImages[3].src = `../Assets/TarotCardGraphics/${dataTwo["TarotCard"]}.png`;
@@ -48,7 +49,7 @@ async function init() {
 let homeButton = document.getElementById("homeButton");
 homeButton.addEventListener("click", goHome);
 
-/** 
+/**
  * @function
  * @description Exits back to main
  * @author Chris, Eric, Jessica
@@ -57,7 +58,7 @@ function goHome() {
   window.location.href = "../../index.html";
 }
 
-/** 
+/**
  * @function
  * @description Reveals Card by flipping the tarot card image and displaying meaning on the bottom row.
  * @author Chris, Eric, Jessica
@@ -82,8 +83,8 @@ function revealCard(cardIndex) {
       audio.play();
       data = dataOne["Explanation"];
       cardTitle.textContent = dataOne["TarotCard"];
-      cardElements[0].addEventListener('mouseover', () => {
-        cardMeaning.style.display = 'block';
+      cardElements[0].addEventListener("mouseover", () => {
+        cardMeaning.style.display = "block";
         cardTitle.textContent = dataOne["TarotCard"];
         meaningText.innerText = dataOne["Explanation"];
       });
@@ -92,8 +93,8 @@ function revealCard(cardIndex) {
       audio.play();
       data = dataTwo["Explanation"];
       cardTitle.textContent = dataTwo["TarotCard"];
-      cardElements[1].addEventListener('mouseover', () => {
-        cardMeaning.style.display = 'block';
+      cardElements[1].addEventListener("mouseover", () => {
+        cardMeaning.style.display = "block";
         cardTitle.textContent = dataTwo["TarotCard"];
         meaningText.innerText = dataTwo["Explanation"];
       });
@@ -102,8 +103,8 @@ function revealCard(cardIndex) {
       audio.play();
       data = dataThree["Explanation"];
       cardTitle.textContent = dataThree["TarotCard"];
-      cardElements[2].addEventListener('mouseover', () => {
-        cardMeaning.style.display = 'block';
+      cardElements[2].addEventListener("mouseover", () => {
+        cardMeaning.style.display = "block";
         cardTitle.textContent = dataThree["TarotCard"];
         meaningText.innerText = dataThree["Explanation"];
       });
