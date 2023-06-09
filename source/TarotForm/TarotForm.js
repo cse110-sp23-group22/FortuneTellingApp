@@ -4,11 +4,11 @@ let creepyQuestion2 = "";
 let readingType = "";
 
 window.addEventListener("DOMContentLoaded", init);
-document.getElementById("myInput").addEventListener("keydown", function() {
-    typingAudio.pause();
-    typingAudio.currentTime = 0;
-    typingAudio.play();
-});
+// document.getElementById("myInput").addEventListener("keydown", function() {
+//     typingAudio.pause();
+//     typingAudio.currentTime = 0;
+//     typingAudio.play();
+// });
 
 function init() {
     initQuesetions();
