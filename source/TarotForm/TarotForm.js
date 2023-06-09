@@ -10,6 +10,11 @@ let readingType = "";
 let numQuestionsAnswered = 0;
 
 window.addEventListener("DOMContentLoaded", init);
+// document.getElementById("myInput").addEventListener("keydown", function() {
+//     typingAudio.pause();
+//     typingAudio.currentTime = 0;
+//     typingAudio.play();
+// });
 
 function init() {
   initQuesetions();
@@ -52,6 +57,8 @@ function initQuesetions() {
 /**
  * @description First check if all fields have been filled out, then save info
  * to local storage when continue button for Tarot Card Info Page is clicked
+ * @module TarotCardQuestionaire
+ * @author Arjun Kumar, Ryan Lee, Byte Brokers
  * @memberOf Tarot Card Form
  */
 document
@@ -69,7 +76,7 @@ document
       document.getElementById("form1Fieldset").hidden = true;
     } else {
       let readingTypes = document.getElementsByName("TarotCatagory");
-      for (i = 0; i < readingTypes.length; i++) {
+      for (let i = 0; i < readingTypes.length; i++) {
         if (readingTypes[i].checked) {
           readingType = readingTypes[i].value;
         }

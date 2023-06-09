@@ -1,11 +1,5 @@
 {
-  "tutorial-JSDocs": {
-      "title": "Starting with JSDocs"
-  },
-  "tutorial-horoscope": {
-      "title": "Horoscope Usage"
-  },
-  "tutorial-questionaire": {
-    "title": "Questionaire Usage"
+  "opts": {
+    "tutorials": "./docs/tutorials/"
   }
 }
