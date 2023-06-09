@@ -31,7 +31,9 @@
         "preset": "jest-puppeteer",
         "verbose": true,
         "collectCoverage": true,
-        "collectCoverageFrom": ["./source/**"],
+        "collectCoverageFrom": [
+            "./source/**"
+        ],
         "coverageThreshold": {
             "global": {
                 "lines": 90
