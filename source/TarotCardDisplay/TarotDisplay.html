@@ -18,18 +18,21 @@
       type="image/x-icon"
       href="./admin/Branding/ByteBrokersLogoInitials.svg"
     />
+    <audio autoplay loop>
+    <source src="../Assets/fire.wav" type="audio/wav">
+    </audio>
   </head>
 
   <body>
-    <h1>Venture Forth and Choose a Card</h1>
+    <h1>Venture Forth and Reveal Each Card</h1>
 
     <p>
       Brace yourself for the foreboding truth it holds.<br />
-      They echo the whispers of the crypt:
+      <!-- They echo the whispers of the crypt: -->
     </p>
-    <br />
     <div id="cardContainer">
       <div class="card" onclick="revealCard(0)">
+        <p>Past</p>
         <div class="cardInner">
           <div class="cardFront">
             <img
@@ -46,6 +49,7 @@
         </div>
       </div>
       <div class="card" onclick="revealCard(1)">
+        <p>Present</p>
         <div class="cardInner">
           <div class="cardFront">
             <img
@@ -62,6 +66,7 @@
         </div>
       </div>
       <div class="card" onclick="revealCard(2)">
+        <p>Future</p>
         <div class="cardInner">
           <div class="cardFront">
             <img
@@ -79,7 +84,7 @@
       </div>
       <!-- Add more cards here -->
     </div>
-
+    <br>
     <div id="cardMeaning">
       <h2>Card Meaning</h2>
       <p id="meaningText"></p>

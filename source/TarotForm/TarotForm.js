@@ -38,7 +38,7 @@ function initQuesetions() {
 /**
  * @description First check if all fields have been filled out, then save info
  * to local storage when continue button for Tarot Card Info Page is clicked
- * @class Tarot Card Questionnaire
+ * @module TarotCardQuestionaire
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
  */
 document
