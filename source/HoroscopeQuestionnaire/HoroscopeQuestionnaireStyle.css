@@ -68,8 +68,8 @@ main {
 
   background-image: url("../Assets/Book.png");
   background-size: 110vmin 75vmin;
-  /* background-size: contain;
-  background-size: cover; */
+  background-size: contain;
+  
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -109,12 +109,13 @@ input {
   align-content: center;
   align-self: flex-start;
   top: 15%;
-  left: 5%;
+  right: 2%;
 }
 
 @media (min-width: 1350px) {
   #questionnaire {
     right: 0%;
+    left: 5%;
     max-width: 23%;
   }
 }
