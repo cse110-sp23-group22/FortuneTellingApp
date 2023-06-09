@@ -7,16 +7,17 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: white;
+  background-attachment: fixed;
+  color: chocolate;
   padding: 0px;
   margin: 0px;
 }
 
-h1 {
+/* h1 {
   text-align: center;
   font-family: "Rubik Wet Paint", cursive;
   font-size: 1.5rem;
-}
+} */
 
 form {
   border-width: 0px;

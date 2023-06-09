@@ -64,7 +64,7 @@ function goHome() {
  */
 function revealCard(cardIndex) {
   const card = cardElements[cardIndex];
-  // Unflipping the rest (COMMENT OUT IF THIS ISN'T INTENDED) but I find current behavior odd
+  // Unflipping the rest
   // cardElements.forEach((prevCard) => {
   //   if (prevCard.classList.contains("flipped")) {
   //     prevCard.classList.toggle("flipped");
@@ -80,14 +80,29 @@ function revealCard(cardIndex) {
     case 0:
       data = dataOne["Explanation"];
       cardTitle.textContent = dataOne["TarotCard"];
+      cardElements[0].addEventListener('mouseover', () => {
+        cardMeaning.style.display = 'block';
+        cardTitle.textContent = dataOne["TarotCard"];
+        meaningText.innerText = dataOne["Explanation"];
+      });
       break;
     case 1:
       data = dataTwo["Explanation"];
       cardTitle.textContent = dataTwo["TarotCard"];
+      cardElements[1].addEventListener('mouseover', () => {
+        cardMeaning.style.display = 'block';
+        cardTitle.textContent = dataTwo["TarotCard"];
+        meaningText.innerText = dataTwo["Explanation"];
+      });
       break;
     case 2:
       data = dataThree["Explanation"];
       cardTitle.textContent = dataThree["TarotCard"];
+      cardElements[2].addEventListener('mouseover', () => {
+        cardMeaning.style.display = 'block';
+        cardTitle.textContent = dataThree["TarotCard"];
+        meaningText.innerText = dataThree["Explanation"];
+      });
       break;
     default:
       console.error("This card Index does not currently exist yet!");
@@ -99,8 +114,14 @@ function revealCard(cardIndex) {
   if (card.classList.contains("flipped")) {
     cardMeaning.style.display = "block";
     meaningText.innerText = data;
-  }// else {
+  }
+  // else {
   //   cardMeaning.style.display = "none";
   //   meaningText.innerText = "";
   // }
+
+  // cardElements[0].addEventListener('mouseout', () => {
+  //   cardMeaning.style.display = 'none';
+  // });
+
 }

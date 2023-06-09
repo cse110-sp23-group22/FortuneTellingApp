@@ -25,11 +25,11 @@
 
     <p>
       Brace yourself for the foreboding truth it holds.<br />
-      They echo the whispers of the crypt:
+      <!-- They echo the whispers of the crypt: -->
     </p>
-    <br />
     <div id="cardContainer">
       <div class="card" onclick="revealCard(0)">
+        <p>The Past</p>
         <div class="cardInner">
           <div class="cardFront">
             <img
@@ -46,6 +46,7 @@
         </div>
       </div>
       <div class="card" onclick="revealCard(1)">
+        <p>The Present</p>
         <div class="cardInner">
           <div class="cardFront">
             <img
@@ -62,6 +63,7 @@
         </div>
       </div>
       <div class="card" onclick="revealCard(2)">
+        <p>The Future</p>
         <div class="cardInner">
           <div class="cardFront">
             <img
@@ -79,7 +81,7 @@
       </div>
       <!-- Add more cards here -->
     </div>
-
+    <br>
     <div id="cardMeaning">
       <h2>Card Meaning</h2>
       <p id="meaningText"></p>
