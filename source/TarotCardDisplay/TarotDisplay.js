@@ -61,6 +61,7 @@ function goHome() {
 /**
  * @function
  * @description Reveals Card by flipping the tarot card image and displaying meaning on the bottom row.
+ * Upon click, it toggles the 
  * @author Chris, Eric, Jessica
  */
 function revealCard(cardIndex) {
@@ -130,3 +131,16 @@ function revealCard(cardIndex) {
   //   cardMeaning.style.display = 'none';
   // });
 }
+
+const card1 = document.getElementById("card1");
+card1.addEventListener("click", function() {
+  revealCard(0);
+});
+const card2 = document.getElementById("card2");
+card2.addEventListener("click", function() {
+  revealCard(1);
+});
+const card3 = document.getElementById("card3");
+card3.addEventListener("click", function() {
+  revealCard(2);
+});
