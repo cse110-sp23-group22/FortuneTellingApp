@@ -24,6 +24,7 @@ body {
 main {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 89vh;
   background-color: transparent;
   flex-direction: column;
@@ -55,8 +56,8 @@ who's background is the book itself*/
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: 100vw;
-  height: 50vw;
+  width: 95vw;
+  height: 60vw;
   align-self: center;
   background-clip: unset;
   position: relative;
@@ -102,7 +103,7 @@ input {
   font-family: "Kalam", cursive;
   position: relative;
   text-align: center;
-  font-size: 1.5vw;
+  font-size: 2vw;
   max-width: 25%;
 
   color: black;
@@ -117,6 +118,7 @@ screensize*/
   #questionnaire {
     right: 0%;
     left: 5%;
+    font-size: 1.5vw;
     max-width: 23%;
   }
 }
