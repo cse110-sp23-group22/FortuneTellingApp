@@ -21,6 +21,18 @@ export function init() {
   showContent(templateNum);
 }
 
+let homeButton = document.getElementById("homeButton");
+homeButton.addEventListener("click", goHome);
+
+/**
+ * @function
+ * @description Exits back to main
+ * @author Chris
+ */
+function goHome() {
+  window.location.href = "../../index.html";
+}
+
 /**
  * @memberOf HoroscopeQuestionnaire
  * @function parseNumbers
