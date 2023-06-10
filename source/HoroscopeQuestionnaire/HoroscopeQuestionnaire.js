@@ -3,7 +3,7 @@
  * @module HoroscopeQuestionnaire
  */
 
-let userName = ""; 
+let userName = "";
 let birthday = "";
 let templateNum = 0;
 let currentQuestion;
@@ -121,7 +121,7 @@ window.addEventListener("DOMContentLoaded", () => {
         document.getElementById("question").remove();
         showContent(templateNum);
       } else {
-        // Moves to next page 
+        // Moves to next page
         window.location.href = "../HoroscopeDisplay/Horoscope.html";
         console.log("Exiting page");
       }
