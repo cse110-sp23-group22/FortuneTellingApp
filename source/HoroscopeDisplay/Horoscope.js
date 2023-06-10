@@ -20,28 +20,28 @@ window.addEventListener("load", init);
  * @throws Fetch API failure errors
  */
 async function init() {
-  try {
-    // fetch the horoscope json file and convert to an array
-    // containing the responses
-    horoscopeArray = await fetch("./horoscope.JSON");
-    horoscopeArray = await horoscopeArray.json();
-    horoscopeArray = horoscopeArray["data"];
+    try {
+        // fetch the horoscope json file and convert to an array
+        // containing the responses
+        horoscopeArray = await fetch("./horoscope.JSON");
+        horoscopeArray = await horoscopeArray.json();
+        horoscopeArray = horoscopeArray["data"];
 
-    // get homeButton and set up event listener
-    homeButton = document.getElementById("homeButton");
-    homeButton.addEventListener("click", goHome);
+        // get homeButton and set up event listener
+        homeButton = document.getElementById("homeButton");
+        homeButton.addEventListener("click", goHome);
 
-    // Run Timer
-    timer();
-    // output the horoscope based on the birthday of the user
-    outputHoroscope();
-    // exit code
-    return 1;
-  } catch (error) {
-    // catch errors with exit code 0
-    console.error(error);
-    return 0;
-  }
+        // Run Timer
+        timer();
+        // output the horoscope based on the birthday of the user
+        outputHoroscope();
+        // exit code
+        return 1;
+    } catch (error) {
+        // catch errors with exit code 0
+        console.error(error);
+        return 0;
+    }
 }
 
 /**
@@ -51,14 +51,14 @@ async function init() {
  * @author Eric, Ryan
  */
 async function timer() {
-  // TODO: Start the ticking event (SOUND)
-  concentricGradient();
-  // After 10 seconds start blood red screen
-  await new Promise((resolve) => setTimeout(resolve, 10000));
-  pulseRedOverlay(1000);
-  // Start shaking after 10 seconds
-  await new Promise((resolve) => setTimeout(resolve, 10000));
-  shake(1, 1);
+    // TODO: Start the ticking event (SOUND)
+    concentricGradient();
+    // After 10 seconds start blood red screen
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+    pulseRedOverlay(1000);
+    // Start shaking after 10 seconds
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+    shake(1, 1);
 }
 
 /**
@@ -69,18 +69,18 @@ async function timer() {
  * @author Eric, Ryan
  */
 function shake(shakeXAmount, RotateAmount) {
-  let body = document.getElementsByClassName("page-group")[0];
-  body.classList.toggle("shakeElement");
-  let shakeEle = document.getElementsByClassName("shakeElement")[0];
-  let shakeAmount = shakeXAmount;
-  let shakeRotate = RotateAmount;
-  //let shakeInterval =
-  setInterval(() => {
-    shakeEle.style.setProperty("--shakeAmount", `${shakeAmount}px`);
-    shakeEle.style.setProperty("--shakeRotate", `${shakeRotate}deg`);
-    shakeAmount++;
-    //shakeRotate++;
-  }, 1000);
+    let body = document.getElementsByClassName("page-group")[0];
+    body.classList.toggle("shakeElement");
+    let shakeEle = document.getElementsByClassName("shakeElement")[0];
+    let shakeAmount = shakeXAmount;
+    let shakeRotate = RotateAmount;
+    //let shakeInterval =
+    setInterval(() => {
+        shakeEle.style.setProperty("--shakeAmount", `${shakeAmount}px`);
+        shakeEle.style.setProperty("--shakeRotate", `${shakeRotate}deg`);
+        shakeAmount++;
+        //shakeRotate++;
+    }, 1000);
 }
 
 /**
@@ -89,15 +89,15 @@ function shake(shakeXAmount, RotateAmount) {
  * @author ByteBrokers
  */
 function concentricGradient() {
-  let gradient = document.getElementById("gradient");
-  let size = 2000;
-  let floor = 500;
-  //let gradientInterval =
-  setInterval(() => {
-    gradient.style.background = `radial-gradient(${size}px,transparent, #000000)`;
-    size -= 10;
-    if (size < floor) size = floor;
-  }, 100);
+    let gradient = document.getElementById("gradient");
+    let size = 2000;
+    let floor = 500;
+    //let gradientInterval =
+    setInterval(() => {
+        gradient.style.background = `radial-gradient(${size}px,transparent, #000000)`;
+        size -= 10;
+        if (size < floor) size = floor;
+    }, 100);
 }
 
 /**
@@ -106,17 +106,17 @@ function concentricGradient() {
  * @param {integer} transitionTime - The length of transitions and time between each pulse
  */
 function pulseRedOverlay(transitionTime) {
-  let overlay = document.getElementsByClassName("overlay")[0];
-  let delay = transitionTime;
-  let redColor = 255; // 255 is the greatest saturation of red
-  //let interval =
-  setInterval(() => {
-    overlay.style.transition = `opacity ${delay / 1000}`; // Changes transition delay (From ms -> s)
-    overlay.style.background = `rgb(${redColor},0,0)`;
-    redColor -= 50; //* Change this to make it less or more darker each delay
-    // delay *= 0.9; //Added delay in case you want to pulse faster
-    overlay.classList.toggle("shown");
-  }, delay * 2);
+    let overlay = document.getElementsByClassName("overlay")[0];
+    let delay = transitionTime;
+    let redColor = 255; // 255 is the greatest saturation of red
+    //let interval =
+    setInterval(() => {
+        overlay.style.transition = `opacity ${delay / 1000}`; // Changes transition delay (From ms -> s)
+        overlay.style.background = `rgb(${redColor},0,0)`;
+        redColor -= 50; //* Change this to make it less or more darker each delay
+        // delay *= 0.9; //Added delay in case you want to pulse faster
+        overlay.classList.toggle("shown");
+    }, delay * 2);
 }
 
 /**
@@ -125,45 +125,45 @@ function pulseRedOverlay(transitionTime) {
  * @author Nikan, Bill, Jennifer
  */
 function outputHoroscope() {
-  // get birthday and name from local storage
-  let customerBirthday = localStorage.getItem("Birthday");
-  let customerName = localStorage.getItem("UserName");
+    // get birthday and name from local storage
+    let customerBirthday = localStorage.getItem("Birthday");
+    let customerName = localStorage.getItem("UserName");
 
-  // set up birthdate in correct format and get numerical month
-  // note: added time at noon, since date object would change
-  // to EST if not specified and change the date by one
-  birthday = new Date(`${customerBirthday}T12:00:00`);
-  let birthdayMonth = birthday.getMonth();
-  let birthdayDay = birthday.getDate();
+    // set up birthdate in correct format and get numerical month
+    // note: added time at noon, since date object would change
+    // to EST if not specified and change the date by one
+    birthday = new Date(`${customerBirthday}T12:00:00`);
+    let birthdayMonth = birthday.getMonth();
+    let birthdayDay = birthday.getDate();
 
-  // the correct index corresponding to the horscope sign of the birthday
-  let horoscopeSignIndex = adjustIndexForHorroscope(
-    birthdayDay,
-    birthdayMonth,
-    horoscopeArray
-  );
-  //adjustIndexForHorroscope2(birthdayDay, birthdayMonth);
-  console.log(horoscopeSignIndex);
+    // the correct index corresponding to the horscope sign of the birthday
+    let horoscopeSignIndex = adjustIndexForHorroscope(
+        birthdayDay,
+        birthdayMonth,
+        horoscopeArray
+    );
+    //adjustIndexForHorroscope2(birthdayDay, birthdayMonth);
+    console.log(horoscopeSignIndex);
 
-  // get the current numereical day of the month for today
-  let todayDate = new Date();
-  let todayDay = todayDate.getDate();
+    // get the current numereical day of the month for today
+    let todayDate = new Date();
+    let todayDay = todayDate.getDate();
 
-  // randomize the responese of the horroscope by using the date of today to offset
-  // the resopnse of the array
-  let hashValue = (todayDay + horoscopeSignIndex) % 12;
+    // randomize the responese of the horroscope by using the date of today to offset
+    // the resopnse of the array
+    let hashValue = (todayDay + horoscopeSignIndex) % 12;
 
-  // get output elements from the horoscope.html file
-  let horoscopeOutput = document.getElementById("horoscopeOutput");
-  let nameOutput = document.getElementById("fname");
-  let birthdayOutput = document.getElementById("birthday");
-  let zodiacOutput = document.getElementById("zodiacSign");
+    // get output elements from the horoscope.html file
+    let horoscopeOutput = document.getElementById("horoscopeOutput");
+    let nameOutput = document.getElementById("fname");
+    let birthdayOutput = document.getElementById("birthday");
+    let zodiacOutput = document.getElementById("zodiacSign");
 
-  // display the output in the correct element
-  nameOutput.innerHTML = customerName;
-  birthdayOutput.innerHTML = customerBirthday;
-  zodiacOutput.innerHTML = horoscopeArray[horoscopeSignIndex]["sign"];
-  horoscopeOutput.innerHTML = `${horoscopeArray[hashValue]["horoscope"]}`;
+    // display the output in the correct element
+    nameOutput.innerHTML = customerName;
+    birthdayOutput.innerHTML = customerBirthday;
+    zodiacOutput.innerHTML = horoscopeArray[horoscopeSignIndex]["sign"];
+    horoscopeOutput.innerHTML = `${horoscopeArray[hashValue]["horoscope"]}`;
 }
 
 /**
@@ -172,7 +172,7 @@ function outputHoroscope() {
  * @author Nikan, Bill, Jennifer
  */
 function goHome() {
-  window.location.href = "../../index.html";
+    window.location.href = "../../index.html";
 }
 
 /**
@@ -198,24 +198,30 @@ function goHome() {
  * @author Nikan
  */
 function adjustIndexForHorroscope(day, month, horoscopeArray) {
-  let endDate = horoscopeArray[month]["endDate"];
-  let newIndex = 0;
-  endDate = parseInt(endDate);
-  if (day <= endDate) {
-    newIndex = month;
-  } else {
-    newIndex = month + 1;
-  }
+    let endDate = horoscopeArray[month]["endDate"];
+    let newIndex = 0;
+    endDate = parseInt(endDate);
+    if (day <= endDate) {
+        newIndex = month;
+    } else {
+        newIndex = month + 1;
+    }
 
-  if (newIndex == 12) {
-    newIndex = 0;
-  }
-  console.log(endDate);
-  console.log(newIndex);
-  return newIndex;
+    if (newIndex == 12) {
+        newIndex = 0;
+    }
+    console.log(endDate);
+    console.log(newIndex);
+    return newIndex;
 }
 
 module.exports = {
-  adjustIndexForHorroscope,
-  init,
+    init,
+    timer,
+    shake,
+    goHome,
+    outputHoroscope,
+    pulseRedOverlay,
+    concentricGradient,
+    adjustIndexForHorroscope,
 };
