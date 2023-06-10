@@ -24,6 +24,7 @@ body {
 main {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 89vh;
   background-color: transparent;
   flex-direction: column;
