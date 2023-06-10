@@ -22,7 +22,7 @@ global.jsdomDocument = window.document;
 global.jsdomLocalStorage = window.localStorage;
 
 // Then import your js file, assuming it's named myModule.js
-import * as questionnaire from "../source/HoroscopeQuestionnaire/HoroscopeQuestionnaire.js";
+import * as questionnaire from "../source/TarotForm/TarotForm.js";
 
 describe("questionnaire", () => {
   beforeEach(() => {
