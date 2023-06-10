@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Kalam:wght@300&family=Rubik+Wet+Paint&family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
+
+body {
+  background-image: url("./Assets/home-table.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  min-height: 100vh;
+  color: white;
+
+  margin: 0px;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+  font-family: "Nosifer";
+  font-size: 2rem;
+}
+
+form {
+  border-width: 0px;
+  border-color: transparent;
+  outline-width: 0px;
+}

@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
   let transCanv = document.querySelector(`canvas[is="transition-canvas"]`);
   let titlecard = document.getElementById("title-card");
-  titlecard.addEventListener("click", function (event) {
+  titlecard.addEventListener("click", function () {
     transCanv.transitionIn();
     titlecard.style.display = "none";
     transCanv.playSfx();
@@ -22,5 +22,9 @@ window.addEventListener("load", function () {
         return;
       }
     }
+  });
+
+  transCanv.addEventListener("animationEnded", () => {
+    console.log("animation ended.");
   });
 });

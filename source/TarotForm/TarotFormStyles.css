@@ -3,7 +3,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 89vh;
-  background-color: black;
+  background-color: transparent;
   flex-direction: column;
   margin-bottom: none;
 }
@@ -25,7 +25,7 @@ h1 {
   justify-content: space-evenly;
   align-items: flex-start;
   align-content: center;
-  background-image: url("../HoroscopeDisplay/images/Book.png");
+  background-image: url("../Assets/Book.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-size: contain;
@@ -74,8 +74,7 @@ input[type="text"] {
   width: 100%;
   height: 1vh;
   box-sizing: border-box;
-  border: none;
-  border-bottom: 0.2vw solid black;
+  border: 0.2vw solid black;
 }
 
 /* Media query for smaller screens */
@@ -102,7 +101,7 @@ button {
   font-size: 1vw;
   text-align: center;
   font-family: "Kalam", cursive;
-  background-image: url("../HoroscopeDisplay/images/Button.png");
+  background-image: url("../Assets/Button.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
