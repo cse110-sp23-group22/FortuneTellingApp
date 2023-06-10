@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Tarot Card Chooser</title>
     <meta charset="UTF-8" />
     <meta name="description" content="Tarot Card Form Page" />
@@ -9,87 +10,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="TarotDisplayStyle.css" />
     <link rel="stylesheet" type="text/css" href="../Styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="./admin/Branding/ByteBrokersLogoInitials.svg"
-    />
-    <audio autoplay loop>
-    <source src="../Assets/fire.wav" type="audio/wav">
-    </audio>
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./admin/Branding/ByteBrokersLogoInitials.svg" />
+    <!-- <audio autoplay loop>
+    <source src="../Assets/fireplace-woodcrack.mp3" type="audio/mpeg">
+    </audio> -->
+</head>
 
-  <body>
+<body>
     <h1>Venture Forth and Reveal Each Card</h1>
-
+    <!-- <audio autoplay loop>
+    <source src="../Assets/fireplace-woodcrack.mp3" type="audio/mpeg">
+    </audio> -->
     <p>
-      Brace yourself for the foreboding truth it holds.<br />
-      <!-- They echo the whispers of the crypt: -->
+        Brace yourself for the foreboding truth it holds.<br />
+        <!-- They echo the whispers of the crypt: -->
     </p>
     <div id="cardContainer">
-      <div class="card" onclick="revealCard(0)">
-        <p>Past</p>
-        <div class="cardInner">
-          <div class="cardFront">
-            <img
-              src="../Assets/TarotCardGraphics/CardBack.png"
-              alt="Card 0 Front"
-            />
-          </div>
-          <div class="cardBack">
-            <img
-              src="../Assets/TarotCardGraphics/The Angel.png"
-              alt="Card 0 Back"
-            />
-          </div>
+        <div class="card" onclick="revealCard(0)">
+            <p>Past</p>
+            <div class="cardInner">
+                <div class="cardFront">
+                    <img src="../Assets/TarotCardGraphics/CardBack.png" alt="Card 0 Front" />
+                </div>
+                <div class="cardBack">
+                    <img src="../Assets/TarotCardGraphics/The Angel.png" alt="Card 0 Back" />
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="card" onclick="revealCard(1)">
-        <p>Present</p>
-        <div class="cardInner">
-          <div class="cardFront">
-            <img
-              src="../Assets/TarotCardGraphics/CardBack.png"
-              alt="Card 1 Front"
-            />
-          </div>
-          <div class="cardBack">
-            <img
-              src="../Assets/TarotCardGraphics/Devil.png"
-              alt="Card 1 Back"
-            />
-          </div>
+        <div class="card" onclick="revealCard(1)">
+            <p>Present</p>
+            <div class="cardInner">
+                <div class="cardFront">
+                    <img src="../Assets/TarotCardGraphics/CardBack.png" alt="Card 1 Front" />
+                </div>
+                <div class="cardBack">
+                    <img src="../Assets/TarotCardGraphics/Devil.png" alt="Card 1 Back" />
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="card" onclick="revealCard(2)">
-        <p>Future</p>
-        <div class="cardInner">
-          <div class="cardFront">
-            <img
-              src="../Assets/TarotCardGraphics/CardBack.png"
-              alt="Card 2 Front"
-            />
-          </div>
-          <div class="cardBack">
-            <img
-              src="../Assets/TarotCardGraphics/The Emperor.png"
-              alt="Card 2 Back"
-            />
-          </div>
+        <div class="card" onclick="revealCard(2)">
+            <p>Future</p>
+            <div class="cardInner">
+                <div class="cardFront">
+                    <img src="../Assets/TarotCardGraphics/CardBack.png" alt="Card 2 Front" />
+                </div>
+                <div class="cardBack">
+                    <img src="../Assets/TarotCardGraphics/The Emperor.png" alt="Card 2 Back" />
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- Add more cards here -->
+        <!-- Add more cards here -->
     </div>
     <br>
     <div id="cardMeaning">
-      <h2>Card Meaning</h2>
-      <p id="meaningText"></p>
+        <h2>Card Meaning</h2>
+        <p id="meaningText"></p>
     </div>
     <button id="homeButton" class="back">Home</button>
     <script src="TarotDisplay.js"></script>
-  </body>
+</body>
+
 </html>

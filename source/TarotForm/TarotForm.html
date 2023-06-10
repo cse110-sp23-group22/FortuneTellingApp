@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="description" content="Tarot Card Form Page" />
     <meta name="keywords" content="Tarot Card Form" />
@@ -8,82 +9,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="TarotFormStyles.css" />
     <link rel="stylesheet" type="text/css" href="../Styles.css" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="./admin/Branding/ByteBrokersLogoInitials.svg"
-    />
-  </head>
+    <link rel="icon" type="image/x-icon" href="./admin/Branding/ByteBrokersLogoInitials.svg" />
+    <audio id="myAudio" autoplay loop>
+    <source src="../Assets/fireplace-woodcrack.mp3" type="audio/mpeg">
+    </audio>
 
-  <body>
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById("myAudio");
+            audio.volume = 0.1; // Set volume to 20%
+        }
+    </script>
+</head>
+
+<body>
+    <audio id="typingSound" src="../Assets/typing-sound.mp3" type="audio/mpeg"></audio>
+    <input type="text" id="myInput">
+    <script>
+        window.onload = function() {
+            var typingAudio = document.getElementById("typingSound");
+            typingAudio.volume = 0.2; // Set volume to 20%
+            document.getElementById("myInput").addEventListener("keydown", function() {
+                typingAudio.play();
+            });
+        }
+    </script>
+
     <header>
-      <img
-        id="logo"
-        src="../../admin/Branding/ByteBrokersLogoInitials.svg"
-        alt="ByteBrokersLogo"
-        width="125"
-        height="100"
-      />
+        <img id="logo" src="../../admin/Branding/ByteBrokersLogoInitials.svg" alt="ByteBrokersLogo" width="125" height="100" />
     </header>
     <main>
-      <h1>Tarot Card Information</h1>
-      <div class="BookFlexbox">
-        <form id="form1">
-          <fieldset>
-            <p>"Speak thy name and unleash the horrors that lie within":</p>
-            <input type="text" id="fname" name="fname" /><br />
+        <h1>Tarot Card Information</h1>
+        <div class="BookFlexbox">
+            <form id="form1">
+                <fieldset>
+                    <p>"Speak thy name and unleash the horrors that lie within":</p>
+                    <input type="text" id="fname" name="fname" /><br />
 
-            <p>
-              As you traverse the eerie realms of your life, what spectral
-              figures or unsettling occurrences do you encounter, leaving you
-              with a sense of foreboding?
-            </p>
-            <input
-              type="text"
-              id="creepyQuestion1"
-              name="creepyQuestion"
-            /><br />
-          </fieldset>
-        </form>
-        <form id="form2">
-          <fieldset>
-            <p>
-              What Unspeakable Secrets Shall Your Reading Unearth From the
-              Abyss?
-            </p>
-            <!--Options for above question-->
-            <input
-              type="radio"
-              id="radio-PL"
-              name="TarotCatagory"
-              value="PersonalLife"
-            />
-            <label for="radio-PL">Your Horrific Personal Life</label><br />
-            <input
-              type="radio"
-              id="radio-Job"
-              name="TarotCatagory"
-              value="job"
-            />
-            <label for="radio-Job">Your Ugly Work/Job</label><br />
-            <input
-              type="radio"
-              id="radio-Love"
-              name="TarotCatagory"
-              value="love"
-            />
-            <label for="radio-Love">Your Awful Love Life</label><br />
+                    <p>
+                        As you traverse the eerie realms of your life, what spectral figures or unsettling occurrences do you encounter, leaving you with a sense of foreboding?
+                    </p>
+                    <input type="text" id="creepyQuestion1" name="creepyQuestion" /><br />
+                </fieldset>
+            </form>
+            <form id="form2">
+                <fieldset>
+                    <p>
+                        What Unspeakable Secrets Shall Your Reading Unearth From the Abyss?
+                    </p>
+                    <!--Options for above question-->
+                    <input type="radio" id="radio-PL" name="TarotCatagory" value="PersonalLife" />
+                    <label for="radio-PL">Your Horrific Personal Life</label><br />
+                    <input type="radio" id="radio-Job" name="TarotCatagory" value="job" />
+                    <label for="radio-Job">Your Ugly Work/Job</label><br />
+                    <input type="radio" id="radio-Love" name="TarotCatagory" value="love" />
+                    <label for="radio-Love">Your Awful Love Life</label><br />
 
-            <p>
-              Do you feel entangled in a foreboding web of events, where every
-              twist and turn seems to lead you deeper into a realm of terror?
-            </p>
-            <input type="text" id="creepyQuestion2" name="creepyQuestion" />
-          </fieldset>
-        </form>
-      </div>
-      <button id="exitButton">Continue</button>
-      <script src="TarotForm.js"></script>
+                    <p>
+                        Do you feel entangled in a foreboding web of events, where every twist and turn seems to lead you deeper into a realm of terror?
+                    </p>
+                    <input type="text" id="creepyQuestion2" name="creepyQuestion" />
+                </fieldset>
+            </form>
+        </div>
+        <button id="exitButton">Continue</button>
+        <script src="TarotForm.js"></script>
     </main>
-  </body>
+</body>
+
 </html>
