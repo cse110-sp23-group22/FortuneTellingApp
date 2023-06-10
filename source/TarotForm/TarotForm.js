@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", init);
 // });
 
 function init() {
-    initQuesetions();
+    initQuestions();
 }
 /**
  * @description Parses our numbers from name input
@@ -27,10 +27,12 @@ function parseNumbers(string) {
 }
 
 /**
- * @description This function initializes the variables used to store the user
- * answers to the name and reading category questions in the Tarot form page
+ * @function
+ * @description Receives name, and concern in two separate text boxes from
+ * creepyQuestion elements and stores in questionLeft/QuestionRight
+ * Digits in name inputs are replaced.
  */
-function initQuesetions() {
+function initQuestions() {
     const nameInput = document.getElementById("fname");
     const questionLeft = document.getElementById("creepyQuestion1");
     const questionRight = document.getElementById("creepyQuestion2");
@@ -107,4 +109,8 @@ document
 
                         localStorage.setItem("userName", userName);
                         localStorage.setItem("readingType", readingType);
+                    };
+
+                    module.exports = {
+                        initQuestions
                     };
