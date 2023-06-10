@@ -6,19 +6,24 @@ let readingType = "";
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    initQuesetions();
+    initQuestions();
 }
 //Parses input of all numbers
 function parseNumbers(string) {
     return string.replace(/\d/g, "");
 }
 
-function initQuesetions() {
+/**
+ * @function
+ * @description Receives name, and concern with textbox from the user.
+ * Then, selects reading from either personal/work/love life.
+ */
+function initQuestions() {
     const nameInput = document.getElementById("fname");
     const questionLeft = document.getElementById("creepyQuestion1");
     const questionRight = document.getElementById("creepyQuestion2");
 
-    nameInput.addEventListener("change", (event) => {
+    nameInput.addEventListener("input", (event) => {
         let name = parseNumbers(event.target.value);
         //Feature: Reject input not replace?
         nameInput.value = name;
@@ -27,11 +32,11 @@ function initQuesetions() {
     });
 
     questionLeft.addEventListener("change", () => {
-        creepyQuestion1 = questionLeft.value;
+        creepyQuestion1 = questionLeft.value;   // "As you traverse .."
     });
 
     questionRight.addEventListener("change", () => {
-        creepyQuestion2 = questionRight.value;
+        creepyQuestion2 = questionRight.value;  // "Do you feel entangled.."
     });
 }
 

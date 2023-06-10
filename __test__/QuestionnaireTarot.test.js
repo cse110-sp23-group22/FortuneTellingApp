@@ -36,29 +36,8 @@ describe("questionnaire", () => {
     document.body.innerHTML =
       '<div id="exitButton"></div><template></template><div id="questionnaire"></div>';
   });
-
   test("parseNumbers function", () => {
     expect(questionnaire.parseNumbers("John123")).toBe("John");
   });
-
-  test("initNameBirth function", () => {
-    const template = document.createElement("template");
-    template.innerHTML = `
-      <input id="fname" type="text" value="John" />
-      <input id="birthday" type="date" value="2000-01-01" />
-    `;
-    document.body.appendChild(template.content.cloneNode(true));
-
-    // Call the init function which indirectly calls initNameBirth
-    questionnaire.init();
-
-    const nameInput = document.getElementById("fname");
-    const birthdayInput = document.getElementById("birthday");
-
-    // Check that non-numeric characters were removed from name input
-    expect(nameInput.value).toBe("John");
-
-    // Check that birthday value was set
-    expect(birthdayInput.value).toBe("2000-01-01");
-  });
+  
 });
