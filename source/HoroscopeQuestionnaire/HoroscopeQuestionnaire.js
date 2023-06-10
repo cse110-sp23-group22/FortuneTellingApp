@@ -1,5 +1,7 @@
-//const exitButton = document.getElementById("exitButton");
-//Import DOMSanitize
+/**
+ * This file contains the functions for the Horoscope Questionnaire
+ * @module Questionnaire
+ */
 
 let userName = "";
 let birthday = "";
@@ -10,46 +12,53 @@ let totalNumQuestions = 1; //Counting starting from 0
 window.addEventListener("DOMContentLoaded", init);
 
 /**
- * Init function. Currently only starts up templates
- * @class Questionaire
- * @author Eric Chen, Jessica He, Chris Kim, Byte Brokers
+ * @function init
+ * @description An init function that starts up templates
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function init() {
   showContent(templateNum);
 }
 
 /**
- * Parses input of all numbers
+ * @function parseNumbers
+ * @description A function that parses the input of all numbers
+ * @param {string} string - The string of numbers to be parsed
  * @returns string with only valid letters
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function parseNumbers(string) {
   return string.replace(/\d/g, "");
 }
 
 /**
- * Goes through all the questions in the questionnaire, displaying the questions one after another
- * based on when the user clicks the continue button.
- * @param templateNum question set number
+ * @function showContent
+ * @description Goes through all the questions in the questionnaire, displaying the questions one after another
+ *                  based on when the user clicks the continue button.
+ * @param templateNum - question set number
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function showContent(templateNum) {
-  //Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
-  //Set content
+  // Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
+  // Set content
   let temp = document.getElementsByTagName("template")[templateNum];
   currentQuestion = temp.content.cloneNode(true);
   document.getElementById("questionnaire").appendChild(currentQuestion);
-  //Add event listeners based on templateNum
-  //Made a switch statement in case we actually wanna make content
+  // Add event listeners based on templateNum
+  // Made a switch statement in case we actually wanna make content
   switch (templateNum) {
     case 0:
       initNameBirth();
       break;
     default:
-    //By Default none of the other options mean anything rn
+    // By Default none of the other options mean anything rn
   }
 }
 
 /**
- * Initalize the name and birthday Question
+ * @function initNameBirth
+ * @description Initalizes the name and birthday Question
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function initNameBirth() {
   const nameInput = document.getElementById("fname");
@@ -71,26 +80,33 @@ export function initNameBirth() {
   });
 }
 /**
- * This Exit button. This function checks:
+ * @description This Exit button. This function checks:
  * - If the user has inputted all required information
  * - Creates UI to prompt the user to confirm their selection
  * - Moves to the next page after all checks
+ * @function
  */
 window.addEventListener("DOMContentLoaded", () => {
   const exitButton = document.getElementById("exitButton");
   if (exitButton) {
     exitButton.addEventListener("click", async () => {
-      //Check user has inputted all required information
+      // Check user has inputted all required information
       if (userName == "" || birthday == "") {
-        //Theorectically we have custom dialogs or something else that pops up to show that user hasn't inputted
+        // Theorectically we have custom dialogs or something else that pops up to show that user hasn't inputted
         alert("Please fill out required fields!");
-        //Idk play some spooky sound
+        // Idk play some spooky sound
         return;
+      } else {
+        //? Clear Local storage???
+        localStorage.clear();
+        //Store data into local storage
+        localStorage.setItem("UserName", userName);
+        localStorage.setItem("Birthday", birthday);
       }
-      //Checks templateNum to see how far the user is to the end
+      // Checks templateNum to see how far the user is to the end
       if (templateNum < totalNumQuestions) {
-        //TODO: Add cutscene
-        //console.log(noise.perlin3(time*0.05,0,0));
+        // TODO: Add cutscene
+        // console.log(noise.perlin3(time*0.05,0,0));
         let book = document.getElementById("book");
         book.classList.toggle("shakeElement");
         let overlay = document.getElementsByClassName("overlay")[0];
@@ -107,7 +123,8 @@ window.addEventListener("DOMContentLoaded", () => {
         document.getElementById("question").remove();
         showContent(templateNum);
       } else {
-        //Moves to next page (Currently submit is used to call window.onbeforeunload)
+        // Moves to next page (Currently submit is used to call window.onbeforeunload)
+
         window.location.href = "../HoroscopeDisplay/Horoscope.html";
         console.log("Exiting page");
       }
@@ -116,9 +133,11 @@ window.addEventListener("DOMContentLoaded", () => {
     console.log("exitButton is not found in the DOM");
   }
 });
+
 /**
  * On Exit Function -> Stores user data into local storage for further use
  */
+/*
 window.onbeforeunload = function () {
   //? Clear Local storage???
   localStorage.clear();
@@ -126,3 +145,4 @@ window.onbeforeunload = function () {
   localStorage.setItem("UserName", userName);
   localStorage.setItem("Birthday", birthday);
 };
+*/

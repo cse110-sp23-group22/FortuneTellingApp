@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
 
-body,html {
+body,
+html {
   font-family: "Nosifer", cursive;
   text-align: center;
   background-color: black;
@@ -18,14 +19,14 @@ h1 {
   margin-top: 20px;
   color: chocolate;
   text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
   font-family: "Nosifer" !important;
   /* font-size: default !important; */
 }
 
-h2{
+h2 {
   text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
 }
 
 p {
@@ -33,7 +34,7 @@ p {
   font-family: "Nosifer", cursive;
   color: chocolate;
   text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
-             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
 }
 
 #cardContainer {
@@ -109,7 +110,7 @@ p {
   display: none;
   margin-top: 30px;
   color: chocolate;
-  margin:auto;
+  margin: auto;
   width: 50%;
   height: 100%;
 }
@@ -120,7 +121,7 @@ p {
 
 #meaningText {
   font-style: italic;
-  color: chocolate
+  color: chocolate;
 }
 
 .back {

@@ -10,29 +10,17 @@
     <link rel="stylesheet" type="text/css" href="TarotFormStyles.css" />
     <link rel="stylesheet" type="text/css" href="../Styles.css" />
     <link rel="icon" type="image/x-icon" href="./admin/Branding/ByteBrokersLogoInitials.svg" />
-    <audio id="myAudio" autoplay loop>
-    <source src="../Assets/fireplace-woodcrack.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        window.onload = function() {
-            var audio = document.getElementById("myAudio");
-            audio.volume = 0.1; // Set volume to 20%
-        }
-    </script>
 </head>
 
 <body>
-    <audio id="typingSound" src="../Assets/typing-sound.mp3" type="audio/mpeg"></audio>
-    <input type="text" id="myInput">
+    <audio id="myAudio" autoplay loop>
+      <source src="../Assets/fireplace-woodcrack.mp3" type="audio/mpeg" />
+    </audio>
     <script>
         window.onload = function() {
-            var typingAudio = document.getElementById("typingSound");
-            typingAudio.volume = 0.2; // Set volume to 20%
-            document.getElementById("myInput").addEventListener("keydown", function() {
-                typingAudio.play();
-            });
-        }
+            var audio = document.getElementById("myAudio");
+            audio.volume = 0.2; // Set volume to 20%
+        };
     </script>
 
     <header>
@@ -42,18 +30,18 @@
         <h1>Tarot Card Information</h1>
         <div class="BookFlexbox">
             <form id="form1">
-                <fieldset>
+                <fieldset id="form1Fieldset">
                     <p>"Speak thy name and unleash the horrors that lie within":</p>
-                    <input type="text" id="fname" name="fname" /><br />
+                    <input type="text" id="fname" name="fname" placeholder="Sign your name right here" /><br />
 
                     <p>
                         As you traverse the eerie realms of your life, what spectral figures or unsettling occurrences do you encounter, leaving you with a sense of foreboding?
                     </p>
-                    <input type="text" id="creepyQuestion1" name="creepyQuestion" /><br />
+                    <input type="text" id="creepyQuestion1" name="creepyQuestion" placeholder="Write down your answer here" /><br />
                 </fieldset>
             </form>
             <form id="form2">
-                <fieldset>
+                <fieldset id="form2Fieldset" hidden>
                     <p>
                         What Unspeakable Secrets Shall Your Reading Unearth From the Abyss?
                     </p>
@@ -68,7 +56,7 @@
                     <p>
                         Do you feel entangled in a foreboding web of events, where every twist and turn seems to lead you deeper into a realm of terror?
                     </p>
-                    <input type="text" id="creepyQuestion2" name="creepyQuestion" />
+                    <input type="text" id="creepyQuestion2" name="creepyQuestion" placeholder="Write down your answer here" />
                 </fieldset>
             </form>
         </div>
