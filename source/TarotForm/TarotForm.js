@@ -15,15 +15,16 @@ function parseNumbers(string) {
 
 /**
  * @function
- * @description Receives name, and concern with textbox from the user.
- * Then, selects reading from either personal/work/love life.
+ * @description Receives name, and concern in two separate text boxes from
+ * creepyQuestion elements and stores in questionLeft/QuestionRight
+ * Digits in name inputs are replaced.
  */
 function initQuestions() {
     const nameInput = document.getElementById("fname");
     const questionLeft = document.getElementById("creepyQuestion1");
     const questionRight = document.getElementById("creepyQuestion2");
 
-    nameInput.addEventListener("input", (event) => {
+    nameInput.addEventListener("change", (event) => {
         let name = parseNumbers(event.target.value);
         //Feature: Reject input not replace?
         nameInput.value = name;
@@ -32,11 +33,11 @@ function initQuestions() {
     });
 
     questionLeft.addEventListener("change", () => {
-        creepyQuestion1 = questionLeft.value;   // "As you traverse .."
+        creepyQuestion1 = questionLeft.value;
     });
 
     questionRight.addEventListener("change", () => {
-        creepyQuestion2 = questionRight.value;  // "Do you feel entangled.."
+        creepyQuestion2 = questionRight.value;
     });
 }
 
@@ -77,4 +78,8 @@ window.onbeforeunload = function() {
 
     localStorage.setItem("userName", userName);
     localStorage.setItem("readingType", readingType);
+};
+
+module.exports = {
+  initQuestions
 };
