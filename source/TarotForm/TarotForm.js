@@ -59,58 +59,56 @@ function initQuestions() {
  * to local storage when continue button for Tarot Card Info Page is clicked
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
  */
-document
-    .getElementById("exitButton")
-    .addEventListener("click", function(event) {
-            event.preventDefault();
-            let name = document.getElementById("form1").elements[0].value;
-            let readingTypes = document.getElementsByName("TarotCatagory");
-            for (i = 0; i < readingTypes.length; i++) {
-                if (readingTypes[i].checked) {
-                    readingType = readingTypes[i].value;
+let button = document.getElementById("exitButton")
+button.addEventListener("click", function(event) {
+        event.preventDefault();
+        //let name = document.getElementById("form1").elements[0].value;
+        let readingTypes = document.getElementsByName("TarotCatagory");
+        for (let i = 0; i < readingTypes.length; i++) {
+            if (readingTypes[i].checked) {
+                readingType = readingTypes[i].value;
+            }
+        }
+        event.preventDefault();
+        numQuestionsAnswered++;
+        if (numQuestionsAnswered < 2) {
+            if (userName == "" || creepyQuestion1 == "") {
+                numQuestionsAnswered = 0;
+                alert("Please fill out all fields!");
+                return;
+            }
+            document.getElementById("form2Fieldset").hidden = false;
+            document.getElementById("form1Fieldset").hidden = true;
+            } else {
+                let readingTypes = document.getElementsByName("TarotCatagory");
+                for (let i = 0; i < readingTypes.length; i++) {
+                    if (readingTypes[i].checked) {
+                        readingType = readingTypes[i].value;
+                    }
+                }
+
+                if (readingTypes == "" || userName == "" || creepyQuestion1 == "") {
+                    alert("Please fill out all fields!");
+                    return;
+                }
+                if (readingTypes == "" || creepyQuestion2 == "") {
+                    numQuestionsAnswered = 1;
+                    alert("Please fill out all fields!");
+                    return;
+                }
+
+                window.location.href = "../TarotCardDisplay/TarotDisplay.html";
                 }
             }
-            .getElementById("exitButton")
-                .addEventListener("click", function(event) {
-                        event.preventDefault();
-                        numQuestionsAnswered++;
-                        if (numQuestionsAnswered < 2) {
-                            if (userName == "" || creepyQuestion1 == "") {
-                                numQuestionsAnswered = 0;
-                                alert("Please fill out all fields!");
-                                return;
-                            }
-                            document.getElementById("form2Fieldset").hidden = false;
-                            document.getElementById("form1Fieldset").hidden = true;
-                        } else {
-                            let readingTypes = document.getElementsByName("TarotCatagory");
-                            for (let i = 0; i < readingTypes.length; i++) {
-                                if (readingTypes[i].checked) {
-                                    readingType = readingTypes[i].value;
-                                }
-                            }
+        );
 
-                            if (readingTypes == "" || userName == "" || creepyQuestion1 == "") {
-                                alert("Please fill out all fields!");
-                                return;
-                            }
-                            if (readingTypes == "" || creepyQuestion2 == "") {
-                                numQuestionsAnswered = 1;
-                                alert("Please fill out all fields!");
-                                return;
-                            }
+window.onbeforeunload = function() {
+    localStorage.clear();
 
-                            window.location.href = "../TarotCardDisplay/TarotDisplay.html";
-                            //alert("Form 1 submitted!\nName: " + name);
-                        });
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("readingType", readingType);
+};
 
-                    window.onbeforeunload = function() {
-                        localStorage.clear();
-
-                        localStorage.setItem("userName", userName);
-                        localStorage.setItem("readingType", readingType);
-                    };
-
-                    module.exports = {
-                        initQuestions
-                    };
+module.exports = {
+    initQuestions
+};
