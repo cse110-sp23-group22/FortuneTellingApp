@@ -1,6 +1,6 @@
 /**
  * This file contains the functions for the Horoscope Questionnaire
- * @module Questionnaire
+ * @module HoroscopeQuestionnaire
  */
 
 let userName = "";
@@ -12,6 +12,7 @@ let totalNumQuestions = 1; //Counting starting from 0
 window.addEventListener("DOMContentLoaded", init);
 
 /**
+ * @memberOf HoroscopeQuestionnaire
  * @function init
  * @description An init function that starts up templates
  * @author Eric Chen, Jessica He, Chris Kim
@@ -20,10 +21,23 @@ export function init() {
   showContent(templateNum);
 }
 
+let homeButton = document.getElementById("homeButton");
+homeButton.addEventListener("click", goHome);
+
 /**
+ * @function
+ * @description Exits back to main
+ * @author Chris
+ */
+function goHome() {
+  window.location.href = "../../index.html";
+}
+
+/**
+ * @memberOf HoroscopeQuestionnaire
  * @function parseNumbers
  * @description A function that parses the input of all numbers
- * @param {string} string - The string of numbers to be parsed
+ * @param {string} string - string to be parsed (user's name)
  * @returns string with only valid letters
  * @author Eric Chen, Jessica He, Chris Kim
  */
@@ -32,6 +46,7 @@ export function parseNumbers(string) {
 }
 
 /**
+ * @memberOf HoroscopeQuestionnaire
  * @function showContent
  * @description Goes through all the questions in the questionnaire, displaying the questions one after another
  *                  based on when the user clicks the continue button.
@@ -39,7 +54,6 @@ export function parseNumbers(string) {
  * @author Eric Chen, Jessica He, Chris Kim
  */
 export function showContent(templateNum) {
-  // Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
   // Set content
   let temp = document.getElementsByTagName("template")[templateNum];
   currentQuestion = temp.content.cloneNode(true);
@@ -51,11 +65,12 @@ export function showContent(templateNum) {
       initNameBirth();
       break;
     default:
-    // By Default none of the other options mean anything rn
+    // By Default none of the other options mean anything
   }
 }
 
 /**
+ * @memberOf HoroscopeQuestionnaire
  * @function initNameBirth
  * @description Initalizes the name and birthday Question
  * @author Eric Chen, Jessica He, Chris Kim
@@ -92,9 +107,8 @@ window.addEventListener("DOMContentLoaded", () => {
     exitButton.addEventListener("click", async () => {
       // Check user has inputted all required information
       if (userName == "" || birthday == "") {
-        // Theorectically we have custom dialogs or something else that pops up to show that user hasn't inputted
+        // Alert pops up asking them to fill everything out
         alert("Please fill out required fields!");
-        // Idk play some spooky sound
         return;
       } else {
         //? Clear Local storage???
@@ -105,8 +119,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       // Checks templateNum to see how far the user is to the end
       if (templateNum < totalNumQuestions) {
-        // TODO: Add cutscene
-        // console.log(noise.perlin3(time*0.05,0,0));
         let book = document.getElementById("book");
         book.classList.toggle("shakeElement");
         let overlay = document.getElementsByClassName("overlay")[0];
@@ -118,31 +130,17 @@ window.addEventListener("DOMContentLoaded", () => {
         overlay.style.transition = "opacity 1s";
         overlay.classList.toggle("shown");
         book.classList.toggle("shakeElement");
-        //? Currently not planning on users being able to go back.
         templateNum++;
         document.getElementById("question").remove();
         showContent(templateNum);
       } else {
-        // Moves to next page (Currently submit is used to call window.onbeforeunload)
-
+        // Moves to next page
         window.location.href = "../HoroscopeDisplay/Horoscope.html";
         console.log("Exiting page");
       }
     });
   } else {
+    //The DOM hasn't loaded correctly
     console.log("exitButton is not found in the DOM");
   }
 });
-
-/**
- * On Exit Function -> Stores user data into local storage for further use
- */
-/*
-window.onbeforeunload = function () {
-  //? Clear Local storage???
-  localStorage.clear();
-  //Store data into local storage
-  localStorage.setItem("UserName", userName);
-  localStorage.setItem("Birthday", birthday);
-};
-*/
