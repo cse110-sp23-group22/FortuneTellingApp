@@ -1,6 +1,6 @@
 /**
  * This file contains the functions for the Horoscope Questionnaire
- * @module Questionnaire
+ * @module HoroscopeQuestionnaire
  */
 
 //import { template } from "@babel/core";
@@ -14,6 +14,7 @@ let questionFile;
 window.addEventListener("DOMContentLoaded", init);
 
 /**
+ * @memberOf HoroscopeQuestionnaire
  * @function init
  * @description An init function that starts up templates
  * @author Eric Chen, Jessica He, Chris Kim
@@ -49,10 +50,23 @@ export async function init() {
   questionFile = await questionFile.json();
 }
 
+let homeButton = document.getElementById("homeButton");
+homeButton.addEventListener("click", goHome);
+
 /**
+ * @function
+ * @description Exits back to main
+ * @author Chris
+ */
+function goHome() {
+  window.location.href = "../../index.html";
+}
+
+/**
+ * @memberOf HoroscopeQuestionnaire
  * @function parseNumbers
  * @description A function that parses the input of all numbers
- * @param {string} string - The string of numbers to be parsed
+ * @param {string} string - string to be parsed (user's name)
  * @returns string with only valid letters
  * @author Eric Chen, Jessica He, Chris Kim
  */
@@ -61,6 +75,7 @@ export function parseNumbers(string) {
 }
 
 /**
+ * @memberOf HoroscopeQuestionnaire
  * @function showContent
  * @description Goes through all the questions in the questionnaire, displaying the questions one after another
  *                  based on when the user clicks the continue button.
@@ -68,7 +83,6 @@ export function parseNumbers(string) {
  * @author Eric Chen, Jessica He, Chris Kim
  */
 export function showContent(templateNum) {
-  // Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
   // Set content
   if (templateNum <= 1) {
     let temp = document.getElementsByTagName("template")[templateNum];
@@ -87,8 +101,12 @@ export function showContent(templateNum) {
   }
   // Add event listeners based on templateNum
   // Made a switch statement in case we actually wanna make content
-  if (templateNum == 0) {
-    initNameBirth();
+  switch (templateNum) {
+    case 0:
+      initNameBirth();
+      break;
+    default:
+    // By Default none of the other options mean anything
   }
   // } else {
   //   //Set HTML Element Data
@@ -127,6 +145,7 @@ async function setDescription(val) {
 }
 
 /**
+ * @memberOf HoroscopeQuestionnaire
  * @function initNameBirth
  * @description Initalizes the name and birthday Question
  * @author Eric Chen, Jessica He, Chris Kim

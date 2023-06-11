@@ -1,6 +1,7 @@
 /**
  * @module TarotCardForm
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
+ * @tutorial Tarot
  */
 
 let userName = "";
@@ -15,6 +16,18 @@ window.addEventListener("DOMContentLoaded", init);
 //     typingAudio.currentTime = 0;
 //     typingAudio.play();
 // });
+
+let homeButton = document.getElementById("homeButton");
+homeButton.addEventListener("click", goHome);
+
+/**
+ * @function
+ * @description Exits back to main
+ * @author Chris
+ */
+function goHome() {
+  window.location.href = "../../index.html";
+}
 
 function init() {
   initQuesetions();
