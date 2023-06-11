@@ -1,6 +1,7 @@
 /**
- * @namespace Tarot Card Form
+ * @module TarotCardForm
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
+ * @tutorial Tarot
  */
 
 let userName = "";
@@ -33,14 +34,12 @@ function init() {
 }
 /**
  * @description Parses our numbers from name input
- * @memberof Tarot Card Form
  */
 function parseNumbers(string) {
   return string.replace(/\d/g, "");
 }
 
 /**
- * @memberof {Tarot Card Form}
  * @description This function initializes the variables used to store the user
  * answers to the name and reading category questions in the Tarot form page
  */
@@ -69,9 +68,7 @@ function initQuesetions() {
 /**
  * @description First check if all fields have been filled out, then save info
  * to local storage when continue button for Tarot Card Info Page is clicked
- * @module TarotCardQuestionaire
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
- * @memberOf Tarot Card Form
  */
 document
   .getElementById("exitButton")

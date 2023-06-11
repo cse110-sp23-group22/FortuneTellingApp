@@ -17,11 +17,10 @@ html {
 
 h1 {
   margin-top: 20px;
-  color: chocolate;
   text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
     1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
   font-family: "Nosifer" !important;
-  /* font-size: default !important; */
+  font-size: 3vmin;
 }
 
 h2 {
@@ -32,9 +31,9 @@ h2 {
 p {
   margin: 10px 0;
   font-family: "Nosifer", cursive;
-  color: chocolate;
   text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
     1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+  font-size: 2vmin;
 }
 
 #cardContainer {
@@ -109,7 +108,6 @@ p {
 #cardMeaning {
   display: none;
   margin-top: 30px;
-  color: chocolate;
   margin: auto;
   width: 50%;
   height: 100%;
@@ -121,7 +119,6 @@ p {
 
 #meaningText {
   font-style: italic;
-  color: chocolate;
 }
 
 .back {

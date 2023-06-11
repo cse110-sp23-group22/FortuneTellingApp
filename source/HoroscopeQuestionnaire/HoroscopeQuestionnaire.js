@@ -39,7 +39,7 @@ function goHome() {
  * @description A function that parses the input of all numbers
  * @param {string} string - string to be parsed (user's name)
  * @returns string with only valid letters
- * @author Eric, Jessica, Chris
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function parseNumbers(string) {
   return string.replace(/\d/g, "");
@@ -51,7 +51,7 @@ export function parseNumbers(string) {
  * @description Goes through all the questions in the questionnaire, displaying the questions one after another
  *                  based on when the user clicks the continue button.
  * @param templateNum - question set number
- * @author Eric, Jessica, Chris
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function showContent(templateNum) {
   // Set content
@@ -73,7 +73,7 @@ export function showContent(templateNum) {
  * @memberOf HoroscopeQuestionnaire
  * @function initNameBirth
  * @description Initalizes the name and birthday Question
- * @author Eric, Jessica, Chris
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function initNameBirth() {
   const nameInput = document.getElementById("fname");
@@ -95,10 +95,11 @@ export function initNameBirth() {
   });
 }
 /**
- * Event listener for exit button. This function checks:
+ * @description This Exit button. This function checks:
  * - If the user has inputted all required information
  * - Creates UI to prompt the user to confirm their selection
  * - Moves to the next page after all checks
+ * @function
  */
 window.addEventListener("DOMContentLoaded", () => {
   const exitButton = document.getElementById("exitButton");
