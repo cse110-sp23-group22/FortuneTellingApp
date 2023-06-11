@@ -105,7 +105,12 @@ export function showContent(templateNum) {
   //     break;
   // }
 }
-
+/**
+ * @function setDescription
+ * @description Sets the description of the chosen options of the users
+ * @param {event} val on change event for radio
+ * @author Eric Chen, Ryan Lee
+ */
 async function setDescription(val) {
   let description = document.getElementsByClassName("questionDescription")[0];
   //Toggle off Visibility if there
@@ -210,6 +215,11 @@ window.addEventListener("load", () => {
   });
 });
 
+/**
+ * @function pageTransition
+ * @description Handles animations for page transitions
+ * @author Eric Chen, Ryan Lee
+ */
 async function pageTransition() {
   let pageSound = new Audio("../Assets/page-turn.mp3");
   //let lighterSound = new Audio("../Assets/match.mp3");
