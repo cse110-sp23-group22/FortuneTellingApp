@@ -12,29 +12,136 @@ describe("My Puppeteer tests", () => {
   afterAll(async () => {
     await browser.close();
   });
-  test("Tests that clicking on new cards will turn one card at a time", async () => {
-    await page.goto(
-      "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/TarotCardDisplay/TarotDisplay.html"
-    );
-    const cards = await page.$$('#cardContainer');
+  
+  test("Testing that the page was loaded", async () => {
+    // Navigate to the desired website
+    const url = 'https://cse110-sp23-group22.github.io/FortuneTellingApp/source/TarotCardDisplay/TarotDisplay.html';
+    await page.goto(url);
 
-    for(let i = 0; i < cards.length; i++){
-      const card = await cards[i].getAttribute("alt").value;
-      expect(card).toBe(`Card ${i} Back`);
-    }
+    expect(page.url()).toBe(url);
+  });
 
-    for(let i = 0; i < cards.length; i++){
-      const card = cards[i];
-      expect(card.getAttribute("alt").value).toBe(`Card ${i} Front`);
+  test("Testing clicking on all cards", async () => {
+    const url = 'https://cse110-sp23-group22.github.io/FortuneTellingApp/source/TarotCardDisplay/TarotDisplay.html';
+    await page.goto(url);
 
-      await card.click();
-      expect(card.getAttribute("alt").value).toBe(`Card ${i} Back`);
-      
-      if(i >= 0){
-        const prevCard = cards[i-1];
-        expect(prevCard.getAttribute("alt").value).toBe(`Card ${i} Front`);
+    // Simulate clicking first card
+    await page.evaluate(() => {
+      const divElement = document.querySelector('div#card1.card');
+      divElement.click();
+    });
+
+    
+    let divSelectors = await page.$$eval('div', (divs) => divs.map((div) => div.getAttribute('class')));
+    console.log('Div selectors:', divSelectors);
+
+    let flippingCount = 0;
+    for(let i = 0; i < divSelectors.length; i++){
+      if(divSelectors[i]=='card flipped'){
+        flippingCount = flippingCount + 1;
       }
     }
+
+    expect(flippingCount).toBe(1);
+
+
+    // Simulate clicking card #2
+    await page.evaluate(() => {
+      const divElement = document.querySelector('div#card2.card');
+      divElement.click();
+    });
+
+    divSelectors = await page.$$eval('div', (divs) => divs.map((div) => div.getAttribute('class')));
+    console.log('Div selectors:', divSelectors);
     
-  }, 99999);
+    flippingCount = 0;
+    for(let i = 0; i < divSelectors.length; i++){
+      if(divSelectors[i]=='card flipped'){
+        flippingCount = flippingCount + 1;
+      }
+    }
+
+    expect(flippingCount).toBe(2);
+
+    // Simulate clicking third card
+    await page.evaluate(() => {
+      const divElement = document.querySelector('div#card3.card');
+      divElement.click();
+    });
+
+    divSelectors = await page.$$eval('div', (divs) => divs.map((div) => div.getAttribute('class')));
+    console.log('Div selectors:', divSelectors);
+    
+    flippingCount = 0;
+    for(let i = 0; i < divSelectors.length; i++){
+      if(divSelectors[i]=='card flipped'){
+        flippingCount = flippingCount + 1;
+      }
+    }
+
+    expect(flippingCount).toBe(3);
+    
+  });
+
+  test("Testing clicking on all cards in reverse order", async () => {
+    const url = 'https://cse110-sp23-group22.github.io/FortuneTellingApp/source/TarotCardDisplay/TarotDisplay.html';
+    await page.goto(url);
+
+    // Simulate clicking third card
+    await page.evaluate(() => {
+      const divElement = document.querySelector('div#card3.card');
+      divElement.click();
+    });
+
+    
+    let divSelectors = await page.$$eval('div', (divs) => divs.map((div) => div.getAttribute('class')));
+    console.log('Div selectors:', divSelectors);
+
+    let flippingCount = 0;
+    for(let i = 0; i < divSelectors.length; i++){
+      if(divSelectors[i]=='card flipped'){
+        flippingCount = flippingCount + 1;
+      }
+    }
+
+    expect(flippingCount).toBe(1);
+
+
+    // Simulate clicking card #2
+    await page.evaluate(() => {
+      const divElement = document.querySelector('div#card2.card');
+      divElement.click();
+    });
+
+    divSelectors = await page.$$eval('div', (divs) => divs.map((div) => div.getAttribute('class')));
+    console.log('Div selectors:', divSelectors);
+    
+    flippingCount = 0;
+    for(let i = 0; i < divSelectors.length; i++){
+      if(divSelectors[i]=='card flipped'){
+        flippingCount = flippingCount + 1;
+      }
+    }
+
+    expect(flippingCount).toBe(2);
+
+    // Simulate clicking first card
+    await page.evaluate(() => {
+      const divElement = document.querySelector('div#card1.card');
+      divElement.click();
+    });
+
+    divSelectors = await page.$$eval('div', (divs) => divs.map((div) => div.getAttribute('class')));
+    console.log('Div selectors:', divSelectors);
+    
+    flippingCount = 0;
+    for(let i = 0; i < divSelectors.length; i++){
+      if(divSelectors[i]=='card flipped'){
+        flippingCount = flippingCount + 1;
+      }
+    }
+
+    expect(flippingCount).toBe(3);
+    
+  });
 });
