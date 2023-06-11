@@ -1,11 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-const functions = require("../source/HoroscopeDisplay/horoscope.js");
-const { init } = require("../source/HoroscopeDisplay/horoscope.js");
-const { shake } = require("../source/HoroscopeDisplay/horoscope.js");
-const { adjustIndexForHorroscope } = require("../source/HoroscopeDisplay/horoscope.js");
-const { pulseRedOverlay } = require("../source/HoroscopeDisplay/horoscope.js");
+const functions = require("../source/HoroscopeDisplay/Horoscope.js");
+const { init } = require("../source/HoroscopeDisplay/Horoscope.js");
+const { shake } = require("../source/HoroscopeDisplay/Horoscope.js");
+const { adjustIndexForHorroscope } = require("../source/HoroscopeDisplay/Horoscope.js");
+const { pulseRedOverlay } = require("../source/HoroscopeDisplay/Horoscope.js");
 const adjustIndexForHorroscopeJSON = [{
         month: "January",
         sign: "Capricorn",
