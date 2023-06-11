@@ -1,9 +1,10 @@
 const cardElements = document.querySelectorAll(".card");
 const cardImages = document.getElementsByTagName("img");
+const NUM_CARDS_DISPLAYED = 3;
 
 window.addEventListener("DOMContentLoaded", init);
 
-let dataOne, dataTwo, dataThree;
+let selectedTarotData = [];
 
 /**
  * @module TarotDisplay
@@ -19,25 +20,26 @@ async function init() {
   try {
     //fetch the horoscope json file and convert to an array
     //containing the responses
-    //TODO: Fix this with local storage
     let type = localStorage.getItem("readingType");
     let tarotData = await fetch("./TarotCardAnswer.JSON");
     tarotData = await tarotData.json();
-    let tempNum = Math.floor(Math.random() * tarotData[type].length);
-    dataOne = tarotData[type][tempNum];
-    let secondNum = Math.floor(Math.random() * tarotData[type].length);
-    while (secondNum == tempNum)
-      secondNum = Math.floor(Math.random() * tarotData[type].length);
-    dataTwo = tarotData[type][secondNum];
-    let thirdNum = Math.floor(Math.random() * tarotData[type].length);
-    while ((thirdNum == tempNum) | (thirdNum == secondNum))
-      thirdNum = Math.floor(Math.random() * tarotData[type].length);
-    dataThree = tarotData[type][thirdNum];
+
+    let usedIndices = [];
+    while (usedIndices.length < NUM_CARDS_DISPLAYED) {
+      let tempNum;
+      do {
+        tempNum = Math.floor(Math.random() * tarotData[type].length);
+      } while (usedIndices.includes(tempNum));
+      usedIndices.push(tempNum);
+      selectedTarotData.push(tarotData[type][tempNum]);
+    }
 
     //Set Card Images (Target: 1,3,5)
-    cardImages[1].src = `../Assets/TarotCardGraphics/${dataOne["TarotCard"]}.png`;
-    cardImages[3].src = `../Assets/TarotCardGraphics/${dataTwo["TarotCard"]}.png`;
-    cardImages[5].src = `../Assets/TarotCardGraphics/${dataThree["TarotCard"]}.png`;
+    for (let i = 0; i < NUM_CARDS_DISPLAYED; i++) {
+      cardImages[
+        2 * i + 1
+      ].src = `../Assets/TarotCardGraphics/${selectedTarotData[i]["TarotCard"]}.png`;
+    }
     //exit code
     return 1;
   } catch (error) {
@@ -61,16 +63,16 @@ function goHome() {
 /**
  * @function
  * @description Reveals Card by flipping the tarot card image and displaying meaning on the bottom row.
+ * Upon click, it toggles the
  * @author Chris, Eric, Jessica
  */
 function revealCard(cardIndex) {
   const card = cardElements[cardIndex];
-  // Unflipping the rest
-  // cardElements.forEach((prevCard) => {
-  //   if (prevCard.classList.contains("flipped")) {
-  //     prevCard.classList.toggle("flipped");
-  //   }
-  // });
+  if (cardIndex < 0 || cardIndex > 2) {
+    console.error("This card Index does not currently exist yet!");
+    return;
+  }
+
   if (card.classList.contains("flipped")) return;
   card.classList.toggle("flipped");
 
@@ -78,41 +80,14 @@ function revealCard(cardIndex) {
   const cardTitle = document.getElementsByTagName("h2")[0];
   let data;
   var audio = new Audio("/source/Assets/woosh.mp3");
-  switch (cardIndex) {
-    case 0:
-      audio.play();
-      data = dataOne["Explanation"];
-      cardTitle.textContent = dataOne["TarotCard"];
-      cardElements[0].addEventListener("mouseover", () => {
-        cardMeaning.style.display = "block";
-        cardTitle.textContent = dataOne["TarotCard"];
-        meaningText.innerText = dataOne["Explanation"];
-      });
-      break;
-    case 1:
-      audio.play();
-      data = dataTwo["Explanation"];
-      cardTitle.textContent = dataTwo["TarotCard"];
-      cardElements[1].addEventListener("mouseover", () => {
-        cardMeaning.style.display = "block";
-        cardTitle.textContent = dataTwo["TarotCard"];
-        meaningText.innerText = dataTwo["Explanation"];
-      });
-      break;
-    case 2:
-      audio.play();
-      data = dataThree["Explanation"];
-      cardTitle.textContent = dataThree["TarotCard"];
-      cardElements[2].addEventListener("mouseover", () => {
-        cardMeaning.style.display = "block";
-        cardTitle.textContent = dataThree["TarotCard"];
-        meaningText.innerText = dataThree["Explanation"];
-      });
-      break;
-    default:
-      console.error("This card Index does not currently exist yet!");
-  }
-
+  audio.play();
+  data = selectedTarotData[cardIndex]["Explanation"];
+  cardTitle.textContent = selectedTarotData[cardIndex]["TarotCard"];
+  cardElements[cardIndex].addEventListener("mouseover", () => {
+    cardMeaning.style.display = "block";
+    cardTitle.textContent = selectedTarotData[cardIndex]["TarotCard"];
+    meaningText.innerText = selectedTarotData[cardIndex]["Explanation"];
+  });
   const cardMeaning = document.getElementById("cardMeaning");
   const meaningText = document.getElementById("meaningText");
 
@@ -120,13 +95,12 @@ function revealCard(cardIndex) {
     cardMeaning.style.display = "block";
     meaningText.innerText = data;
   }
+}
 
-  // else {
-  //   cardMeaning.style.display = "none";
-  //   meaningText.innerText = "";
-  // }
-
-  // cardElements[0].addEventListener('mouseout', () => {
-  //   cardMeaning.style.display = 'none';
-  // });
+for (let i = 0; i < NUM_CARDS_DISPLAYED; i++) {
+  // TODO
+  const card = document.getElementById(`card${i + 1}`);
+  card.addEventListener("click", function () {
+    revealCard(i);
+  });
 }

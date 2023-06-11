@@ -1,6 +1,7 @@
 /**
  * @module TarotCardForm
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
+ * @tutorial Tarot
  */
 
 let userName = "";
