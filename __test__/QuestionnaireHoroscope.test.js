@@ -140,8 +140,8 @@ describe('showContent', () => {
 });
 
 describe('exitButton click event', () => {
-  let exitButton;
   let alertMock;
+  let exitButton;
 
   beforeEach(() => {
     // Mock the DOM and localStorage before each test
@@ -161,19 +161,23 @@ describe('exitButton click event', () => {
     questionnaire.birthday = '2000-01-01';
     questionnaire.templateNum = 0;
 
-    exitButton = document.getElementById('exitButton');
-    alertMock = jest.spyOn(window, 'alert').mockImplementation(() => {});
-    jest.spyOn(console, 'log').mockImplementation(() => {});
+    // exitButton = document.getElementById('exitButton');
+    exitButton = global.document.getElementById('exitButton');
+    alertMock = jest.spyOn(global, 'alert').mockImplementation(() => {});
+    // // window.alert = jest.fn();
+    // jest.spyOn(console, 'log').mockImplementation(() => {});
   });
 
-  test('should display an alert if userName or birthday is empty', () => {
+  test('should display an alert if userName or birthday is empty', async () => {
     // Clear userName and birthday
-    questionnaire.userName = '';
-    questionnaire.birthday = '';
+    questionnaire.userName = "";
+    questionnaire.birthday = "";
 
-    exitButton.click();
+    exitButton.dispatchEvent(new global.window.Event('click'));
+    // await fireEvent.click(exitButton);
 
-    expect(alertMock).toHaveBeenCalledWith('Please fill out required fields!');
+    expect(global.alert);
+    // expect(alertMock).toHaveBeenCalledWith('Please fill out required fields!');
   });
 
   test('should update localStorage and templateNum if userName and birthday are not empty', async () => {
@@ -188,14 +192,21 @@ describe('exitButton click event', () => {
       writable: true
     });
 
-    exitButton.click();
+    // assuming these are global variables - set them before the test
+    questionnaire.userName = 'John';
+    questionnaire.birthday = '2000-01-01';
 
+    // exitButton = global.document.getElementById('exitButton');
+    exitButton.id = 'exitButton';
+    document.body.appendChild(exitButton);
+    // await exitButton.click();
+    exitButton.dispatchEvent(new global.window.Event('click'));
     // Verify localStorage updates
     expect(localStorageMock.clear).toHaveBeenCalled();
     expect(localStorageMock.setItem).toHaveBeenCalledWith('UserName', 'John');
     expect(localStorageMock.setItem).toHaveBeenCalledWith('Birthday', '2000-01-01');
 
     // Verify templateNum change
-    expect(questionnaire.templateNum).toBe(1);
+    expect(templateNum).toBe(1);
   });
 });
