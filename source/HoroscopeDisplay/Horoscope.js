@@ -73,6 +73,11 @@ async function timer() {
   locked = false; 
 }
 
+/**
+ * @function tickingSound
+ * @description creates a ticking sound for a set amount of time (8 secs)
+ * @author Eric Chen
+ */
 function tickingSound(){
   let audio = new Audio("../Assets/clock-ticking.mp3");
   setInterval(()=> {
