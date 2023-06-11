@@ -111,7 +111,7 @@ export function showContent(templateNum) {
  * @param {event} val on change event for radio
  * @author Eric Chen, Ryan Lee
  */
-async function setDescription(val){
+async function setDescription(val) {
   let description = document.getElementsByClassName("questionDescription")[0];
   //Toggle off Visibility if there
   if (description.classList.contains("shown"))
