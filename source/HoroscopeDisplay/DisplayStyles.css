@@ -26,7 +26,7 @@ h1 {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  gap: 20vmin;
+  gap: 15vmin;
   position: relative;
 
   padding: 5vw;
@@ -48,7 +48,7 @@ h1 {
   font-family: "Satisfy", cursive;
   color: black;
 
-  margin-bottom: 6vmin;
+  margin-bottom: 1vmin;
 }
 
 #submitButton {
@@ -60,9 +60,14 @@ h1 {
   background-repeat: no-repeat;
 }
 
+button:disabled {
+  background-color: gray;
+  color: gray;
+  filter: grayscale(100%);
+}
 .page {
-  width: 30vmin;
-  height: 46vmin;
+  width: 33vmin;
+  height: 54vmin;
 
   margin-top: 6.2vmin;
 
@@ -121,6 +126,18 @@ h1 {
   height: 100%;
   background: radial-gradient(2000px, #00000042, #000000);
   opacity: 0.8;
+  z-index: 9998;
+}
+
+#darken {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.548);
+  opacity: 0;
   z-index: 9998;
 }
 

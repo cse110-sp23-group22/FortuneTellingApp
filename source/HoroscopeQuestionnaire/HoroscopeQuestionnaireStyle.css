@@ -78,6 +78,26 @@ main {
   background-repeat: no-repeat;
 }
 
+.right-page {
+  inline-size: 25%;
+  height: 75%;
+  width: 32%;
+}
+
+.questionDescription {
+  font-family: "Kalam", cursive;
+  position: relative;
+  text-align: center;
+  font-size: 1.2vw;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s;
+
+  color: black;
+  align-content: center;
+  align-self: flex-start;
+}
+
 #questionnaire {
   font-family: "Kalam", cursive;
   position: relative;
@@ -89,7 +109,6 @@ main {
   align-content: center;
   align-self: flex-start;
   top: 10%;
-  right: 2%;
 }
 
 #bookImg {

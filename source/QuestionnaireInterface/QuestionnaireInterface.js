@@ -9,6 +9,8 @@ export class QuestionnaireInterface extends HTMLElement {
 
     // Create prompt view
     this.questionText = document.createElement("p");
+    // Global Radio Element
+    this.radioElement;
 
     // create form. It is empty at creation, but it will be populated with radio inputs
     // when switching questions.
@@ -83,6 +85,7 @@ export class QuestionnaireInterface extends HTMLElement {
    * @param {Number} index the index of the question within the question array to display
    */
   switchQuestions(index) {
+    this.formElement.reset();
     this.questionIndex = index;
     if (index < 0 || index >= this.questionsData.length);
     // Find the question you want
@@ -93,12 +96,15 @@ export class QuestionnaireInterface extends HTMLElement {
     // set attributes and content for the form elements so that they are unique to the question
     for (let i = 0; i < newQuestionData.answers.length; i++) {
       const answerWrap = this.formElement.childNodes[i];
-      let radioElement = answerWrap.childNodes[0];
+      this.radioElement = answerWrap.childNodes[0];
       let labelElement = answerWrap.childNodes[1];
-      radioElement.setAttribute("id", `question-${index}-response-${i}`);
-      radioElement.setAttribute("name", `question-${index}`);
-      radioElement.setAttribute("type", "radio");
-      radioElement.setAttribute("value", newQuestionData.personalityMap[i]);
+      this.radioElement.setAttribute("id", `question-${index}-response-${i}`);
+      this.radioElement.setAttribute("name", `question-${index}`);
+      this.radioElement.setAttribute("type", "radio");
+      this.radioElement.setAttribute(
+        "value",
+        newQuestionData.personalityMap[i]
+      );
 
       labelElement.setAttribute("for", `question${index}-response-${i}`);
       labelElement.innerText = newQuestionData.answers[i];

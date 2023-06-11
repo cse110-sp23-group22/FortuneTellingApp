@@ -35,7 +35,7 @@ async function init() {
     homeButton.addEventListener("click", goHome);
 
     // Run Timer
-    timer();
+    //timer();
     // output the horoscope based on the birthday of the user
     outputHoroscope();
     // exit code
@@ -54,14 +54,30 @@ async function init() {
  * @author Eric, Ryan
  */
 async function timer() {
-  // TODO: Start the ticking event (SOUND)
+  let cough = new Audio("../Assets/Light_cough.mp3");
+  let heart = new Audio("../Assets/heart-beat.mp3");
   concentricGradient();
-  // After 10 seconds start blood red screen
-  await new Promise((resolve) => setTimeout(resolve, 10000));
-  pulseRedOverlay(1000);
-  // Start shaking after 10 seconds
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  heart.play();
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   shake(1, 1);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  pulseRedOverlay(1000);
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  cough.play();
+  //Start the ticking
+  tickingSound();
+  //Turn back on home button
+  let homeButton = document.getElementById("homeButton");
+  homeButton.removeAttribute("disabled");
+  locked = false;
+}
+
+function tickingSound() {
+  let audio = new Audio("../Assets/clock-ticking.mp3");
+  setInterval(() => {
+    audio.play();
+  }, 0);
 }
 
 /**
@@ -175,13 +191,30 @@ function outputHoroscope() {
  */
 async function goHome() {
   if (locked) {
-    //Turn invis
+    let whoosh = new Audio("../Assets/woosh.mp3");
+    whoosh.play();
+    let horoscopeOutput = document.getElementById("horoscopeOutput");
+    horoscopeOutput.classList.toggle("hiddenOutput");
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    let darken = document.getElementById("darken");
+    darken.style.opacity = 0.5;
     await new Promise((resolve) => setTimeout(resolve, 1000));
     horoscopeOutput.classList.toggle("hiddenOutput");
     //Switch text
-    let horoscopeOutput = document.getElementById("horoscopeOutput");
     //let zodiacOutput = document.getElementById("zodiacSign");
-    horoscopeOutput.innerHTML = `${localArray["cthulu"][0]["response"]}`;
+    let results = localStorage.getItem("questionnaireResults");
+    let index = -1;
+    if (results[1] > results[3] && results[1] > results[5]) index = 2;
+    if (results[3] > results[1] && results[3] > results[5]) index = 1;
+    if (results[5] > results[1] && results[5] > results[3]) index = 0;
+    if (results[1] == results[3] && results[1] == results[5]) index = 0;
+    console.log(results);
+    console.log(`results: ${results[0]},${results[1]},${results[2]} `);
+    horoscopeOutput.innerHTML = `${localArray["OldOnes"][index]["response"]}`;
+    timer();
+    //Gray out home button
+    let homeButton = document.getElementById("homeButton");
+    homeButton.setAttribute("disabled", true);
     return;
   }
   window.location.href = "../../index.html";
