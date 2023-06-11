@@ -77,7 +77,13 @@ export function showContent(templateNum) {
     //Adding event listener to questionnaire element's form
     let questElement = document.getElementById("questionnaire");
     //!Spooky cursed logic that relies on magic numbers and the reliability of this element's child list to get the form
-    if (templateNum == 1)questElement.childNodes[8].childNodes[1].addEventListener("change",(val)=>{setDescription(val);});
+    if (templateNum == 1)
+      questElement.childNodes[8].childNodes[1].addEventListener(
+        "change",
+        (val) => {
+          setDescription(val);
+        }
+      );
   }
   // Add event listeners based on templateNum
   // Made a switch statement in case we actually wanna make content
@@ -100,16 +106,19 @@ export function showContent(templateNum) {
   // }
 }
 
-async function setDescription(val){
+async function setDescription(val) {
   let description = document.getElementsByClassName("questionDescription")[0];
   //Toggle off Visibility if there
-  if (description.classList.contains("shown"))description.classList.toggle("shown");
+  if (description.classList.contains("shown"))
+    description.classList.toggle("shown");
   await new Promise((resolve) => {
     setTimeout(resolve, 1000);
   });
   console.log(`index: ${templateNum} and choice: ${val.target.value}`);
-  description.innerHTML = questionFile[templateNum-1]["responses"][val.target.value];
-  if(!description.classList.contains("shown"))description.classList.toggle("shown");
+  description.innerHTML =
+    questionFile[templateNum - 1]["responses"][val.target.value];
+  if (!description.classList.contains("shown"))
+    description.classList.toggle("shown");
 }
 
 /**
@@ -215,7 +224,8 @@ async function pageTransition() {
   });
   let description = document.getElementsByClassName("questionDescription")[0];
   //Toggle off Visibility if there
-  if (description.classList.contains("shown"))description.classList.toggle("shown");
+  if (description.classList.contains("shown"))
+    description.classList.toggle("shown");
   //lighterSound.play();
   await new Promise((resolve) => {
     setTimeout(resolve, 1000);

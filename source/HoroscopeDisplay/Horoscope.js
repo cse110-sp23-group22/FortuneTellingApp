@@ -70,14 +70,14 @@ async function timer() {
   //Turn back on home button
   let homeButton = document.getElementById("homeButton");
   homeButton.removeAttribute("disabled");
-  locked = false; 
+  locked = false;
 }
 
-function tickingSound(){
+function tickingSound() {
   let audio = new Audio("../Assets/clock-ticking.mp3");
-  setInterval(()=> {
+  setInterval(() => {
     audio.play();
-  },0)
+  }, 0);
 }
 
 /**
@@ -214,7 +214,7 @@ async function goHome() {
     timer();
     //Gray out home button
     let homeButton = document.getElementById("homeButton");
-    homeButton.setAttribute("disabled",true);
+    homeButton.setAttribute("disabled", true);
     return;
   }
   window.location.href = "../../index.html";

@@ -78,13 +78,13 @@ main {
   background-repeat: no-repeat;
 }
 
-.right-page{
+.right-page {
   inline-size: 25%;
   height: 75%;
   width: 32%;
 }
 
-.questionDescription{
+.questionDescription {
   font-family: "Kalam", cursive;
   position: relative;
   text-align: center;
@@ -109,7 +109,6 @@ main {
   align-content: center;
   align-self: flex-start;
   top: 10%;
-
 }
 
 #bookImg {
