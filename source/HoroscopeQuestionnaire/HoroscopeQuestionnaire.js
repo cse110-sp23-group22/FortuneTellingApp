@@ -18,7 +18,9 @@ window.addEventListener("DOMContentLoaded", init);
  */
 export async function init() {
   //Transition in
-  let walkingSound = new Audio("../Assets/wood-creak-single-v3-14657.mp3");
+  // let walkingSound = new Audio("../Assets/page-turn.mp3");
+  let walkingSound = document.createElement("audio");
+  walkingSound.src = "/source/Assets/page-turn.mp3";
   walkingSound.play();
   let overlay = document.getElementsByClassName("overlay")[0];
   let gradient = document.getElementById("gradient");
@@ -28,7 +30,9 @@ export async function init() {
   await new Promise((resolve) => {
     setTimeout(resolve, 900);
   });
-  let lighterSound = new Audio("../Assets/match.mp3");
+  // let lighterSound = new Audio("../Assets/match.mp3");
+  let lighterSound = document.createElement("audio");
+  lighterSound.src = "../Assets/match-strike.mp3";
   lighterSound.play();
   await new Promise((resolve) => {
     setTimeout(resolve, 100);
