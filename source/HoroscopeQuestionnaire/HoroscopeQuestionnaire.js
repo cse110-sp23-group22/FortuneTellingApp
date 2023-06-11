@@ -106,6 +106,8 @@ window.addEventListener("DOMContentLoaded", () => {
       // Checks templateNum to see how far the user is to the end
       if (templateNum < totalNumQuestions) {
         // TODO: Add cutscene
+        let sound = new Audio("../Assets/page-turn.mp3");
+        sound.play();
         // console.log(noise.perlin3(time*0.05,0,0));
         let book = document.getElementById("book");
         book.classList.toggle("shakeElement");
