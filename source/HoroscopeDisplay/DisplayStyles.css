@@ -60,7 +60,7 @@ h1 {
   background-repeat: no-repeat;
 }
 
-button:disabled{
+button:disabled {
   background-color: gray;
   color: gray;
   filter: grayscale(100%);
@@ -129,7 +129,7 @@ button:disabled{
   z-index: 9998;
 }
 
-#darken{
+#darken {
   pointer-events: none;
   position: fixed;
   top: 0;

@@ -101,7 +101,10 @@ export class QuestionnaireInterface extends HTMLElement {
       this.radioElement.setAttribute("id", `question-${index}-response-${i}`);
       this.radioElement.setAttribute("name", `question-${index}`);
       this.radioElement.setAttribute("type", "radio");
-      this.radioElement.setAttribute("value", newQuestionData.personalityMap[i]);
+      this.radioElement.setAttribute(
+        "value",
+        newQuestionData.personalityMap[i]
+      );
 
       labelElement.setAttribute("for", `question${index}-response-${i}`);
       labelElement.innerText = newQuestionData.answers[i];
