@@ -1,6 +1,5 @@
 main {
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 89vh;
   background-color: transparent;
@@ -52,12 +51,12 @@ p {
 
 #form1 {
   align-items: flex-end;
-  right: 8vmin;
+  right: 4vmin;
 }
 
 #form2 {
   align-items: flex-start;
-  left: 7.5vmin;
+  left: 4.5vmin;
 }
 
 fieldset {
@@ -71,10 +70,11 @@ input[type="text"] {
   margin-bottom: 1vmin;
   padding: 1vmin;
   background-color: transparent;
-  width: 100%;
-  height: 1vh;
+  width: 90%;
+  height: 2.25vmin;
+  font-size: 1.5vmin;
   box-sizing: border-box;
-  border: 0.2vw solid black;
+  border: 0.1vw solid black;
 }
 
 /* Media query for smaller screens */
@@ -122,7 +122,7 @@ button:hover {
   height: 3vw;
 
   background-image: url("../Assets/Button.png");
-  background-size: 6vw 3vw;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 

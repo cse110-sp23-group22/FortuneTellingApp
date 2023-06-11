@@ -27,21 +27,3 @@ form {
   border-color: transparent;
   outline-width: 0px;
 }
-
-.back {
-  position: fixed;
-  top: 95%;
-  left: 90%;
-
-  font-family: "Kalam", cursive;
-
-  width: 6vw;
-  height: 3vw;
-
-  background-image: url("../Assets/Button.png");
-  background-size: 6vw 3vw;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  font-size: 1.5vw;
-}
