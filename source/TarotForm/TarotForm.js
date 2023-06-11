@@ -17,9 +17,7 @@ window.addEventListener("DOMContentLoaded", init);
 //     typingAudio.play();
 // });
 
-let homeButton = document.getElementById("homeButton");
-homeButton.addEventListener("click", goHome);
-
+let homeButton;
 /**
  * @function
  * @description Exits back to main
@@ -31,6 +29,11 @@ function goHome() {
 
 function init() {
   initQuestions();
+  homeButton = document.getElementById("homeButton");
+  if (homeButton === null) {
+    return;
+  }
+  homeButton.addEventListener("click", goHome);
 }
 /**
  * @description Parses our numbers from name input

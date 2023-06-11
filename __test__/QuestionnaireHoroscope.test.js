@@ -14,23 +14,19 @@ const { JSDOM } = require("jsdom");
 //const { window } = new JSDOM('<!doctype html><html><body><div id="exitButton"></div><template></template><div id="questionnaire"></div></body></html>');
 const dom = new JSDOM(
   `<!DOCTYPE html>
-    <html>
-      <body>
-        <div id="exitButton"></div>
-        <button id="homeButton" class="back">Home</button>
-        <template></template>
-        <div id="questionnaire"></div>
-      </body>
-    </html>`
-  // { url: "http://localhost/" }
+  <html>
+    <body>
+      <div id="exitButton"></div>
+      <button id="homeButton" class="back">Home</button>
+      <template></template>
+      <div id="questionnaire"></div>
+    </body>
+  </html>`
 );
-
-// global.jsdomWindow = window;
-// global.jsdomDocument = window.document;
-// global.jsdomLocalStorage = window.localStorage;
 
 global.document = dom.window.document;
 global.window = dom.window;
+// global.localStorage = dom.window.localStorage;
 
 // Then import your js file, assuming it's named myModule.js
 // import * as questionnaire from "../source/HoroscopeQuestionnaire/HoroscopeQuestionnaire.js";
@@ -46,7 +42,7 @@ describe("questionnaire", () => {
 
     // Append necessary elements
     document.body.innerHTML =
-      '<div id="exitButton"></div><template></template><div id="questionnaire"></div>';
+      '<div id="exitButton"></div><button id="homeButton" class="back">Home</button><template></template><div id="questionnaire"></div>';
   });
 
   test("parseNumbers function", () => {
