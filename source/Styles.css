@@ -7,12 +7,20 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   color: white;
 
   margin: 0px;
-  height: 100vh;
+  /* height: 100vh; */
+
+  overflow-x: hidden;
+  scrollbar-width: 10px;
 }
+
+/* ::-webkit-scrollbar {
+  opacity: 0;
+  width: 10px;
+} */
 
 h1 {
   text-align: center;

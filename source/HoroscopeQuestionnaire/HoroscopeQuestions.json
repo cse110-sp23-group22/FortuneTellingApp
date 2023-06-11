@@ -1,0 +1,50 @@
+[
+  {
+    "question": "You arrive at the beach on a particularly overcast day. It was a quite day, not a person in sight, nor cries from the seagulls. As you walk on the beach you find you find an old man. He lies still as the waves carress his body. Do you:",
+    "type": "choice",
+    "answers": [
+      "Ignore the man and continue your walk.",
+      "Rush to the man to see if he is fine.",
+      "Stare at him from where you are, and try to see what's going on."
+    ],
+    "responses": [
+      "You walk past the man completely ignoring what may be going on. When you look back you see the body is gone. Not even an imprint in the sand. You think nothing of the event. Maybe you were just imagining it.",
+      "You rush to him and see a decrepit man. His is famished but more startling is the fact that his chest is sunken in as if a giant stepped on his chest. You call the police and they take over the scene. They state he drowned but fail to mention his chest and you get ushered away. You feel a strange sense of deja vu, like you've seen the man before but there is nothing you can do now.",
+      "You stare at the body for a long while standing staionary, not making a sound. The waves slowly embrace the body as it drags it ever closer to the depths. A dreadful feeling floods over you and you feel that someone is staring at you. Though you aren't at the beach anymore you still feel that stare and a slow pull towards the ocean."
+    ],
+    "personalityMap": [2, 0, 1],
+    "lsKey": "testquestionresponse"
+  },
+  {
+    "question": "You wake up from your afternoon nap during your picnic. The sun has set and the stars shine brightly above. You realize that you are lost within the woods now and you do not realize the landscape at night. The cold wind blows across your face as the temperature seems to drop. As you look around you see a faint light glowing in the distance, it seems to be a cabin. Do you:",
+    "type": "choice",
+    "answers": [
+      "Call out.",
+      "Lay back down and indulge in the sights you see.",
+      "Walk towards the light."
+    ],
+    "responses": [
+      "You call out to anybody nearby but alas there is no response. Strangely enough the even the crickets seem to quieten and you hear an echo of your own calls. The sky is overcast now but through the skies you see a lone shining star. Paralyzed by anxiety you spend the night staring at the lone star. When it's morning you feel refreshed as you navigate your way back with seemingly perfect memory.",
+      "You came here for a picnic anyways might as well indulge in the sights. The stars glitter as you stare each seemingly vying for your attention. You simply stare at the stars as they shift around in the sky. You do not realize how long you've been staring at the shifting stars but you feel weak when the day comes.",
+      "You realize you could do nothing about the situation and decide to walk towards the light. As you arrive at the cabin it seems to be relatively well maintained. You decide to spend the night here in the cozy cabin. You dream of your younger years when you, yourself spent time at a cabin in the woods much like this one and you dream of the fun times you had with your family."
+    ],
+    "personalityMap": [0, 2, 1],
+    "lsKey": "testquestionresponse"
+  },
+  {
+    "question": "You find yourself in a lecture room taking a exam. It's the final exam for a course you have been taking. You flip the exam to the final page and see a half-finished question. The ink from the question smears the paper as if water had soaked it, making it unreadable. You look up and realize that everyone else is focused on their exam. Their scribbling seems oddly synchronized and not a single person has left their seats. It's eerily quiet, neither the TAs or the professor moves they just stand there at the front staring. Do you:",
+    "type": "choice",
+    "answers": [
+      "Attempt to solve the problem by guessing what was on the paper.",
+      "Raise your hand in a attempt to get a TA or the professor's attention.",
+      "Stay seated taking in time to observe the surroundings for a while longer."
+    ],
+    "responses": [
+      "The room felt oddly intimidating to you and you decide against standing out and instead just focus on trying your best. When you are finally done with writing a seemingly plausible answer you look up, only to see an empty lecture with only the professor at the front. You stand up from your chair saying excuse me to all the students that aren't there and you quietly walk up to the desk at the front. Not a single sheet of paper is on the desk. You say your goodbyes to the professor and put your exam on the table. You don't notice anything weird and can't quite seem to remember the contents of the test, but you are sure you did well. Very well.",
+      "You raise your hand in a attempt to garner attention. The TA's and professor look at you acknowledging that you have risen your hand but they don't go over to answer your question. You relectuantly stand up and walk to the professor. Everybody seems to stop scribbling and seems to just stare at you. You make your way and ask about the final page. The professor looks at your exam and frowns, they simply set the paper down on the table and berates you for not following instructions. As your heart drops you wake up in a sweat. It is the morning of your final exam and you feel like your dream is going to be real.",
+      "You stay seated and observe your surroundings. The environment seems to be more humid than usual and you see mold growing on the lecture walls. Certain parts of the room seem to be dripping with water. No one says a thing nor moves to bring the paper up. You simply stare at the room, you see it changing every minute as the mold grows inch by inch and the water drips faster and faster. No one seems to care. At some point everyone stands up at relatively the same time as everyone turns in their exam. You simply sit in your chair as the room floods. You don't know how that day ended."
+    ],
+    "personalityMap": [0, 1, 2],
+    "lsKey": "testquestionresponse"
+  }
+]

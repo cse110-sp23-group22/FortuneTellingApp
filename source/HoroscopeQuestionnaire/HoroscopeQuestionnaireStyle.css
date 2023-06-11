@@ -10,9 +10,13 @@
 }
 
 body {
-  overflow: hidden;
-  height: 100vh;
+  /* overflow: hidden; */
+  /* height: 100vh; */
   width: 100vw;
+}
+
+canvas[is="transition-canvas"] {
+  z-index: 100;
 }
 
 #logo {
@@ -25,7 +29,7 @@ body {
 main {
   display: flex;
   align-items: center;
-  height: 89vh;
+  /* height: 89vh; */
   background-color: transparent;
   flex-direction: column;
   margin-bottom: none;
@@ -55,8 +59,9 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: 100vw;
-  height: 50vw;
+  width: 90vw;
+  aspect-ratio: 1244 / 773;
+  /* height: 50vw; */
 
   align-self: center;
   background-clip: unset;
@@ -71,6 +76,20 @@ main {
 
   background-position: center;
   background-repeat: no-repeat;
+}
+
+#questionnaire {
+  font-family: "Kalam", cursive;
+  position: relative;
+  text-align: center;
+  font-size: 1.5vw;
+  width: 25%;
+
+  color: black;
+  align-content: center;
+  align-self: flex-start;
+  top: 10%;
+  right: 2%;
 }
 
 #bookImg {
@@ -88,7 +107,7 @@ main {
   height: 100%;
   background-color: black;
   opacity: 0;
-  z-index: 9999;
+  z-index: 50;
   transition: opacity 1s;
 }
 
@@ -101,28 +120,6 @@ input {
   background-color: transparent;
   height: 2.25vmin;
   font-size: 1.5vmin;
-}
-
-#questionnaire {
-  font-family: "Kalam", cursive;
-  position: relative;
-  text-align: center;
-  font-size: 1.5vw;
-  max-width: 25%;
-
-  color: black;
-  align-content: center;
-  align-self: flex-start;
-  top: 15%;
-  right: 2%;
-}
-
-@media (min-width: 1350px) {
-  #questionnaire {
-    right: 0%;
-    left: 5%;
-    max-width: 23%;
-  }
 }
 
 .shakeElement {
@@ -208,4 +205,8 @@ fieldset {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+questionnaire-interface {
+  font-size: 0.75em;
 }

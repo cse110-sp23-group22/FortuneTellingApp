@@ -1,0 +1,8 @@
+[
+  {
+    "question": "A question",
+    "type": "choice",
+    "responses": ["Response A", "Response B", "Response C"],
+    "lsKey": "testquestionresponse"
+  }
+]

@@ -5,7 +5,9 @@
 
 let birthday; // birthday input, got from local storage
 let horoscopeArray; // array including the horoscope responses
+let localArray;
 let homeButton; // button used to go back to the home page
+let locked = true; // Locks the home button to not go home
 
 // init function on load of the page
 window.addEventListener("load", init);
@@ -25,6 +27,7 @@ async function init() {
     // containing the responses
     horoscopeArray = await fetch("./horoscope.JSON");
     horoscopeArray = await horoscopeArray.json();
+    localArray = horoscopeArray;
     horoscopeArray = horoscopeArray["data"];
 
     // get homeButton and set up event listener
@@ -135,7 +138,6 @@ function outputHoroscope() {
   birthday = new Date(`${customerBirthday}T12:00:00`);
   let birthdayMonth = birthday.getMonth();
   let birthdayDay = birthday.getDate();
-
   // the correct index corresponding to the horscope sign of the birthday
   let horoscopeSignIndex = adjustIndexForHorroscope(
     birthdayDay,
@@ -171,7 +173,17 @@ function outputHoroscope() {
  * @description Changes the location of the window to the home page
  * @author Nikan, Bill, Jennifer
  */
-function goHome() {
+async function goHome() {
+  if (locked) {
+    //Turn invis
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    horoscopeOutput.classList.toggle("hiddenOutput");
+    //Switch text
+    let horoscopeOutput = document.getElementById("horoscopeOutput");
+    //let zodiacOutput = document.getElementById("zodiacSign");
+    horoscopeOutput.innerHTML = `${localArray["cthulu"][0]["response"]}`;
+    return;
+  }
   window.location.href = "../../index.html";
 }
 

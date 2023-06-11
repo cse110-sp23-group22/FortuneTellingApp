@@ -71,6 +71,14 @@ h1 {
   text-overflow: ellipsis;
 }
 
+.fadingText {
+  transition: opacity 1s;
+}
+
+.hiddenOutput {
+  opacity: 0;
+}
+
 #horoscopeOutput {
   color: black;
   font-size: 1.2vw;
