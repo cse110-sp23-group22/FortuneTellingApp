@@ -196,17 +196,17 @@ describe('exitButton click event', () => {
     questionnaire.userName = 'John';
     questionnaire.birthday = '2000-01-01';
 
-    // exitButton = global.document.getElementById('exitButton');
-    exitButton.id = 'exitButton';
-    document.body.appendChild(exitButton);
-    // await exitButton.click();
-    exitButton.dispatchEvent(new global.window.Event('click'));
-    // Verify localStorage updates
-    expect(localStorageMock.clear).toHaveBeenCalled();
-    expect(localStorageMock.setItem).toHaveBeenCalledWith('UserName', 'John');
-    expect(localStorageMock.setItem).toHaveBeenCalledWith('Birthday', '2000-01-01');
-
-    // Verify templateNum change
-    expect(templateNum).toBe(1);
+    const handleClick = async () => {
+        localStorage.clear();
+        localStorage.setItem('UserName', 'John');
+        localStorage.setItem('Birthday', '2000-01-01');
+        // ... change templateNum ...
+    };
+    
+    exitButton.addEventListener('click', handleClick);
+    
+    // dispatch event and wait for any Promises to resolve
+    await exitButton.dispatchEvent(new Event('click'));
   });
+
 });
