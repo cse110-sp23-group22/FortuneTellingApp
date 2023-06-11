@@ -94,7 +94,7 @@ function concentricGradient() {
     let floor = 500;
     //let gradientInterval =
     setInterval(() => {
-        gradient.style.background = `radial-gradient(${size}px,transparent, #000000)`;
+        //gradient.style.background = `radial-gradient(${size}px,transparent, #000000)`;
         size -= 10;
         if (size < floor) size = floor;
     }, 100);
