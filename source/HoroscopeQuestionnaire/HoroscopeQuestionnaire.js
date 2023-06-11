@@ -9,7 +9,9 @@ let templateNum = 0;
 let currentQuestion;
 let totalNumQuestions = 1; //Counting starting from 0
 
-window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("load", init);
+
+let homeButton;
 
 /**
  * @memberOf HoroscopeQuestionnaire
@@ -19,10 +21,12 @@ window.addEventListener("DOMContentLoaded", init);
  */
 export function init() {
   showContent(templateNum);
+  homeButton = document.getElementById("homeButton");
+  if (homeButton === null) {
+    return;
+  }
+  homeButton.addEventListener("click", goHome);
 }
-
-let homeButton = document.getElementById("homeButton");
-homeButton.addEventListener("click", goHome);
 
 /**
  * @function

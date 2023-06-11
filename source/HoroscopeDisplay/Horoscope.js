@@ -216,6 +216,12 @@ function adjustIndexForHorroscope(day, month, horoscopeArray) {
 }
 
 module.exports = {
-  adjustIndexForHorroscope,
   init,
+  timer,
+  shake,
+  goHome,
+  outputHoroscope,
+  pulseRedOverlay,
+  concentricGradient,
+  adjustIndexForHorroscope,
 };
