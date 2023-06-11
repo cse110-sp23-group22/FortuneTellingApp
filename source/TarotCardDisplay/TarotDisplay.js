@@ -55,6 +55,7 @@ homeButton.addEventListener("click", goHome);
  * @author Chris, Eric, Jessica
  */
 function goHome() {
+  localStorage.setItem("returnedHome", "t");
   window.location.href = "../../index.html";
 }
 
