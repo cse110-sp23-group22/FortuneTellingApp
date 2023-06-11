@@ -1,6 +1,6 @@
 /**
  * This file contains the functions for the Horoscope Questionnaire
- * @namespace Questionnaire
+ * @module Questionnaire
  */
 
 let userName = "";
@@ -12,7 +12,6 @@ let totalNumQuestions = 1; //Counting starting from 0
 window.addEventListener("DOMContentLoaded", init);
 
 /**
- * @memberOf Questionnaire
  * @function init
  * @description An init function that starts up templates
  * @author Eric Chen, Jessica He, Chris Kim
@@ -22,24 +21,22 @@ export function init() {
 }
 
 /**
- * @memberOf Questionnaire
  * @function parseNumbers
  * @description A function that parses the input of all numbers
  * @param {string} string - The string of numbers to be parsed
  * @returns string with only valid letters
- * @author
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function parseNumbers(string) {
   return string.replace(/\d/g, "");
 }
 
 /**
- * @memberOf Questionnaire
  * @function showContent
  * @description Goes through all the questions in the questionnaire, displaying the questions one after another
  *                  based on when the user clicks the continue button.
  * @param templateNum - question set number
- * @author
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function showContent(templateNum) {
   // Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
@@ -59,10 +56,9 @@ export function showContent(templateNum) {
 }
 
 /**
- * @memberOf Questionnaire
  * @function initNameBirth
  * @description Initalizes the name and birthday Question
- * @author
+ * @author Eric Chen, Jessica He, Chris Kim
  */
 export function initNameBirth() {
   const nameInput = document.getElementById("fname");
@@ -84,10 +80,11 @@ export function initNameBirth() {
   });
 }
 /**
- * This Exit button. This function checks:
+ * @description This Exit button. This function checks:
  * - If the user has inputted all required information
  * - Creates UI to prompt the user to confirm their selection
  * - Moves to the next page after all checks
+ * @function
  */
 window.addEventListener("DOMContentLoaded", () => {
   const exitButton = document.getElementById("exitButton");

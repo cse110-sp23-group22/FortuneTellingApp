@@ -1,6 +1,6 @@
 /**
  * This file contains the functions related to the horoscope feature
- * @namespace Horoscope
+ * @module Horoscope
  */
 
 let birthday; // birthday input, got from local storage
@@ -11,13 +11,11 @@ let homeButton; // button used to go back to the home page
 window.addEventListener("load", init);
 
 /**
- * @memberOf Horoscope
  * @async
  * @function init
  * @description An init function used to fetch horoscope.json file and set up the home page
  * event listener behavior. Exit code 1 if successful, 0 if not.
  * @tutorial Horoscope
- * @module Horoscope
  * @author Nikan, Bill, Jennifer
  * @throws Fetch API failure errors
  */
@@ -47,7 +45,6 @@ async function init() {
 }
 
 /**
- * @memberOf Horoscope
  * @async
  * @function timer
  * @description A timer event that triggers all time based events
@@ -65,7 +62,6 @@ async function timer() {
 }
 
 /**
- * @memberOf Horoscope
  * @function shake
  * @description Shakes the body by translating X and rotating
  * @param {integer} shakeXAmount - The amount of times the shaking motion should occur
@@ -88,10 +84,9 @@ function shake(shakeXAmount, RotateAmount) {
 }
 
 /**
- * @memberOf Horoscope
  * @function concentricGradient
  * @description Slowly fades in closer and closer
- * @author
+ * @author ByteBrokers
  */
 function concentricGradient() {
   let gradient = document.getElementById("gradient");
@@ -106,7 +101,6 @@ function concentricGradient() {
 }
 
 /**
- * @memberOf Horoscope
  * @function pulseRedOverlay
  * @description Responsible for pulses on overlay div for the blood screen affect
  * @param {integer} transitionTime - The length of transitions and time between each pulse
@@ -126,7 +120,6 @@ function pulseRedOverlay(transitionTime) {
 }
 
 /**
- * @memberOf Horoscope
  * @function outputHoroscope
  * @description A horoscope reading is outputted based on the input name and birthday
  * @author Nikan, Bill, Jennifer
@@ -174,7 +167,6 @@ function outputHoroscope() {
 }
 
 /**
- * @memberOf Horoscope
  * @function goHome
  * @description Changes the location of the window to the home page
  * @author Nikan, Bill, Jennifer
@@ -184,7 +176,6 @@ function goHome() {
 }
 
 /**
- * @memberOf Horoscope
  * @function adjustIndexForHorroscope
  * @description returns the index corresponding to the sign in the horoscope.JSON
  *                  file based on the input user birthday, using the hardcoded
@@ -206,7 +197,6 @@ function goHome() {
  * @returns index of the zodiac sign
  * @author Nikan
  */
-
 function adjustIndexForHorroscope(day, month, horoscopeArray) {
   let endDate = horoscopeArray[month]["endDate"];
   let newIndex = 0;
