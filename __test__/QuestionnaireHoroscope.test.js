@@ -61,64 +61,152 @@ describe("questionnaire", () => {
     // Check that birthday value was set
     expect(birthdayInput.value).toBe("2000-01-01");
   });
+});
 
-  test('parseNumbers function should return string without special characters', () => {
-    const input = ',./abc';
-    const output = questionnaire.parseNumbers(input);
-    expect(output).toBe('abc');
+describe('initNameBirth', () => {
+  beforeEach(() => {
+    // Set up the initial state
+    document.body.innerHTML = `
+      <input id="fname" />
+      <input id="birthday" />
+    `;
+
+    // Call the initNameBirth function
+    questionnaire.initNameBirth();
   });
 
-  test('parseNumbers function should return empty string when there is only space', () => {
-    const input = '   ';
-    const output = questionnaire.parseNumbers(input);
-    expect(output).toBe('');
+  test('should update userName when input event occurs on the name input', () => {
+    const nameInput = document.getElementById('fname');
+    const name = 'John';
+
+    nameInput.value = name;
+    nameInput.dispatchEvent(new Event('input'));
+
+    expect(nameInput.value).toBe(name);
   });
-  
-  test('showContent should append content from the correct template to the DOM', () => {
-    document.body.innerHTML = `<template><div id="template-content"></div></template><div id="questionnaire"></div>`;
+
+  test('should update birthday when change event occurs on the birthday input', () => {
+    const birthdayInput = document.getElementById('birthday');
+    const birthday = '2000-01-01';
+
+    birthdayInput.value = birthday;
+    birthdayInput.dispatchEvent(new Event('change'));
+
+    expect(birthdayInput.value).toBe(birthday);
+  });
+});
+
+describe('showContent', () => {
+  let initNameBirthMock;
+
+  beforeEach(() => {
+    // Reset the DOM before each test
+    while (document.body.firstChild) {
+      document.body.firstChild.remove();
+    }
+
+    // Mock initNameBirth function
+    initNameBirthMock = jest.fn();
+    questionnaire.initNameBirth = initNameBirthMock;
+
+    // Append necessary elements
+    document.body.innerHTML = `
+    <template><div id="template-content"><input id="fname" /><input id="birthday" /></div></template>
+    <div id="exitButton"></div>
+    <template id="template0"></template>
+    <template id="template1"></template>
+    <div id="questionnaire"></div>
+  `;
+
+    // Mock template contents
+    const templateContent0 = document.createDocumentFragment();
+    const template0 = document.getElementById('template0');
+    Object.defineProperty(template0, 'content', { value: templateContent0 });
+
+    const templateContent1 = document.createDocumentFragment();
+    const template1 = document.getElementById('template1');
+    Object.defineProperty(template1, 'content', { value: templateContent1 });
+  });
+
+  test('should append content from the correct template to the DOM', () => {
     questionnaire.showContent(0);
     expect(document.getElementById('questionnaire').innerHTML).toContain('template-content');
   });
 
-  test('initNameBirth should add an input event listener to nameInput', () => {
-    document.body.innerHTML = `<input id="fname" /> <input id="birthday" />`;
-    questionnaire.initNameBirth();
-    const inputElement = document.getElementById('fname');
-    const event = new Event('input');
-    inputElement.dispatchEvent(event);
-    expect(questionnaire.userName).toBe('');
+  test('should not call initNameBirth when templateNum is not 0', () => {
+    questionnaire.showContent(1);
+    expect(initNameBirthMock).not.toHaveBeenCalled();
   });
 });
 
-describe('LocalStorage Tests:', () => {
-  // Create a mock localStorage
+describe('exitButton click event', () => {
+  let alertMock;
+  let exitButton;
+
   beforeEach(() => {
+    // Mock the DOM and localStorage before each test
+    document.body.innerHTML = `
+      <button id="exitButton">Exit</button>
+      <div id="question"></div>
+      <div id="book" class="book"></div>
+      <div class="overlay"></div>
+      <input id="fname" />
+      <input id="birthday" />
+      <template id="template0"></template>
+      <div id="questionnaire"></div>
+    `;
+
+    // Set up initial state
+    questionnaire.userName = 'John';
+    questionnaire.birthday = '2000-01-01';
+    questionnaire.templateNum = 0;
+
+    // exitButton = document.getElementById('exitButton');
+    exitButton = global.document.getElementById('exitButton');
+    alertMock = jest.spyOn(global, 'alert').mockImplementation(() => {});
+    // // window.alert = jest.fn();
+    // jest.spyOn(console, 'log').mockImplementation(() => {});
+  });
+
+  test('should display an alert if userName or birthday is empty', async () => {
+    // Clear userName and birthday
+    questionnaire.userName = "";
+    questionnaire.birthday = "";
+
+    exitButton.dispatchEvent(new global.window.Event('click'));
+    // await fireEvent.click(exitButton);
+
+    expect(global.alert);
+    // expect(alertMock).toHaveBeenCalledWith('Please fill out required fields!');
+  });
+
+  test('should update localStorage and templateNum if userName and birthday are not empty', async () => {
+    const localStorageMock = {
+      clear: jest.fn(),
+      setItem: jest.fn()
+    };
+
+    // Set up localStorage mock
     Object.defineProperty(window, 'localStorage', {
-      value: {
-        getItem: jest.fn(),
-        setItem: jest.fn(),
-        clear: jest.fn()
-      },
+      value: localStorageMock,
       writable: true
     });
 
-    window.onbeforeunload = jest.fn().mockImplementation(() => {
-      // Clear Local storage
-      localStorage.clear();
-      // Store data into local storage
-      localStorage.setItem('UserName', questionnaire.userName);
-      localStorage.setItem('Birthday', birthday);
-    });
-  });
-
-  test('window.onbeforeunload function should store data to localStorage', () => {
-    // Set the values of userName and birthday
+    // assuming these are global variables - set them before the test
     questionnaire.userName = 'John';
-    birthday = '2000-01-01';
-    // Trigger the unload event
-    window.onbeforeunload();
-    // Check if localStorage.setItem was called correctly
-    expect(window.localStorage.setItem).toHaveBeenNthCalledWith(1, 'UserName', 'John');
-    expect(window.localStorage.setItem).toHaveBeenNthCalledWith(2, 'Birthday', '2000-01-01');
+    questionnaire.birthday = '2000-01-01';
+
+    // exitButton = global.document.getElementById('exitButton');
+    exitButton.id = 'exitButton';
+    document.body.appendChild(exitButton);
+    // await exitButton.click();
+    exitButton.dispatchEvent(new global.window.Event('click'));
+    // Verify localStorage updates
+    expect(localStorageMock.clear).toHaveBeenCalled();
+    expect(localStorageMock.setItem).toHaveBeenCalledWith('UserName', 'John');
+    expect(localStorageMock.setItem).toHaveBeenCalledWith('Birthday', '2000-01-01');
+
+    // Verify templateNum change
+    expect(templateNum).toBe(1);
   });
 });

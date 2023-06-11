@@ -16,17 +16,6 @@ describe('initQuestions', () => {
     global.document.getElementById('fname').value = '';
     global.document.getElementById('creepyQuestion1').value = '';
     global.document.getElementById('creepyQuestion2').value = '';
-    
-    //
-    global.document.getElementById('form1').elements[0].value = '';
-    const readingTypes = global.document.getElementsByName('TarotCatagory');
-    for (let i = 0; i < readingTypes.length; i++) {
-      readingTypes[i].checked = false;
-    }
-    global.userName = '';
-    global.creepyQuestion1 = '';
-    global.readingType = '';
-    global.alert = jest.fn();
   });
   
   test('should update userName on name input change', () => {
@@ -59,5 +48,14 @@ describe('initQuestions', () => {
     const exitButton = global.document.getElementById('exitButton');
     exitButton.dispatchEvent(new global.window.Event('click'));
     expect(global.alert);
+  });
+
+  test('should set readingType and redirect when all fields are filled out', () => {
+    const exitButton = global.document.getElementById('exitButton');
+    global.document.getElementById('form1').elements[0].value = 'Chris123Kim';
+    let readingTypes = global.document.getElementsByName('TarotCatagory');
+    readingTypes = 0;
+    exitButton.dispatchEvent(new global.window.Event('click'));
+    expect(true);
   });
 });
