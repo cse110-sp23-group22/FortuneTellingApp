@@ -3,6 +3,8 @@
  * @module Questionnaire
  */
 
+//import { template } from "@babel/core";
+
 let userName = "";
 let birthday = "";
 let templateNum = 0;
@@ -18,20 +20,13 @@ window.addEventListener("DOMContentLoaded", init);
  */
 export async function init() {
   //Transition in
-  let walkingSound = new Audio("../Assets/wood-creak-single-v3-14657.mp3");
-  walkingSound.play();
   let overlay = document.getElementsByClassName("overlay")[0];
   let gradient = document.getElementById("gradient");
   gradient.style.opacity = 0;
   overlay.style.transition = "opacity 0.1s";
   overlay.classList.toggle("shown");
   await new Promise((resolve) => {
-    setTimeout(resolve, 900);
-  });
-  let lighterSound = new Audio("../Assets/match.mp3");
-  lighterSound.play();
-  await new Promise((resolve) => {
-    setTimeout(resolve, 100);
+    setTimeout(resolve, 1000);
   });
   gradient.style.opacity = 0.8;
   overlay.style.transition = "opacity 1s";
@@ -68,6 +63,10 @@ export function showContent(templateNum) {
     let temp = document.getElementsByTagName("template")[templateNum];
     currentQuestion = temp.content.cloneNode(true);
     document.getElementById("questionnaire").appendChild(currentQuestion);
+    //Adding event listener to questionnaire element's form
+    let questElement = document.getElementById("questionnaire");
+    //!Spooky cursed logic that relies on magic numbers and the reliability of this element's child list to get the form
+    if (templateNum == 1)questElement.childNodes[8].childNodes[1].addEventListener("change",(val)=>{setDescription(val);});
   }
   // Add event listeners based on templateNum
   // Made a switch statement in case we actually wanna make content
@@ -88,6 +87,18 @@ export function showContent(templateNum) {
   //     let labelOne = document.getElementById("question");
   //     break;
   // }
+}
+
+async function setDescription(val){
+  let description = document.getElementsByClassName("questionDescription")[0];
+  //Toggle off Visibility if there
+  if (description.classList.contains("shown"))description.classList.toggle("shown");
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000);
+  });
+  console.log(`index: ${templateNum} and choice: ${val.target.value}`);
+  description.innerHTML = questionFile[templateNum-1]["responses"][val.target.value];
+  if(!description.classList.contains("shown"))description.classList.toggle("shown");
 }
 
 /**
@@ -148,12 +159,20 @@ window.addEventListener("load", () => {
     if (templateNum == 0) {
       pageTransition();
       templateNum++;
+      //Ensure nothing disappears before fade to black
+      await new Promise((resolve) => {
+        setTimeout(resolve, 500);
+      });
       document.getElementById("question").remove();
       showContent(templateNum);
       questionnaire = document.getElementById("questionnaire-interface");
     } else {
       // we are now on part operated by QuestionnaireInterface.
       pageTransition();
+      //Ensure nothing disappears before fade to black
+      await new Promise((resolve) => {
+        setTimeout(resolve, 500);
+      });
       await new Promise((resolve) => {
         setTimeout(resolve, 1000);
         questionnaire.updateScores();
@@ -165,7 +184,7 @@ window.addEventListener("load", () => {
         window.location.href = "../HoroscopeDisplay/Horoscope.html";
         console.log("Exiting page");
       }
-      // templateNum++;
+      templateNum++;
       // showContent(templateNum);
     }
   });
@@ -173,7 +192,7 @@ window.addEventListener("load", () => {
 
 async function pageTransition() {
   let pageSound = new Audio("../Assets/page-turn.mp3");
-  let lighterSound = new Audio("../Assets/match.mp3");
+  //let lighterSound = new Audio("../Assets/match.mp3");
   let gradient = document.getElementById("gradient");
   gradient.style.opacity = 0;
   let overlay = document.getElementsByClassName("overlay")[0];
@@ -181,11 +200,14 @@ async function pageTransition() {
   overlay.classList.toggle("shown");
   pageSound.play();
   await new Promise((resolve) => {
-    setTimeout(resolve, 900);
+    setTimeout(resolve, 1000);
   });
-  lighterSound.play();
+  let description = document.getElementsByClassName("questionDescription")[0];
+  //Toggle off Visibility if there
+  if (description.classList.contains("shown"))description.classList.toggle("shown");
+  //lighterSound.play();
   await new Promise((resolve) => {
-    setTimeout(resolve, 100);
+    setTimeout(resolve, 1000);
   });
   overlay.style.transition = "opacity 1s";
   gradient.style.opacity = 0.8;

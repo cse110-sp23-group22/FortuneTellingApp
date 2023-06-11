@@ -1,20 +1,13 @@
 {
-  "nyarlathotep": [
+  "OldOnes": [
     {
-      "response": ""
-    }
-  ],
-  "yog-sothoth": [
-    {
-      "response": ""
-    }
-  ],
-  "cthulu": [
-    {
-      "response": "A bad omen is upon you. You will struggle against the perils the world throws at you. Attempts to reach out for help are in vain as your friends, families, and associates do nothing but stare and laugh at your misfortunes. Fear not however, you can tide through the struggles. Remember there faces and never let it go. They are fake. They are not your true friends or family they merely wear their face. Tear them apart and see the truth behind and all your struggles will disappear."
+      "response": "A bad omen is upon you. You will struggle against the perils the world throws at you. Attempts to reach out for help are in vain as your friends, families, and associates do nothing but stare and laugh at your misfortunes.They are fake. They are not your true friends or family they merely wear their face. Tear them apart and see the truth behind and all your struggles will disappear."
     },
     {
-      "response": "Empty Rn"
+      "response": "Keep calm and walk forward. Not every obstacle is planned by an enemy and not every blessing is given from another. Stay sane and reason for I need not to lead, you can lead yourself. Let your mind guide you and maybe we can meet again in the future."
+    },
+    {
+      "response": "Protect yourself, put on a mask and observe. Do not look, for the world lies to you. Do not speak, for your words will be used against you. Do not listen, for they speak in lies. Do not reach out, they will kill you. Come close, and listen to me. For you must trust me and no one else. They all lie."
     }
   ],
   "data": [
