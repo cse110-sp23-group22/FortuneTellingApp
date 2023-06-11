@@ -20,13 +20,24 @@ window.addEventListener("DOMContentLoaded", init);
  */
 export async function init() {
   //Transition in
+  // let walkingSound = new Audio("../Assets/page-turn.mp3");
+  let walkingSound = document.createElement("audio");
+  walkingSound.src = "/source/Assets/page-turn.mp3";
+  walkingSound.play();
   let overlay = document.getElementsByClassName("overlay")[0];
   let gradient = document.getElementById("gradient");
   gradient.style.opacity = 0;
   overlay.style.transition = "opacity 0.1s";
   overlay.classList.toggle("shown");
   await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
+    setTimeout(resolve, 900);
+  });
+  // let lighterSound = new Audio("../Assets/match.mp3");
+  let lighterSound = document.createElement("audio");
+  lighterSound.src = "../Assets/match-strike.mp3";
+  lighterSound.play();
+  await new Promise((resolve) => {
+    setTimeout(resolve, 100);
   });
   gradient.style.opacity = 0.8;
   overlay.style.transition = "opacity 1s";

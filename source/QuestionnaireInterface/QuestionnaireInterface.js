@@ -15,14 +15,14 @@ export class QuestionnaireInterface extends HTMLElement {
     // create form. It is empty at creation, but it will be populated with radio inputs
     // when switching questions.
     this.formElement = document.createElement("form");
-    this.appendChild(this.questionText);
-    this.appendChild(this.formElement);
 
     this.scores = [0, 0, 0];
     this.questionIndex = -1;
   }
 
   connectedCallback() {
+    this.appendChild(this.questionText);
+    this.appendChild(this.formElement);
     let src;
     if (this.hasAttribute("src")) {
       src = this.getAttribute("src");
