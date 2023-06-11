@@ -1,4 +1,22 @@
 {
+  "nyarlathotep": [
+    {
+      "response": ""
+    }
+  ],
+  "yog-sothoth": [
+    {
+      "response": ""
+    }
+  ],
+  "cthulu": [
+    {
+      "response": "A bad omen is upon you. You will struggle against the perils the world throws at you. Attempts to reach out for help are in vain as your friends, families, and associates do nothing but stare and laugh at your misfortunes. Fear not however, you can tide through the struggles. Remember there faces and never let it go. They are fake. They are not your true friends or family they merely wear their face. Tear them apart and see the truth behind and all your struggles will disappear."
+    },
+    {
+      "response": "Empty Rn"
+    }
+  ],
   "data": [
     {
       "month": "January",

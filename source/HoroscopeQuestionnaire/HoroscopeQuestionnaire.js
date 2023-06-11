@@ -7,7 +7,7 @@ let userName = "";
 let birthday = "";
 let templateNum = 0;
 let currentQuestion;
-let totalNumQuestions = 1; //Counting starting from 0
+let questionFile;
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -16,8 +16,31 @@ window.addEventListener("DOMContentLoaded", init);
  * @description An init function that starts up templates
  * @author Eric Chen, Jessica He, Chris Kim
  */
-export function init() {
+export async function init() {
+  //Transition in
+  let walkingSound = new Audio("../Assets/wood-creak-single-v3-14657.mp3");
+  walkingSound.play();
+  let overlay = document.getElementsByClassName("overlay")[0];
+  let gradient = document.getElementById("gradient");
+  gradient.style.opacity = 0;
+  overlay.style.transition = "opacity 0.1s";
+  overlay.classList.toggle("shown");
+  await new Promise((resolve) => {
+    setTimeout(resolve, 900);
+  });
+  let lighterSound = new Audio("../Assets/match.mp3");
+  lighterSound.play();
+  await new Promise((resolve) => {
+    setTimeout(resolve, 100);
+  });
+  gradient.style.opacity = 0.8;
+  overlay.style.transition = "opacity 1s";
+  overlay.classList.toggle("shown");
+
+  //Content Loading
   showContent(templateNum);
+  questionFile = await fetch("./HoroscopeQuestions.JSON");
+  questionFile = await questionFile.json();
 }
 
 /**
@@ -41,18 +64,30 @@ export function parseNumbers(string) {
 export function showContent(templateNum) {
   // Animation that plays on showing the content (Probably moving text and lights blowing out to new text)
   // Set content
-  let temp = document.getElementsByTagName("template")[templateNum];
-  currentQuestion = temp.content.cloneNode(true);
-  document.getElementById("questionnaire").appendChild(currentQuestion);
+  if (templateNum <= 1) {
+    let temp = document.getElementsByTagName("template")[templateNum];
+    currentQuestion = temp.content.cloneNode(true);
+    document.getElementById("questionnaire").appendChild(currentQuestion);
+  }
   // Add event listeners based on templateNum
   // Made a switch statement in case we actually wanna make content
-  switch (templateNum) {
-    case 0:
-      initNameBirth();
-      break;
-    default:
-    // By Default none of the other options mean anything rn
+  if (templateNum == 0) {
+    initNameBirth();
   }
+  // } else {
+  //   //Set HTML Element Data
+  //   let labelOne = document.getElementById("question");
+  //   labelOne.innerText = questionFile[templateNum - 1]["question"];
+  // }
+  // switch (templateNum) {
+  //   case 0:
+  //     initNameBirth();
+  //     break;
+  //   default:
+  //     //Changing questions to match
+  //     let labelOne = document.getElementById("question");
+  //     break;
+  // }
 }
 
 /**
@@ -86,65 +121,73 @@ export function initNameBirth() {
  * - Moves to the next page after all checks
  * @function
  */
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const exitButton = document.getElementById("exitButton");
-  if (exitButton) {
-    exitButton.addEventListener("click", async () => {
-      // Check user has inputted all required information
-      if (userName == "" || birthday == "") {
-        // Theorectically we have custom dialogs or something else that pops up to show that user hasn't inputted
-        alert("Please fill out required fields!");
-        // Idk play some spooky sound
-        return;
-      } else {
-        //? Clear Local storage???
-        localStorage.clear();
-        //Store data into local storage
-        localStorage.setItem("UserName", userName);
-        localStorage.setItem("Birthday", birthday);
-      }
-      // Checks templateNum to see how far the user is to the end
-      if (templateNum < totalNumQuestions) {
-        // TODO: Add cutscene
-        let sound = new Audio("../Assets/page-turn.mp3");
-        sound.play();
-        // console.log(noise.perlin3(time*0.05,0,0));
-        let book = document.getElementById("book");
-        book.classList.toggle("shakeElement");
-        let overlay = document.getElementsByClassName("overlay")[0];
-        overlay.style.transition = "opacity 0.1s";
-        overlay.classList.toggle("shown");
-        await new Promise((resolve) => {
-          setTimeout(resolve, 1000);
-        });
-        overlay.style.transition = "opacity 1s";
-        overlay.classList.toggle("shown");
-        book.classList.toggle("shakeElement");
-        //? Currently not planning on users being able to go back.
-        templateNum++;
-        document.getElementById("question").remove();
-        showContent(templateNum);
-      } else {
-        // Moves to next page (Currently submit is used to call window.onbeforeunload)
+  let questionnaire;
+  let questionnaireFinished = false;
 
+  if (!exitButton) {
+    console.log("exitButton is not found in the DOM");
+  }
+
+  exitButton.addEventListener("click", async () => {
+    // Check user has inputted all required information
+    if (userName == "" || birthday == "") {
+      // Theorectically we have custom dialogs or something else that pops up to show that user hasn't inputted
+      alert("Please fill out required fields!");
+      // Idk play some spooky sound
+      return;
+    } else {
+      //? Clear Local storage???
+      localStorage.clear();
+      //Store data into local storage
+      localStorage.setItem("UserName", userName);
+      localStorage.setItem("Birthday", birthday);
+    }
+    // Checks templateNum to see how far the user is to the end
+    if (templateNum == 0) {
+      pageTransition();
+      templateNum++;
+      document.getElementById("question").remove();
+      showContent(templateNum);
+      questionnaire = document.getElementById("questionnaire-interface");
+    } else {
+      // we are now on part operated by QuestionnaireInterface.
+      pageTransition();
+      await new Promise((resolve) => {
+        setTimeout(resolve, 1000);
+        questionnaire.updateScores();
+        questionnaireFinished = !questionnaire.nextQuestion();
+      });
+      if (questionnaireFinished) {
+        // Moves to next page (Currently submit is used to call window.onbeforeunload)
+        questionnaire.loadScoresToLS();
         window.location.href = "../HoroscopeDisplay/Horoscope.html";
         console.log("Exiting page");
       }
-    });
-  } else {
-    console.log("exitButton is not found in the DOM");
-  }
+      // templateNum++;
+      // showContent(templateNum);
+    }
+  });
 });
 
-/**
- * On Exit Function -> Stores user data into local storage for further use
- */
-/*
-window.onbeforeunload = function () {
-  //? Clear Local storage???
-  localStorage.clear();
-  //Store data into local storage
-  localStorage.setItem("UserName", userName);
-  localStorage.setItem("Birthday", birthday);
-};
-*/
+async function pageTransition() {
+  let pageSound = new Audio("../Assets/page-turn.mp3");
+  let lighterSound = new Audio("../Assets/match.mp3");
+  let gradient = document.getElementById("gradient");
+  gradient.style.opacity = 0;
+  let overlay = document.getElementsByClassName("overlay")[0];
+  overlay.style.transition = "opacity 0.1s";
+  overlay.classList.toggle("shown");
+  pageSound.play();
+  await new Promise((resolve) => {
+    setTimeout(resolve, 900);
+  });
+  lighterSound.play();
+  await new Promise((resolve) => {
+    setTimeout(resolve, 100);
+  });
+  overlay.style.transition = "opacity 1s";
+  gradient.style.opacity = 0.8;
+  overlay.classList.toggle("shown");
+}

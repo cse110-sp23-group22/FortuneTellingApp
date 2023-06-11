@@ -19,6 +19,10 @@
       type="module"
       src="../TransitionCanvas/TransitionCanvas.js"
     ></script>
+    <script
+      type="module"
+      src="../QuestionnaireInterface/QuestionnaireInterface.js"
+    ></script>
   </head>
   <body>
     <canvas is="transition-canvas" duration="1000"></canvas>
@@ -34,7 +38,6 @@
       />
     </header>
     <main>
-      <h1>Questionnaire Page</h1>
       <div id="book">
         <div id="questionnaire" class="left-page">
           <template>
@@ -62,33 +65,14 @@
               <br />
             </section>
           </template>
-        </div>
-        <div class="right-page">
           <template>
-            <section id="question">
-              <form action="./HoroscopeQuestionnaire.html">
-                <fieldset>
-                  <label for="Memes1">"What do you wish to know?": </label>
-                  <input
-                    type="text"
-                    id="Memes1"
-                    name="Memes1"
-                    style="border-radius: 0; margin: 0"
-                  /><br /><br />
-                  <!-- We may want to check for name inputs (Only alaphabets and such) -->
-                  <label for="Memes2"> "They sleep above":</label>
-                  <input
-                    type="text"
-                    id="Memes2"
-                    name="Memes2"
-                    style="border-radius: 0; margin: 0"
-                  /><br /><br />
-                </fieldset>
-              </form>
-              <br />
-            </section>
+            <questionnaire-interface
+              id="questionnaire-interface"
+              src="./HoroscopeQuestions.json"
+            ></questionnaire-interface>
           </template>
         </div>
+        <div class="right-page"></div>
       </div>
       <button id="exitButton">Continue</button>
     </main>
