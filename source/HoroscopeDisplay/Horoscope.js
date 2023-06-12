@@ -90,6 +90,9 @@ function shake(shakeXAmount, RotateAmount) {
  */
 function concentricGradient() {
   let gradient = document.getElementById("gradient");
+  if (gradient === null) {
+    return;
+  }
   let size = 2000;
   let floor = 500;
   //let gradientInterval =

@@ -11,11 +11,6 @@ let readingType = "";
 let numQuestionsAnswered = 0;
 
 window.addEventListener("DOMContentLoaded", init);
-// document.getElementById("myInput").addEventListener("keydown", function() {
-//     typingAudio.pause();
-//     typingAudio.currentTime = 0;
-//     typingAudio.play();
-// });
 
 let homeButton;
 /**
@@ -26,7 +21,11 @@ let homeButton;
 function goHome() {
   window.location.href = "../../index.html";
 }
-
+/**
+ * @function
+ * @description Initializes the questions for the Tarot Form
+ * and checks that the homeButton is loaded properly
+ */
 function init() {
   initQuestions();
   homeButton = document.getElementById("homeButton");
@@ -36,7 +35,8 @@ function init() {
   homeButton.addEventListener("click", goHome);
 }
 /**
- * @description Parses our numbers from name input
+ * @function
+ * @description Parses out numbers from name input
  */
 function parseNumbers(string) {
   return string.replace(/\d/g, "");
@@ -47,6 +47,7 @@ function parseNumbers(string) {
  * @description Receives name, and concern in two separate text boxes from
  * creepyQuestion elements and stores in questionLeft/QuestionRight
  * Digits in name inputs are replaced.
+ * @author Arjun Kumar, Ryan Lee
  */
 function initQuestions() {
   const nameInput = document.getElementById("fname");
@@ -73,18 +74,13 @@ function initQuestions() {
 /**
  * @description First check if all fields have been filled out, then save info
  * to local storage when continue button for Tarot Card Info Page is clicked
- * @author Arjun Kumar, Ryan Lee, Byte Brokers
+ * First checks that the questions on the left page are filled out prior to
+ * letting the user continue to the left page. Alerts if questions aren't filled
+ * out. Saves name and reading category answers prior to exiting the page.
+ * @author Arjun Kumar, Ryan Lee
  */
 let button = document.getElementById("exitButton");
 button.addEventListener("click", function (event) {
-  event.preventDefault();
-  //let name = document.getElementById("form1").elements[0].value;
-  let readingTypes = document.getElementsByName("TarotCatagory");
-  for (let i = 0; i < readingTypes.length; i++) {
-    if (readingTypes[i].checked) {
-      readingType = readingTypes[i].value;
-    }
-  }
   event.preventDefault();
   numQuestionsAnswered++;
   if (numQuestionsAnswered < 2) {
@@ -102,27 +98,18 @@ button.addEventListener("click", function (event) {
         readingType = readingTypes[i].value;
       }
     }
-
-    if (readingTypes == "" || userName == "" || creepyQuestion1 == "") {
-      alert("Please fill out all fields!");
-      return;
-    }
     if (readingTypes == "" || creepyQuestion2 == "") {
       numQuestionsAnswered = 1;
       alert("Please fill out all fields!");
       return;
     }
+    localStorage.clear();
 
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("readingType", readingType);
     window.location.href = "../TarotCardDisplay/TarotDisplay.html";
   }
 });
-
-window.onbeforeunload = function () {
-  localStorage.clear();
-
-  localStorage.setItem("userName", userName);
-  localStorage.setItem("readingType", readingType);
-};
 
 module.exports = {
   initQuestions,

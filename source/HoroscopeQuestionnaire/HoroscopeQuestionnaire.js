@@ -38,7 +38,6 @@ function goHome() {
 }
 
 /**
- * @memberOf HoroscopeQuestionnaire
  * @function parseNumbers
  * @description A function that parses the input of all numbers
  * @param {string} string - string to be parsed (user's name)
@@ -50,7 +49,6 @@ export function parseNumbers(string) {
 }
 
 /**
- * @memberOf HoroscopeQuestionnaire
  * @function showContent
  * @description Goes through all the questions in the questionnaire, displaying the questions one after another
  *                  based on when the user clicks the continue button.
@@ -74,7 +72,6 @@ export function showContent(templateNum) {
 }
 
 /**
- * @memberOf HoroscopeQuestionnaire
  * @function initNameBirth
  * @description Initalizes the name and birthday Question
  * @author Eric Chen, Jessica He, Chris Kim
@@ -108,7 +105,7 @@ export function initNameBirth() {
 window.addEventListener("DOMContentLoaded", () => {
   const exitButton = document.getElementById("exitButton");
   if (exitButton) {
-    exitButton.addEventListener("click", async () => {
+    exitButton.addEventListener("click", () => {
       // Check user has inputted all required information
       if (userName == "" || birthday == "") {
         // Alert pops up asking them to fill everything out
@@ -128,15 +125,14 @@ window.addEventListener("DOMContentLoaded", () => {
         let overlay = document.getElementsByClassName("overlay")[0];
         overlay.style.transition = "opacity 0.1s";
         overlay.classList.toggle("shown");
-        await new Promise((resolve) => {
-          setTimeout(resolve, 1000);
-        });
-        overlay.style.transition = "opacity 1s";
-        overlay.classList.toggle("shown");
-        book.classList.toggle("shakeElement");
-        templateNum++;
-        document.getElementById("question").remove();
-        showContent(templateNum);
+        setTimeout(() => {
+          overlay.style.transition = "opacity 1s";
+          overlay.classList.toggle("shown");
+          book.classList.toggle("shakeElement");
+          templateNum++;
+          document.getElementById("question").remove();
+          showContent(templateNum);
+        }, 1000);
       } else {
         // Moves to next page
         window.location.href = "../HoroscopeDisplay/Horoscope.html";

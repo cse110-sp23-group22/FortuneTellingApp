@@ -34,7 +34,7 @@
     },
     "jest": {
         "preset": "jest-puppeteer",
-        "verbose": true,
+        "verbose": false,
         "collectCoverage": true,
         "collectCoverageFrom": [
             "./source/**"
@@ -43,7 +43,8 @@
             "global": {
                 "lines": 90
             }
-        }
+        }, 
+        "testTimeout": 10000
     },
     "dependencies": {
         "node": "^20.2.0",
