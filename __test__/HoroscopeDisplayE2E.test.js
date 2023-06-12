@@ -22,14 +22,13 @@ describe("My Puppeteer tests", () => {
       localStorage.setItem("UserName", "Nikan");
       console.log(localStorage.getItem("UserName"));
     });
-    //idk for some reason it doesnt recognize that localstorage was set so u have to reload the page a few times.
+    // reload page a few times to have localStorage recognized
     await page.goto(
       "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/Horoscope.html"
     );
     await page.goto(
       "https://cse110-sp23-group22.github.io/FortuneTellingApp/source/HoroscopeDisplay/Horoscope.html"
     );
-    //await page.waitForNavigation();
 
     console.log("checking output tags");
 
@@ -68,7 +67,6 @@ describe("My Puppeteer tests", () => {
 
   //test times out after clicking the button, even though by screenshot it is verified that the values have been inputed.
   test("Tests if output content is stored in localStorage", async () => {
-    //await page.goto('https://cse110-sp23-group22.github.io/FortuneTellingApp/source/Questionnaire/Questionnaire.html');
     await page.goto(
       "http://127.0.0.1:5500/source/HoroscopeQuestionnaire/HoroscopeQuestionnaire.html"
     );
@@ -100,33 +98,3 @@ describe("My Puppeteer tests", () => {
     expect(birthday).toBe("2000-01-03");
   });
 });
-
-/*
-describe('Puppeteer Example', () => {
-  let browser;
-  let page;
-
-  beforeAll(async () => {
-    browser = await puppeteer.launch();
-    page = await browser.newPage();
-  });
-
-  afterAll(async () => {
-    await browser.close();
-  });
-
-  it('should take a screenshot of a website', async () => {
-    await page.goto('https://example.com');
-    await page.screenshot({ path: 'example.png' });
-    expect(true).toBe(true); // Dummy expectation for demonstration purposes
-  });
-
-  it('should have the correct page title', async () => {
-    await page.goto('https://example.com');
-    const title = await page.title();
-    expect(title).toBe('Example Domain');
-  });
-});
-*/
-
-//http://127.0.0.1:5500/source/HoroscopeQuestionnaire/HoroscopeQuestionnaire.html

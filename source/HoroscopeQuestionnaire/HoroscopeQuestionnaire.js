@@ -11,7 +11,9 @@ let templateNum = 0;
 let currentQuestion;
 let questionFile;
 
-window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("load", init);
+
+let homeButton;
 
 /**
  * @memberOf HoroscopeQuestionnaire
@@ -48,10 +50,12 @@ export async function init() {
   showContent(templateNum);
   questionFile = await fetch("./HoroscopeQuestions.JSON");
   questionFile = await questionFile.json();
+  homeButton = document.getElementById("homeButton");
+  if (homeButton === null) {
+    return;
+  }
+  homeButton.addEventListener("click", goHome);
 }
-
-let homeButton = document.getElementById("homeButton");
-homeButton.addEventListener("click", goHome);
 
 /**
  * @function
