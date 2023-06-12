@@ -1,24 +1,24 @@
 /**
- * This file contains the functions related to the horoscope feature
- * @module Horoscope
+ * @description This file contains the functions related to the horoscope feature. The module is entered upon finishing the questionaire.
+ * @module Horoscope/Display
+ * @name module:Horoscope/Display
+ * @tutorial Horoscope
+ * @author Nikan, Bill, Jennifer
+ * @since 06/11/2023
  */
 
 let birthday; // birthday input, got from local storage
 let horoscopeArray; // array including the horoscope responses
-let localArray;
 let homeButton; // button used to go back to the home page
-let locked = true; // Locks the home button to not go home
-
-// init function on load of the page
-window.addEventListener("load", init);
+let localArray;
+let locked = true;
+window.addEventListener("load", init); // init function on load of the page
 
 /**
- * @async
- * @function init
  * @description An init function used to fetch horoscope.json file and set up the home page
  * event listener behavior. Exit code 1 if successful, 0 if not.
- * @tutorial Horoscope
- * @author Nikan, Bill, Jennifer
+ * @async
+ * @function init
  * @throws Fetch API failure errors
  */
 async function init() {
@@ -39,8 +39,7 @@ async function init() {
     // exit code
     return 1;
   } catch (error) {
-    // catch errors with exit code 0
-    console.error(error);
+    console.error(error); // catch errors with exit code 0
     return 0;
   }
 }
@@ -108,7 +107,6 @@ function shake(shakeXAmount, RotateAmount) {
 /**
  * @function concentricGradient
  * @description Slowly fades in closer and closer
- * @author ByteBrokers
  */
 function concentricGradient() {
   let gradient = document.getElementById("gradient");
@@ -230,20 +228,6 @@ async function goHome() {
 /**
  * @function adjustIndexForHorroscope
  * @description returns the index corresponding to the sign in the horoscope.JSON
- *                  file based on the input user birthday, using the hardcoded
- *                  date values. The following is how signs are selected:
- *                  Aries (March 21 – April 19)
- *                  Taurus (April 20 – May 20)
- *                  Gemini (May 21 – June 20)
- *                  Cancer (June 21 – July 22)
- *                  Leo (July 23 – August 22)
- *                  Virgo (August 23 – September 22)
- *                  Libra (September 23 – October 22)
- *                  Scorpio (October 23 – November 21)
- *                  Sagittarius (November 22 – December 21)
- *                  Capricorn (December 22 – January 19)
- *                  Aquarius (January 20 – February 18)
- *                  Pisces (February 19 – March 20)
  * @param {int} day - day of the user birthday
  * @param {int} month - month of the user birthday
  * @returns index of the zodiac sign

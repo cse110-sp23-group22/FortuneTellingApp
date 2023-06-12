@@ -1,0 +1,18 @@
+{
+  "Modules": {
+    "children": {
+      "A JSDocs": {
+        "title": "Starting JSDocs"
+      },
+      "Horoscope": {
+        "title": "Module: Horoscope"
+      },
+      "Questionaire": {
+        "title": "Module: Questionaires"
+      },
+      "TarotCard": {
+        "title": "Module: TarotCard"
+      }
+    }
+  }
+}

@@ -1,7 +1,10 @@
 /**
- * @module TarotCardForm
+ * @description Retreives input from TarotCard/Questioinaire receives user input to be used by tarot card readings.
+ * @module TarotCard/Questioinaire
+ * @name module:TarotCard/Questioinaire
+ * @tutorial Questionaire
  * @author Arjun Kumar, Ryan Lee, Byte Brokers
- * @tutorial Tarot
+ * @since 06/11/2023
  */
 
 let userName = "";
@@ -16,7 +19,6 @@ let homeButton;
 /**
  * @function
  * @description Exits back to main
- * @author Chris
  */
 function goHome() {
   window.location.href = "../../index.html";
@@ -78,6 +80,7 @@ function initQuestions() {
  * letting the user continue to the left page. Alerts if questions aren't filled
  * out. Saves name and reading category answers prior to exiting the page.
  * @author Arjun Kumar, Ryan Lee
+ * @event click
  */
 let button = document.getElementById("exitButton");
 button.addEventListener("click", function (event) {

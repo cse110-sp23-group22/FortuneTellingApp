@@ -1,20 +1,25 @@
+/**
+ * @description Retreives input from TarotCard/Questioinaire and displays
+ * three cards representing past, present, future.
+ * @module TarotCard/Display
+ * @name module:TarotCard/Display
+ * @tutorial TarotCard
+ * @author Chris, Eric, Jessica
+ * @since 06/11/2023
+ */
+
 const cardElements = document.querySelectorAll(".card");
 const cardImages = document.getElementsByTagName("img");
 const NUM_CARDS_DISPLAYED = 3;
-
 window.addEventListener("DOMContentLoaded", init);
-
 let selectedTarotData = [];
 
 /**
- * @module TarotDisplay
  * @description Fetches the Tarot Card Answer.
  * Returns 0 if error, 1 if successfully load tarot card descriptions.
  * Appends image corresponding to the selected tarot card.
  * @returns int
  * @throws Fetch API failure errors
- * @tutorial Tarot
- * @author Chris, Eric, Jessica
  */
 async function init() {
   try {
