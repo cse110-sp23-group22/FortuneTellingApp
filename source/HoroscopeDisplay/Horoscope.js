@@ -7,10 +7,10 @@
  * @since 06/11/2023
  */
 
-let birthday;       // birthday input, got from local storage
+let birthday; // birthday input, got from local storage
 let horoscopeArray; // array including the horoscope responses
-let homeButton;     // button used to go back to the home page
-window.addEventListener("load", init);  // init function on load of the page
+let homeButton; // button used to go back to the home page
+window.addEventListener("load", init); // init function on load of the page
 
 /**
  * @description An init function used to fetch horoscope.json file and set up the home page
@@ -31,9 +31,9 @@ async function init() {
     homeButton = document.getElementById("homeButton");
     homeButton.addEventListener("click", goHome);
 
-    timer();            // Run Timer
-    outputHoroscope();  // output the horoscope based on the birthday of the user
-    return 1;           // exit code
+    timer(); // Run Timer
+    outputHoroscope(); // output the horoscope based on the birthday of the user
+    return 1; // exit code
   } catch (error) {
     console.error(error); // catch errors with exit code 0
     return 0;
