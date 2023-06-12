@@ -18,7 +18,7 @@ jobs:
         output_dir: ./docs
         front_page: README.md
         template: clean-jsdoc-theme
-        config_file: ./docs/conf.json
+        config_file: ./jsdoc.json
     - name: Commit JSDOCS
       uses: EndBug/add-and-commit@v9
       with:
