@@ -67,7 +67,6 @@ function goHome() {
 }
 
 /**
- * @memberOf HoroscopeQuestionnaire
  * @function parseNumbers
  * @description A function that parses the input of all numbers
  * @param {string} string - string to be parsed (user's name)
@@ -79,7 +78,6 @@ export function parseNumbers(string) {
 }
 
 /**
- * @memberOf HoroscopeQuestionnaire
  * @function showContent
  * @description Goes through all the questions in the questionnaire, displaying the questions one after another
  *                  based on when the user clicks the continue button.
@@ -149,7 +147,6 @@ async function setDescription(val) {
 }
 
 /**
- * @memberOf HoroscopeQuestionnaire
  * @function initNameBirth
  * @description Initalizes the name and birthday Question
  * @author Eric Chen, Jessica He, Chris Kim
