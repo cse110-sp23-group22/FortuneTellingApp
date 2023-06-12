@@ -1,6 +1,10 @@
 /**
- * This file contains the functions for the Horoscope Questionnaire
- * @module HoroscopeQuestionnaire
+ * @description This file contains the functions for the Horoscope Questionnaire
+ * @module Horoscope/Questionnaire
+ * @name module:Horoscope/Questionnaire
+ * @tutorial Questionaire
+ * @author Eric Chen, Jessica He, Chris Kim
+ * @since 06/11/2023
  */
 
 let userName = "";
@@ -14,10 +18,8 @@ window.addEventListener("load", init);
 let homeButton;
 
 /**
- * @memberOf HoroscopeQuestionnaire
  * @function init
  * @description An init function that starts up templates
- * @author Eric Chen, Jessica He, Chris Kim
  */
 export function init() {
   showContent(templateNum);
@@ -42,7 +44,6 @@ function goHome() {
  * @description A function that parses the input of all numbers
  * @param {string} string - string to be parsed (user's name)
  * @returns string with only valid letters
- * @author Eric Chen, Jessica He, Chris Kim
  */
 export function parseNumbers(string) {
   return string.replace(/\d/g, "");
@@ -51,9 +52,8 @@ export function parseNumbers(string) {
 /**
  * @function showContent
  * @description Goes through all the questions in the questionnaire, displaying the questions one after another
- *                  based on when the user clicks the continue button.
+ *              based on when the user clicks the continue button.
  * @param templateNum - question set number
- * @author Eric Chen, Jessica He, Chris Kim
  */
 export function showContent(templateNum) {
   // Set content
@@ -74,7 +74,6 @@ export function showContent(templateNum) {
 /**
  * @function initNameBirth
  * @description Initalizes the name and birthday Question
- * @author Eric Chen, Jessica He, Chris Kim
  */
 export function initNameBirth() {
   const nameInput = document.getElementById("fname");
