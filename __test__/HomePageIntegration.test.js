@@ -5,7 +5,7 @@ describe("HomePage Script", () => {
   beforeAll(async () => {
     browser = await puppeteer.launch();
     page = await browser.newPage();
-    await page.goto("http://127.0.0.1:8080/");
+    await page.goto("https://cse110-sp23-group22.github.io/FortuneTellingApp/");
   });
   afterAll(async () => {
     await browser.close();

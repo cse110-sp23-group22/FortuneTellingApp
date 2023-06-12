@@ -34,8 +34,6 @@ async function init() {
     homeButton = document.getElementById("homeButton");
     homeButton.addEventListener("click", goHome);
 
-    // Run Timer
-    //timer();
     // output the horoscope based on the birthday of the user
     outputHoroscope();
     // exit code
@@ -67,9 +65,9 @@ async function timer() {
   cough.play();
   //Start the ticking
   tickingSound();
-  //Turn back on home button
-  let homeButton = document.getElementById("homeButton");
-  homeButton.removeAttribute("disabled");
+  //Turn back on home button. Commented in case we want to return the home button disabling.
+  // let homeButton = document.getElementById("homeButton");
+  // homeButton.removeAttribute("disabled");
   locked = false;
 }
 
@@ -210,19 +208,20 @@ async function goHome() {
     horoscopeOutput.classList.toggle("hiddenOutput");
     //Switch text
     //let zodiacOutput = document.getElementById("zodiacSign");
-    let results = localStorage.getItem("questionnaireResults");
+    let results = JSON.parse(localStorage.getItem("questionnaireResults"));
     let index = -1;
-    if (results[1] > results[3] && results[1] > results[5]) index = 2;
-    if (results[3] > results[1] && results[3] > results[5]) index = 1;
-    if (results[5] > results[1] && results[5] > results[3]) index = 0;
-    if (results[1] == results[3] && results[1] == results[5]) index = 0;
+    if (results[0] > results[1] && results[0] > results[2]) index = 2;
+    if (results[1] > results[0] && results[1] > results[2]) index = 1;
+    if (results[2] > results[0] && results[2] > results[1]) index = 0;
+    if (results[0] == results[1] && results[0] == results[2]) index = 0;
     console.log(results);
     console.log(`results: ${results[0]},${results[1]},${results[2]} `);
     horoscopeOutput.innerHTML = `${localArray["OldOnes"][index]["response"]}`;
     timer();
     //Gray out home button
-    let homeButton = document.getElementById("homeButton");
-    homeButton.setAttribute("disabled", true);
+    // let homeButton = document.getElementById("homeButton");
+    // homeButton.setAttribute("disabled", "true");
+    locked = false;
     return;
   }
   window.location.href = "../../index.html";

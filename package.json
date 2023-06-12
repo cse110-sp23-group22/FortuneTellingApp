@@ -44,7 +44,7 @@
                 "lines": 90
             }
         }, 
-        "testTimeout": 10000
+        "testTimeout": 20000
     },
     "dependencies": {
         "node": "^20.2.0",

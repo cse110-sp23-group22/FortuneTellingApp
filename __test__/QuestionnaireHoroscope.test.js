@@ -26,10 +26,35 @@ const dom = new JSDOM(
 
 global.document = dom.window.document;
 global.window = dom.window;
-// global.localStorage = dom.window.localStorage;
 
-// Then import your js file, assuming it's named myModule.js
-// import * as questionnaire from "../source/HoroscopeQuestionnaire/HoroscopeQuestionnaire.js";
+global.fetch = jest.fn((src) => {
+  return src == undefined
+    ? Promise.reject("Bruh")
+    : Promise.resolve({
+        json: () =>
+          Promise.resolve([
+            {
+              question: "Question A",
+              type: "choice",
+              responses: ["Response A", "Response B", "Response C"],
+              answers: ["Answer A", "Answer B", "Answer C"],
+              personalityMap: [0, 1, 2],
+              lsKey: "testquestionresponse",
+            },
+            {
+              question: "Question B",
+              type: "choice",
+              responses: ["Response D", "Response E", "Response F"],
+              answers: ["Answer D", "Answer E", "Answer F"],
+              personalityMap: [2, 1, 0],
+              lsKey: "hello",
+            },
+          ]),
+      });
+});
+
+global.Audio.prototype.play = jest.fn();
+
 const questionnaire = require("../source/HoroscopeQuestionnaire/HoroscopeQuestionnaire.js");
 
 describe("questionnaire", () => {
@@ -217,5 +242,21 @@ describe("exitButton click event", () => {
 
     // dispatch event and wait for any Promises to resolve
     await exitButton.dispatchEvent(new Event("click"));
+  });
+  test("should run pagetransition without errors if the appropriate items are in place", () => {
+    global.document.body.innerHTML = `
+      <button id="exitButton">Exit</button>
+      <div id="gradient"></div>
+      <div id="question"></div>
+      <div id="book" class="book">
+        <div class="questionDescription></div>
+      </div>
+      <div class="overlay"></div>
+      <input id="fname" />
+      <input id="birthday" />
+      <template id="template0"></template>
+      <div id="questionnaire"></div>
+    `;
+    questionnaire.pageTransition();
   });
 });

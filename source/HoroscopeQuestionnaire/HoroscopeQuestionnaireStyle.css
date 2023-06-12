@@ -106,7 +106,21 @@ who's background is the book itself*/
   align-content: center;
   align-self: flex-start;
   top: 10%;
+  left: 3%;
 }
+/* #questionnaire {
+  font-family: "Kalam", cursive;
+  position: relative;
+  text-align: center;
+  font-size: 2vw;
+  max-width: 25%;
+
+  color: black;
+  align-content: center;
+  align-self: flex-start;
+  top: 15%;
+  right: 2%;
+} */
 
 #bookImg {
   color: black;
@@ -139,29 +153,16 @@ input {
 }
 /* TESTING CHANGES ****/
 /*Styling for the template div that contains the questions for the user*/
-#questionnaire {
-  font-family: "Kalam", cursive;
-  position: relative;
-  text-align: center;
-  font-size: 2vw;
-  max-width: 25%;
-
-  color: black;
-  align-content: center;
-  align-self: flex-start;
-  top: 15%;
-  right: 2%;
-}
 /*Change the position of the question form inside the flexbox based on
 screensize*/
-@media (min-width: 1350px) {
+/* @media (min-width: 1350px) {
   #questionnaire {
     right: 0%;
     left: 5%;
     font-size: 1.5vw;
     max-width: 23%;
   }
-}
+} */
 /* TESTING CHANGES ****/
 
 /*Style the shake animation*/
