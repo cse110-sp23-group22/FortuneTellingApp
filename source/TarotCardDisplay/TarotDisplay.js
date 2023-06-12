@@ -80,7 +80,7 @@ function revealCard(cardIndex) {
   // Setting data
   const cardTitle = document.getElementsByTagName("h2")[0];
   let data;
-  var audio = new Audio("/source/Assets/woosh.mp3");
+  var audio = new Audio("../Assets/woosh.mp3");
   audio.play();
   data = selectedTarotData[cardIndex]["Explanation"];
   cardTitle.textContent = selectedTarotData[cardIndex]["TarotCard"];
