@@ -14,6 +14,10 @@ Horroscope is a simple horoscope and tarot card reading application developed by
 
 ### For Developers:
 
+[Onboarding](./admin/Onboarding.md)
+
 [Horroscope JSDocs](https://cse110-sp23-group22.github.io/FortuneTellingApp/docs/)
+
+[Code Climate](https://codeclimate.com/github/cse110-sp23-group22/FortuneTellingApp)
 
 ### Byte Brokers' [Team Page Site](https://cse110-sp23-group22.github.io/cse110-sp23-group22/)

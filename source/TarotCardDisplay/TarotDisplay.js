@@ -68,7 +68,8 @@ function goHome() {
 /**
  * @function
  * @description Reveals Card by flipping the tarot card image and displaying meaning on the bottom row.
- * Upon click, it toggles the
+ * Upon click, it toggles the flip animation and reveals the card image as well as the meaning behind
+ * the card. 
  * @author Chris, Eric, Jessica
  */
 function revealCard(cardIndex) {

@@ -99,7 +99,7 @@ export function initNameBirth() {
  * - If the user has inputted all required information
  * - Creates UI to prompt the user to confirm their selection
  * - Moves to the next page after all checks
- * @function
+ * @event clickHoroscopeQ
  */
 window.addEventListener("DOMContentLoaded", () => {
   const exitButton = document.getElementById("exitButton");

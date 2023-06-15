@@ -46,8 +46,8 @@ function parseNumbers(string) {
 
 /**
  * @function
- * @description Receives name, and concern in two separate text boxes from
- * creepyQuestion elements and stores in questionLeft/QuestionRight
+ * @description Parses the name and questions in two separate text boxes from
+ * creepyQuestion elements and stores in creepyQuestion1 and 2
  * Digits in name inputs are replaced.
  * @author Arjun Kumar, Ryan Lee
  */
